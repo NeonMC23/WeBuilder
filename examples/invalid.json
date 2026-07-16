@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "title": "Exemple volontairement invalide",
+    "theme": "theme-inexistant",
+    "lang": "fr"
+  },
+  "assets": [
+    "images/fichier-absent.png",
+    "../secret.txt"
+  ],
+  "pages": [
+    {
+      "path": "index.html",
+      "components": [
+        {
+          "type": "composant-inconnu",
+          "variant": "default"
+        },
+        {
+          "type": "button",
+          "variant": "primary",
+          "content": {}
+        }
+      ]
+    }
+  ]
+}

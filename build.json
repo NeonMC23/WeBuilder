@@ -1,0 +1,487 @@
+{
+  "meta": {
+    "title": "WeBuilder — Site de démonstration",
+    "theme": "dark",
+    "lang": "fr",
+    "description": "Un site modulaire généré avec WeBuilder",
+    "author": "Équipe WeBuilder",
+    "favicon": "assets/favicon.svg"
+  },
+  "assets": [
+    "images/logo.svg",
+    "images/landscape.svg",
+    "assets/favicon.svg"
+  ],
+  "pages": [
+    {
+      "path": "index.html",
+      "components": [
+        {
+          "type": "header",
+          "variant": "primary",
+          "class": [
+            "sticky",
+            "shadow"
+          ],
+          "content": {
+            "title": "WeBuilder",
+            "logo": "/assets/images/logo.svg",
+            "nav": [
+              {
+                "text": "Accueil",
+                "href": "/index.html"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact.html"
+              },
+              {
+                "text": "Guide",
+                "href": "/guide.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "hero",
+          "variant": "centered",
+          "content": {
+            "eyebrow": "Générateur statique",
+            "title": "Composez un site complet depuis du JSON",
+            "text": "Pages multiples, thèmes, composants imbriqués, événements JavaScript et assets : le tout sans framework côté navigateur."
+          },
+          "children": [
+            {
+              "type": "button",
+              "variant": "primary",
+              "id": "discover",
+              "content": {
+                "text": "Découvrir"
+              },
+              "events": {
+                "click": "document.querySelector('[data-id=features]')?.scrollIntoView({ behavior: 'smooth' });"
+              }
+            },
+            {
+              "type": "link",
+              "variant": "button",
+              "content": {
+                "text": "Nous contacter",
+                "href": "/contact.html"
+              }
+            }
+          ],
+          "class": [
+            "py-24",
+            "md:py-32"
+          ]
+        },
+        {
+          "type": "section",
+          "variant": "default",
+          "id": "features",
+          "content": {
+            "label": "Fonctionnalités"
+          },
+          "children": [
+            {
+              "type": "container",
+              "variant": "default",
+              "children": [
+                {
+                  "type": "stats",
+                  "variant": "grid",
+                  "class": [
+                    "mb-4"
+                  ],
+                  "content": {
+                    "items": [
+                      {
+                        "label": "Composants",
+                        "value": "82",
+                        "detail": "Bibliothèque incluse"
+                      },
+                      {
+                        "label": "Variantes",
+                        "value": "191",
+                        "detail": "Prêtes à utiliser"
+                      },
+                      {
+                        "label": "Dépendance runtime",
+                        "value": "0",
+                        "detail": "JavaScript vanilla"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "grid",
+                  "variant": "three",
+                  "children": [
+                    {
+                      "type": "card",
+                      "variant": "elevated",
+                      "content": {
+                        "title": "HTML modulaire",
+                        "text": "Templates Mustache, boucles, conditions inversées et composants enfants."
+                      },
+                      "class": [
+                        "p-7.5",
+                        "md:hover:-mt-[3px]"
+                      ]
+                    },
+                    {
+                      "type": "card",
+                      "variant": "elevated",
+                      "content": {
+                        "title": "CSS organisé",
+                        "text": "Un thème, des raccourcis et un fichier séparé par variante utilisée."
+                      }
+                    },
+                    {
+                      "type": "card",
+                      "variant": "elevated",
+                      "content": {
+                        "title": "JS sûr à cibler",
+                        "text": "Les événements déclaratifs deviennent des addEventListener ciblés par instance."
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "alert",
+                  "variant": "info",
+                  "class": [
+                    "mt-4"
+                  ],
+                  "content": {
+                    "title": "Astuce",
+                    "text": "Modifiez build.json puis lancez WeBuilder avec --watch.",
+                    "dismissible": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "footer",
+          "variant": "simple",
+          "content": {
+            "year": "2026",
+            "name": "WeBuilder",
+            "text": "Généré en Python.",
+            "links": [
+              {
+                "text": "Accueil",
+                "href": "/index.html"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact.html"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "contact.html",
+      "meta": {
+        "title": "Contact — WeBuilder",
+        "description": "Formulaire de contact généré avec des composants WeBuilder"
+      },
+      "components": [
+        {
+          "type": "header",
+          "variant": "minimal",
+          "class": [
+            "sticky"
+          ],
+          "content": {
+            "title": "WeBuilder",
+            "nav": [
+              {
+                "text": "Accueil",
+                "href": "/index.html"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact.html"
+              },
+              {
+                "text": "Guide",
+                "href": "/guide.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "section",
+          "variant": "default",
+          "content": {
+            "label": "Formulaire de contact"
+          },
+          "children": [
+            {
+              "type": "container",
+              "variant": "default",
+              "children": [
+                {
+                  "type": "breadcrumb",
+                  "variant": "default",
+                  "class": [
+                    "mb-4"
+                  ],
+                  "content": {
+                    "items": [
+                      {
+                        "text": "Accueil",
+                        "href": "/index.html"
+                      },
+                      {
+                        "text": "Contact",
+                        "href": ""
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "form",
+                  "variant": "default",
+                  "id": "contact-form",
+                  "content": {
+                    "action": "#",
+                    "method": "post"
+                  },
+                  "events": {
+                    "submit": "event.preventDefault(); console.log('Formulaire envoyé', new FormData(el)); alert('Merci, votre message a été simulé.');"
+                  },
+                  "children": [
+                    {
+                      "type": "input",
+                      "variant": "text",
+                      "content": {
+                        "label": "Nom",
+                        "name": "name",
+                        "placeholder": "Votre nom",
+                        "required": true
+                      }
+                    },
+                    {
+                      "type": "input",
+                      "variant": "email",
+                      "content": {
+                        "label": "E-mail",
+                        "name": "email",
+                        "placeholder": "vous@exemple.fr",
+                        "required": true,
+                        "help": "Votre adresse ne sera pas partagée."
+                      }
+                    },
+                    {
+                      "type": "select",
+                      "variant": "default",
+                      "content": {
+                        "label": "Sujet",
+                        "name": "subject",
+                        "options": [
+                          {
+                            "text": "Question",
+                            "value": "question",
+                            "selected": true
+                          },
+                          {
+                            "text": "Projet",
+                            "value": "project"
+                          },
+                          {
+                            "text": "Support",
+                            "value": "support"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "textarea",
+                      "variant": "default",
+                      "content": {
+                        "label": "Message",
+                        "name": "message",
+                        "placeholder": "Décrivez votre besoin…",
+                        "required": true
+                      }
+                    },
+                    {
+                      "type": "checkbox",
+                      "variant": "default",
+                      "content": {
+                        "label": "J’accepte d’être recontacté",
+                        "name": "consent",
+                        "required": true
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "variant": "primary",
+                      "id": "send-contact",
+                      "class": [
+                        "mt-2"
+                      ],
+                      "content": {
+                        "text": "Envoyer",
+                        "button_type": "submit"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "footer",
+          "variant": "simple",
+          "content": {
+            "name": "WeBuilder",
+            "year": "2026",
+            "text": "À bientôt."
+          }
+        }
+      ]
+    },
+    {
+      "path": "guide.html",
+      "meta": {
+        "title": "Guide — WeBuilder"
+      },
+      "components": [
+        {
+          "type": "header",
+          "variant": "minimal",
+          "content": {
+            "title": "WeBuilder",
+            "nav": [
+              {
+                "text": "Accueil",
+                "href": "/index.html"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact.html"
+              },
+              {
+                "text": "Guide",
+                "href": "/guide.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "section",
+          "variant": "muted",
+          "content": {
+            "label": "Guide rapide"
+          },
+          "children": [
+            {
+              "type": "container",
+              "variant": "default",
+              "children": [
+                {
+                  "type": "callout",
+                  "variant": "tip",
+                  "class": [
+                    "mb-4"
+                  ],
+                  "content": {
+                    "title": "Démarrage",
+                    "text": "Lancez la commande depuis le dossier webuilder."
+                  }
+                },
+                {
+                  "type": "code-block",
+                  "variant": "default",
+                  "class": [
+                    "mb-4"
+                  ],
+                  "content": {
+                    "language": "Terminal",
+                    "code": "python build.py --input build.json --output ./build"
+                  }
+                },
+                {
+                  "type": "accordion",
+                  "variant": "default",
+                  "content": {
+                    "items": [
+                      {
+                        "title": "Où définir les composants ?",
+                        "text": "Dans library.json, sous la clé components."
+                      },
+                      {
+                        "title": "Comment ajouter un événement ?",
+                        "text": "Ajoutez un objet events au composant dans build.json."
+                      },
+                      {
+                        "title": "Comment activer le mode sombre ?",
+                        "text": "Utilisez meta.theme avec la valeur dark."
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "details",
+                  "variant": "default",
+                  "class": [
+                    "mt-4"
+                  ],
+                  "content": {
+                    "title": "Afficher les détails techniques",
+                    "text": "Le moteur Mustache est implémenté en Python standard et le mode watch utilise watchdog."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "footer",
+          "variant": "columns",
+          "content": {
+            "name": "WeBuilder",
+            "text": "Documentation de démonstration.",
+            "columns": [
+              {
+                "title": "Pages",
+                "links": [
+                  {
+                    "text": "Accueil",
+                    "href": "/index.html"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact.html"
+                  }
+                ]
+              },
+              {
+                "title": "Ressources",
+                "links": [
+                  {
+                    "text": "README",
+                    "href": "#"
+                  },
+                  {
+                    "text": "library.json",
+                    "href": "#"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

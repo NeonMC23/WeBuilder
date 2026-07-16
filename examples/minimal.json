@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Exemple minimal",
+    "theme": "light",
+    "lang": "fr",
+    "description": "La configuration WeBuilder la plus courte"
+  },
+  "assets": [],
+  "pages": [
+    {
+      "path": "index.html",
+      "components": [
+        {
+          "type": "button",
+          "variant": "primary",
+          "content": {"text": "Bonjour WeBuilder"}
+        }
+      ]
+    }
+  ]
+}

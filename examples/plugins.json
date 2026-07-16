@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "title": "WeBuilder — Démonstration des plugins",
+    "theme": "neon:cyber",
+    "lang": "fr",
+    "description": "Deux bibliothèques annexes chargées avec des namespaces distincts"
+  },
+  "assets": [],
+  "pages": [
+    {
+      "path": "index.html",
+      "components": [
+        {
+          "type": "main",
+          "variant": "default",
+          "children": [
+            {
+              "type": "section",
+              "variant": "default",
+              "content": {"label": "Plugins WeBuilder"},
+              "children": [
+                {
+                  "type": "container",
+                  "variant": "wide",
+                  "children": [
+                    {
+                      "type": "neon:heading",
+                      "variant": "glitch",
+                      "class": ["neon:gradient-text", "mb-12"],
+                      "content": {"text": "Plugin System"}
+                    },
+                    {
+                      "type": "grid",
+                      "variant": "two",
+                      "children": [
+                        {
+                          "type": "neon:card",
+                          "variant": "default",
+                          "class": ["neon:glow", "md:neon:glow-strong"],
+                          "content": {
+                            "title": "Namespace neon",
+                            "text": "Ce composant, ce thème et ces classes viennent de plugins/neon.json."
+                          },
+                          "children": [
+                            {
+                              "type": "neon:button",
+                              "variant": "cyan",
+                              "id": "neon-action",
+                              "class": ["mt-4"],
+                              "content": {"text": "Activer"},
+                              "events": {
+                                "click": "console.log('Composant du plugin neon', el);"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "commerce:card",
+                          "variant": "default-right",
+                          "class": ["commerce:product-hover", "hover:commerce:sale-ring"],
+                          "content": {
+                            "title": "Produit namespacé",
+                            "text": "Le composant commerce:card ne rentre pas en conflit avec neon:card.",
+                            "price": "49,00 €",
+                            "badge": "PLUGIN"
+                          },
+                          "children": [
+                            {
+                              "type": "stack",
+                              "variant": "horizontal",
+                              "class": ["mt-4"],
+                              "children": [
+                                {
+                                  "type": "commerce:quantity",
+                                  "variant": "default",
+                                  "content": {"name": "quantity", "max": "10"}
+                                },
+                                {
+                                  "type": "commerce:cart-button",
+                                  "variant": "primary",
+                                  "content": {
+                                    "text": "Ajouter au panier",
+                                    "product_id": "plugin-demo"
+                                  },
+                                  "events": {
+                                    "cart:add": "console.log('Produit ajouté :', event.detail.productId);"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "neon:terminal",
+                      "variant": "default",
+                      "class": ["mt-12", "neon:scanlines"],
+                      "content": {
+                        "title": "Commande de build",
+                        "copy_text": "Copier",
+                        "lines": [
+                          {"prompt": "$", "command": "python build.py --input examples/plugins.json --output ./build-plugins --plugin plugins/neon.json plugins/commerce.json --preview"}
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

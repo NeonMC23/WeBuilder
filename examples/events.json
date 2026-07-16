@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "title": "Événements WeBuilder",
+    "theme": "dark",
+    "lang": "fr"
+  },
+  "assets": [],
+  "pages": [
+    {
+      "path": "index.html",
+      "components": [
+        {
+          "type": "container",
+          "variant": "default",
+          "class": ["py-6"],
+          "children": [
+            {
+              "type": "button",
+              "variant": "primary",
+              "id": "counter-button",
+              "content": {"text": "Compteur : 0"},
+              "events": {
+                "click": "const count = Number(el.dataset.count || 0) + 1; el.dataset.count = String(count); el.textContent = `Compteur : ${count}`;",
+                "mouseenter": "console.log('La souris entre sur', el.dataset.id);"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "second.html",
+      "components": [
+        {
+          "type": "button",
+          "variant": "danger",
+          "id": "counter-button",
+          "content": {"text": "Même id, autre page"},
+          "events": {
+            "click": "console.log('Le ciblage reste propre à second.html');"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2406 @@
+{
+  "name": "WeBuilder Standard Library",
+  "version": "1.2.0",
+  "themes": {
+    "light": {
+      "label": "Clair",
+      "css": ":root {\n  --color-scheme: light;\n  --bg: #ffffff;\n  --surface: #f8fafc;\n  --surface-2: #eef2f7;\n  --text: #172033;\n  --text-muted: #64748b;\n  --primary: #2563eb;\n  --primary-contrast: #ffffff;\n  --secondary: #7c3aed;\n  --success: #15803d;\n  --warning: #b45309;\n  --danger: #dc2626;\n  --info: #0369a1;\n  --border: #dbe3ee;\n  --focus: #60a5fa;\n  --radius: .65rem;\n  --shadow: 0 8px 24px rgba(15, 23, 42, .09);\n  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n}"
+    },
+    "dark": {
+      "label": "Sombre",
+      "css": ":root {\n  --color-scheme: dark;\n  --bg: #0b1020;\n  --surface: #131b2f;\n  --surface-2: #1d2942;\n  --text: #edf2ff;\n  --text-muted: #a8b3cf;\n  --primary: #60a5fa;\n  --primary-contrast: #07111f;\n  --secondary: #a78bfa;\n  --success: #4ade80;\n  --warning: #fbbf24;\n  --danger: #fb7185;\n  --info: #38bdf8;\n  --border: #2b3958;\n  --focus: #93c5fd;\n  --radius: .65rem;\n  --shadow: 0 10px 30px rgba(0, 0, 0, .3);\n  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n}"
+    },
+    "ocean": {
+      "label": "Océan",
+      "css": ":root {\n  --color-scheme: light;\n  --bg: #f0fdfa;\n  --surface: #ffffff;\n  --surface-2: #ccfbf1;\n  --text: #12343b;\n  --text-muted: #47767d;\n  --primary: #0f766e;\n  --primary-contrast: #ffffff;\n  --secondary: #0369a1;\n  --success: #15803d;\n  --warning: #c2410c;\n  --danger: #be123c;\n  --info: #0284c7;\n  --border: #99d8d0;\n  --focus: #2dd4bf;\n  --radius: .85rem;\n  --shadow: 0 9px 25px rgba(15, 118, 110, .13);\n  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;\n}"
+    },
+    "high-contrast": {
+      "label": "Contraste élevé",
+      "css": ":root {\n  --color-scheme: dark;\n  --bg: #000000;\n  --surface: #000000;\n  --surface-2: #181818;\n  --text: #ffffff;\n  --text-muted: #ffffff;\n  --primary: #ffff00;\n  --primary-contrast: #000000;\n  --secondary: #00ffff;\n  --success: #00ff66;\n  --warning: #ffff00;\n  --danger: #ff4d4d;\n  --info: #00ffff;\n  --border: #ffffff;\n  --focus: #ffff00;\n  --radius: 0;\n  --shadow: none;\n  --font-sans: Arial, sans-serif;\n}\n:focus-visible { outline: 3px solid var(--focus) !important; outline-offset: 3px; }"
+    },
+    "forest": {
+      "label": "Forêt",
+      "css": ":root {\n  --color-scheme: light; --bg: #f5f7f2; --surface: #ffffff; --surface-2: #e5eddf; --text: #1f3023; --text-muted: #607064; --primary: #2f6b3b; --primary-contrast: #ffffff; --secondary: #8a5a2b; --success: #27833a; --warning: #b66a00; --danger: #b42332; --info: #27728a; --border: #cdd9ca; --focus: #5da96b; --radius: .55rem; --shadow: 0 10px 28px rgba(35, 70, 40, .12); --font-sans: Inter, system-ui, sans-serif;\n}"
+    },
+    "sunset": {
+      "label": "Coucher de soleil",
+      "css": ":root {\n  --color-scheme: light; --bg: #fff8f3; --surface: #ffffff; --surface-2: #ffe9dc; --text: #3b2027; --text-muted: #875d65; --primary: #e64b4f; --primary-contrast: #ffffff; --secondary: #7c3aed; --success: #24864b; --warning: #d97706; --danger: #be123c; --info: #2563eb; --border: #f0cfc9; --focus: #fb7185; --radius: 1rem; --shadow: 0 12px 32px rgba(190, 60, 70, .14); --font-sans: Inter, system-ui, sans-serif;\n}"
+    },
+    "nord": {
+      "label": "Nord",
+      "css": ":root {\n  --color-scheme: dark; --bg: #2e3440; --surface: #3b4252; --surface-2: #434c5e; --text: #eceff4; --text-muted: #d8dee9; --primary: #88c0d0; --primary-contrast: #2e3440; --secondary: #b48ead; --success: #a3be8c; --warning: #ebcb8b; --danger: #bf616a; --info: #81a1c1; --border: #4c566a; --focus: #8fbcbb; --radius: .5rem; --shadow: 0 12px 30px rgba(0,0,0,.25); --font-sans: Inter, system-ui, sans-serif;\n}"
+    },
+    "corporate": {
+      "label": "Corporate",
+      "css": ":root {\n  --color-scheme: light; --bg: #f7f9fc; --surface: #ffffff; --surface-2: #edf1f7; --text: #17213a; --text-muted: #596780; --primary: #174ea6; --primary-contrast: #ffffff; --secondary: #44546f; --success: #18794e; --warning: #a15c00; --danger: #b42318; --info: #175cd3; --border: #d7deea; --focus: #4d8fe8; --radius: .35rem; --shadow: 0 6px 20px rgba(24,42,78,.1); --font-sans: Arial, system-ui, sans-serif;\n}"
+    },
+    "pastel": {
+      "label": "Pastel",
+      "css": ":root {\n  --color-scheme: light; --bg: #fffafd; --surface: #ffffff; --surface-2: #f4ecfa; --text: #3c3148; --text-muted: #776a83; --primary: #9b72cf; --primary-contrast: #ffffff; --secondary: #e889b5; --success: #65a783; --warning: #d89b52; --danger: #d66f80; --info: #70a6cf; --border: #e4d8eb; --focus: #b88bdd; --radius: 1.1rem; --shadow: 0 10px 28px rgba(112,75,140,.1); --font-sans: Inter, system-ui, sans-serif;\n}"
+    }
+  },
+  "components": {
+    "container": {
+      "description": "Conteneur responsive centré.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": true,
+      "variants": {
+        "default": {
+          "html": "<div class='wb-container {{class}}'>{{{children}}}</div>",
+          "css": ".wb-container { width: min(100% - 2rem, 72rem); margin-inline: auto; }",
+          "js": ""
+        },
+        "fluid": {
+          "html": "<div class='wb-container-fluid {{class}}'>{{{children}}}</div>",
+          "css": ".wb-container-fluid { width: 100%; padding-inline: clamp(1rem, 3vw, 3rem); }",
+          "js": ""
+        },
+        "narrow": {
+          "html": "<div class='wb-container wb-container-narrow {{class}}'>{{{children}}}</div>",
+          "css": ".wb-container-narrow { width: min(100% - 2rem, 48rem); margin-inline: auto; }",
+          "js": ""
+        },
+        "wide": {
+          "html": "<div class='wb-container wb-container-wide {{class}}'>{{{children}}}</div>",
+          "css": ".wb-container-wide { width: min(100% - 2rem, 90rem); margin-inline: auto; }",
+          "js": ""
+        }
+      }
+    },
+    "section": {
+      "description": "Section de page avec rythme vertical.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": true,
+      "variants": {
+        "default": {
+          "html": "<section class='wb-section {{class}}' aria-label='{{content.label}}'>{{{children}}}</section>",
+          "css": ".wb-section { padding-block: clamp(2.5rem, 7vw, 6rem); }",
+          "js": ""
+        },
+        "muted": {
+          "html": "<section class='wb-section wb-section-muted {{class}}' aria-label='{{content.label}}'>{{{children}}}</section>",
+          "css": ".wb-section { padding-block: clamp(2.5rem, 7vw, 6rem); } .wb-section-muted { background: var(--surface); }",
+          "js": ""
+        },
+        "accent": {
+          "html": "<section class='wb-section wb-section-accent {{class}}' aria-label='{{content.label}}'>{{{children}}}</section>",
+          "css": ".wb-section { padding-block: clamp(2.5rem, 7vw, 6rem); } .wb-section-accent { background: var(--primary); color: var(--primary-contrast); }",
+          "js": ""
+        },
+        "compact": {
+          "html": "<section class='wb-section wb-section-compact {{class}}' aria-label='{{content.label}}'>{{{children}}}</section>",
+          "css": ".wb-section-compact { padding-block: clamp(1rem, 3vw, 2rem); }",
+          "js": ""
+        },
+        "fullscreen": {
+          "html": "<section class='wb-section wb-section-fullscreen {{class}}' aria-label='{{content.label}}'>{{{children}}}</section>",
+          "css": ".wb-section-fullscreen { min-height: 100svh; display: grid; align-content: center; padding-block: 2rem; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "label": ""
+        }
+      }
+    },
+    "stack": {
+      "description": "Disposition flex verticale ou horizontale.",
+      "default_variant": "vertical",
+      "required": [],
+      "accepts_children": true,
+      "variants": {
+        "vertical": {
+          "html": "<div class='wb-stack wb-stack-vertical {{class}}'>{{{children}}}</div>",
+          "css": ".wb-stack { display: flex; gap: var(--stack-gap, 1rem); } .wb-stack-vertical { flex-direction: column; }",
+          "js": ""
+        },
+        "horizontal": {
+          "html": "<div class='wb-stack wb-stack-horizontal {{class}}'>{{{children}}}</div>",
+          "css": ".wb-stack { display: flex; gap: var(--stack-gap, 1rem); } .wb-stack-horizontal { align-items: center; flex-wrap: wrap; }",
+          "js": ""
+        },
+        "centered": {
+          "html": "<div class='wb-stack wb-stack-centered {{class}}'>{{{children}}}</div>",
+          "css": ".wb-stack-centered { flex-direction: column; align-items: center; text-align: center; }",
+          "js": ""
+        }
+      }
+    },
+    "grid": {
+      "description": "Grille CSS responsive.",
+      "default_variant": "auto",
+      "required": [],
+      "accepts_children": true,
+      "variants": {
+        "two": {
+          "html": "<div class='wb-grid wb-grid-two {{class}}'>{{{children}}}</div>",
+          "css": ".wb-grid { display: grid; gap: 1.5rem; } .wb-grid-two { grid-template-columns: repeat(2, minmax(0, 1fr)); } @media (max-width: 45rem) { .wb-grid-two { grid-template-columns: 1fr; } }",
+          "js": ""
+        },
+        "three": {
+          "html": "<div class='wb-grid wb-grid-three {{class}}'>{{{children}}}</div>",
+          "css": ".wb-grid { display: grid; gap: 1.5rem; } .wb-grid-three { grid-template-columns: repeat(3, minmax(0, 1fr)); } @media (max-width: 60rem) { .wb-grid-three { grid-template-columns: repeat(2, 1fr); } } @media (max-width: 38rem) { .wb-grid-three { grid-template-columns: 1fr; } }",
+          "js": ""
+        },
+        "auto": {
+          "html": "<div class='wb-grid wb-grid-auto {{class}}'>{{{children}}}</div>",
+          "css": ".wb-grid { display: grid; gap: 1.5rem; } .wb-grid-auto { grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }",
+          "js": ""
+        },
+        "four": {
+          "html": "<div class='wb-grid wb-grid-four {{class}}'>{{{children}}}</div>",
+          "css": ".wb-grid { display: grid; gap: 1.5rem; } .wb-grid-four { grid-template-columns: repeat(4, minmax(0, 1fr)); } @media (max-width: 70rem) { .wb-grid-four { grid-template-columns: repeat(2, 1fr); } } @media (max-width: 38rem) { .wb-grid-four { grid-template-columns: 1fr; } }",
+          "js": ""
+        },
+        "sidebar": {
+          "html": "<div class='wb-grid wb-grid-sidebar {{class}}'>{{{children}}}</div>",
+          "css": ".wb-grid { display: grid; gap: 1.5rem; } .wb-grid-sidebar { grid-template-columns: minmax(14rem, 1fr) minmax(0, 3fr); } @media (max-width: 48rem) { .wb-grid-sidebar { grid-template-columns: 1fr; } }",
+          "js": ""
+        }
+      }
+    },
+    "header": {
+      "description": "En-tête de site avec navigation et enfants.",
+      "default_variant": "primary",
+      "required": [
+        "content.title"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "primary": {
+          "html": "<header class='site-header site-header-primary {{class}}'><div class='site-header__inner'><a class='site-header__brand' href='{{content.home_href}}'>{{#content.logo}}<img src='{{content.logo}}' alt=''>{{/content.logo}}<span>{{content.title}}</span></a><nav aria-label='Navigation principale'>{{#content.nav}}<a href='{{href}}'>{{text}}</a>{{/content.nav}}</nav></div>{{{children}}}</header>",
+          "css": ".site-header-primary { background: var(--primary); color: var(--primary-contrast); } .site-header-primary a { color: inherit; }",
+          "js": ""
+        },
+        "minimal": {
+          "html": "<header class='site-header site-header-minimal {{class}}'><div class='site-header__inner'><a class='site-header__brand' href='{{content.home_href}}'>{{content.title}}</a><nav aria-label='Navigation principale'>{{#content.nav}}<a href='{{href}}'>{{text}}</a>{{/content.nav}}</nav></div>{{{children}}}</header>",
+          "css": ".site-header-minimal { background: var(--bg); border-bottom: 1px solid var(--border); }",
+          "js": ""
+        },
+        "transparent": {
+          "html": "<header class='site-header site-header-transparent {{class}}'><div class='site-header__inner'><a class='site-header__brand' href='{{content.home_href}}'>{{content.title}}</a><nav aria-label='Navigation principale'>{{#content.nav}}<a href='{{href}}'>{{text}}</a>{{/content.nav}}</nav></div>{{{children}}}</header>",
+          "css": ".site-header-transparent { position: absolute; inset: 0 0 auto; background: transparent; color: #fff; } .site-header-transparent a { color: inherit; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "home_href": "/",
+          "logo": "",
+          "nav": []
+        }
+      },
+      "css": ".site-header { position: relative; z-index: 10; padding: .85rem 1rem; } .site-header__inner { width: min(100%, 72rem); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; } .site-header__brand { display: inline-flex; align-items: center; gap: .6rem; color: inherit; font-weight: 750; text-decoration: none; } .site-header__brand img { width: 2rem; height: 2rem; } .site-header nav { display: flex; flex-wrap: wrap; gap: .35rem 1rem; } .site-header nav a { text-decoration: none; } @media (max-width: 38rem) { .site-header__inner { align-items: flex-start; flex-direction: column; } }"
+    },
+    "navbar": {
+      "description": "Barre de navigation autonome.",
+      "default_variant": "horizontal",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "horizontal": {
+          "html": "<nav class='wb-navbar wb-navbar-horizontal {{class}}' aria-label='{{content.label}}'>{{#content.items}}<a href='{{href}}' {{#current}}aria-current='page'{{/current}}>{{text}}</a>{{/content.items}}</nav>",
+          "css": ".wb-navbar-horizontal { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }",
+          "js": ""
+        },
+        "mobile": {
+          "html": "<nav class='wb-navbar wb-navbar-mobile {{class}}' aria-label='{{content.label}}'><button class='wb-navbar__toggle' type='button' aria-expanded='false'>{{content.toggle_text}}</button><div class='wb-navbar__links'>{{#content.items}}<a href='{{href}}'>{{text}}</a>{{/content.items}}</div></nav>",
+          "css": ".wb-navbar__toggle { padding: .55rem .8rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); } .wb-navbar__links { display: flex; gap: 1rem; } @media (max-width: 42rem) { .wb-navbar__links { display: none; flex-direction: column; padding-block: 1rem; } .wb-navbar-mobile.is-open .wb-navbar__links { display: flex; } }",
+          "js": "document.querySelectorAll('.wb-navbar-mobile').forEach((nav) => { const toggle = nav.querySelector('.wb-navbar__toggle'); toggle?.addEventListener('click', () => { const open = nav.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', String(open)); }); });"
+        },
+        "pills": {
+          "html": "<nav class='wb-navbar wb-navbar-pills {{class}}' aria-label='{{content.label}}'>{{#content.items}}<a href='{{href}}' {{#current}}aria-current='page'{{/current}}>{{text}}</a>{{/content.items}}</nav>",
+          "css": ".wb-navbar-pills { display: flex; flex-wrap: wrap; gap: .35rem; } .wb-navbar-pills a { padding: .45rem .75rem; border-radius: 999px; color: var(--text-muted); text-decoration: none; } .wb-navbar-pills a[aria-current='page'] { background: var(--primary); color: var(--primary-contrast); }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "label": "Navigation",
+          "toggle_text": "Menu"
+        }
+      }
+    },
+    "hero": {
+      "description": "Bannière héro avec appel à l'action.",
+      "default_variant": "centered",
+      "required": [
+        "content.title"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "centered": {
+          "html": "<section class='wb-hero wb-hero-centered {{class}}'><p class='wb-hero__eyebrow'>{{content.eyebrow}}</p><h1>{{content.title}}</h1><p class='wb-hero__lead'>{{content.text}}</p><div class='wb-hero__actions'>{{{children}}}</div></section>",
+          "css": ".wb-hero-centered { text-align: center; align-items: center; }",
+          "js": ""
+        },
+        "split": {
+          "html": "<section class='wb-hero wb-hero-split {{class}}'><div><p class='wb-hero__eyebrow'>{{content.eyebrow}}</p><h1>{{content.title}}</h1><p class='wb-hero__lead'>{{content.text}}</p><div class='wb-hero__actions'>{{{children}}}</div></div>{{#content.image}}<img src='{{content.image}}' alt='{{content.image_alt}}'>{{/content.image}}</section>",
+          "css": ".wb-hero-split { grid-template-columns: 1.05fr .95fr; align-items: center; } .wb-hero-split > img { width: 100%; min-height: 18rem; max-height: 32rem; object-fit: cover; border-radius: calc(var(--radius) * 1.5); } @media (max-width: 48rem) { .wb-hero-split { grid-template-columns: 1fr; } }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "eyebrow": "",
+          "text": "",
+          "image": "",
+          "image_alt": ""
+        }
+      },
+      "css": ".wb-hero { display: grid; gap: clamp(1.5rem, 5vw, 4rem); padding: clamp(3rem, 9vw, 7rem) clamp(1rem, 4vw, 3rem); background: linear-gradient(135deg, var(--surface), var(--surface-2)); } .wb-hero h1 { max-width: 18ch; margin: 0; font-size: clamp(2.2rem, 7vw, 5rem); line-height: 1.04; } .wb-hero__eyebrow { color: var(--primary); font-weight: 750; letter-spacing: .08em; text-transform: uppercase; } .wb-hero__lead { max-width: 60ch; color: var(--text-muted); font-size: clamp(1.05rem, 2vw, 1.3rem); } .wb-hero__actions { display: flex; flex-wrap: wrap; justify-content: inherit; gap: .75rem; margin-top: 1.5rem; }"
+    },
+    "button": {
+      "description": "Bouton accessible avec variantes visuelles, de succès et icône.",
+      "default_variant": "primary",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "primary": {
+          "html": "<button class='wb-btn wb-btn-primary {{class}}' type='{{content.button_type}}' data-id='{{id}}' {{#content.disabled}}disabled{{/content.disabled}}>{{content.text}}</button>",
+          "css": ".wb-btn-primary { background: var(--primary); border-color: var(--primary); color: var(--primary-contrast); }",
+          "js": ""
+        },
+        "secondary": {
+          "html": "<button class='wb-btn wb-btn-secondary {{class}}' type='{{content.button_type}}' data-id='{{id}}'>{{content.text}}</button>",
+          "css": ".wb-btn-secondary { background: var(--secondary); border-color: var(--secondary); color: #fff; }",
+          "js": ""
+        },
+        "outline": {
+          "html": "<button class='wb-btn wb-btn-outline {{class}}' type='{{content.button_type}}' data-id='{{id}}'>{{content.text}}</button>",
+          "css": ".wb-btn-outline { background: transparent; border-color: var(--primary); color: var(--primary); }",
+          "js": ""
+        },
+        "danger": {
+          "html": "<button class='wb-btn wb-btn-danger {{class}}' type='{{content.button_type}}' data-id='{{id}}'>{{content.text}}</button>",
+          "css": ".wb-btn-danger { background: var(--danger); border-color: var(--danger); color: #fff; }",
+          "js": ""
+        },
+        "ghost": {
+          "html": "<button class='wb-btn wb-btn-ghost {{class}}' type='{{content.button_type}}' data-id='{{id}}'>{{content.text}}</button>",
+          "css": ".wb-btn-ghost { background: transparent; border-color: transparent; color: var(--primary); }",
+          "js": ""
+        },
+        "success": {
+          "html": "<button class='wb-btn wb-btn-success {{class}}' type='{{content.button_type}}' data-id='{{id}}'>{{content.text}}</button>",
+          "css": ".wb-btn-success { background: var(--success); border-color: var(--success); color: #fff; }",
+          "js": ""
+        },
+        "icon": {
+          "html": "<button class='wb-btn wb-btn-icon {{class}}' type='{{content.button_type}}' data-id='{{id}}' aria-label='{{content.label}}'>{{content.text}}</button>",
+          "css": ".wb-btn-icon { width: 2.75rem; padding: 0; border-radius: 50%; background: var(--primary); color: var(--primary-contrast); }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "button_type": "button",
+          "disabled": false
+        }
+      },
+      "css": ".wb-btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 2.75rem; padding: .6rem 1rem; border: 1px solid transparent; border-radius: var(--radius); cursor: pointer; font-weight: 700; text-decoration: none; transition: transform .15s ease, filter .15s ease; } .wb-btn:hover:not(:disabled) { filter: brightness(1.08); transform: translateY(-1px); } .wb-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; } .wb-btn:disabled { cursor: not-allowed; opacity: .55; }"
+    },
+    "link": {
+      "description": "Lien textuel ou lien-bouton.",
+      "default_variant": "default",
+      "required": [
+        "content.href",
+        "content.text"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<a class='wb-link wb-link-default {{class}}' href='{{content.href}}'>{{content.text}}</a>",
+          "css": ".wb-link-default { color: var(--primary); text-underline-offset: .2em; }",
+          "js": ""
+        },
+        "muted": {
+          "html": "<a class='wb-link wb-link-muted {{class}}' href='{{content.href}}'>{{content.text}}</a>",
+          "css": ".wb-link-muted { color: var(--text-muted); text-underline-offset: .2em; }",
+          "js": ""
+        },
+        "button": {
+          "html": "<a class='wb-link wb-link-button {{class}}' href='{{content.href}}'>{{content.text}}</a>",
+          "css": ".wb-link-button { display: inline-flex; padding: .6rem 1rem; border-radius: var(--radius); background: var(--primary); color: var(--primary-contrast); font-weight: 700; text-decoration: none; }",
+          "js": ""
+        },
+        "external": {
+          "html": "<a class='wb-link wb-link-external {{class}}' href='{{content.href}}' target='_blank' rel='noopener noreferrer'>{{content.text}} <span aria-hidden='true'>↗</span></a>",
+          "css": ".wb-link-external { color: var(--primary); text-underline-offset: .2em; }",
+          "js": ""
+        }
+      }
+    },
+    "card": {
+      "description": "Carte de contenu polyvalente.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": true,
+      "variants": {
+        "default": {
+          "html": "<article class='wb-card wb-card-default {{class}}'>{{#content.title}}<h2>{{content.title}}</h2>{{/content.title}}{{#content.text}}<p>{{content.text}}</p>{{/content.text}}{{{children}}}</article>",
+          "css": ".wb-card-default { background: var(--surface); }",
+          "js": ""
+        },
+        "elevated": {
+          "html": "<article class='wb-card wb-card-elevated {{class}}'>{{#content.title}}<h2>{{content.title}}</h2>{{/content.title}}{{#content.text}}<p>{{content.text}}</p>{{/content.text}}{{{children}}}</article>",
+          "css": ".wb-card-elevated { background: var(--surface); border-color: transparent; box-shadow: var(--shadow); }",
+          "js": ""
+        },
+        "bordered": {
+          "html": "<article class='wb-card wb-card-bordered {{class}}'>{{#content.title}}<h2>{{content.title}}</h2>{{/content.title}}{{#content.text}}<p>{{content.text}}</p>{{/content.text}}{{{children}}}</article>",
+          "css": ".wb-card-bordered { background: transparent; border: 2px solid var(--border); }",
+          "js": ""
+        },
+        "media": {
+          "html": "<article class='wb-card wb-card-media {{class}}'>{{#content.image}}<img src='{{content.image}}' alt='{{content.image_alt}}'>{{/content.image}}<div class='wb-card__body'><h2>{{content.title}}</h2><p>{{content.text}}</p>{{{children}}}</div></article>",
+          "css": ".wb-card-media { padding: 0; overflow: hidden; } .wb-card-media > img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; } .wb-card__body { padding: 1.25rem; }",
+          "js": ""
+        },
+        "horizontal": {
+          "html": "<article class='wb-card wb-card-horizontal {{class}}'>{{#content.image}}<img src='{{content.image}}' alt='{{content.image_alt}}'>{{/content.image}}<div><h2>{{content.title}}</h2><p>{{content.text}}</p>{{{children}}}</div></article>",
+          "css": ".wb-card-horizontal { display: grid; grid-template-columns: minmax(8rem, 1fr) 2fr; align-items: center; gap: 1.25rem; } .wb-card-horizontal > img { width: 100%; height: 100%; min-height: 10rem; object-fit: cover; border-radius: calc(var(--radius) * .75); } @media (max-width: 36rem) { .wb-card-horizontal { grid-template-columns: 1fr; } }",
+          "js": ""
+        },
+        "interactive": {
+          "html": "<article class='wb-card wb-card-interactive {{class}}' tabindex='0'><h2>{{content.title}}</h2><p>{{content.text}}</p>{{{children}}}</article>",
+          "css": ".wb-card-interactive { background: var(--surface); cursor: pointer; transition: transform .18s ease, box-shadow .18s ease; } .wb-card-interactive:hover, .wb-card-interactive:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow); outline: none; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "title": "",
+          "text": "",
+          "image": "",
+          "image_alt": ""
+        }
+      },
+      "css": ".wb-card { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); } .wb-card h2 { margin-top: 0; font-size: 1.25rem; } .wb-card p { color: var(--text-muted); }"
+    },
+    "alert": {
+      "description": "Message contextuel, éventuellement fermable.",
+      "default_variant": "info",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "info": {
+          "html": "<div class='wb-alert wb-alert-info {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Fermer'>×</button>{{/content.dismissible}}</div>",
+          "css": ".wb-alert-info { --alert-color: var(--info); }",
+          "js": ""
+        },
+        "success": {
+          "html": "<div class='wb-alert wb-alert-success {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Fermer'>×</button>{{/content.dismissible}}</div>",
+          "css": ".wb-alert-success { --alert-color: var(--success); }",
+          "js": ""
+        },
+        "warning": {
+          "html": "<div class='wb-alert wb-alert-warning {{class}}' role='alert'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Fermer'>×</button>{{/content.dismissible}}</div>",
+          "css": ".wb-alert-warning { --alert-color: var(--warning); }",
+          "js": ""
+        },
+        "danger": {
+          "html": "<div class='wb-alert wb-alert-danger {{class}}' role='alert'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Fermer'>×</button>{{/content.dismissible}}</div>",
+          "css": ".wb-alert-danger { --alert-color: var(--danger); }",
+          "js": ""
+        },
+        "neutral": {
+          "html": "<div class='wb-alert wb-alert-neutral {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Fermer'>×</button>{{/content.dismissible}}</div>",
+          "css": ".wb-alert-neutral { --alert-color: var(--text-muted); }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "title": "",
+          "dismissible": false
+        }
+      },
+      "css": ".wb-alert { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem; border: 1px solid color-mix(in srgb, var(--alert-color), transparent 45%); border-left: .3rem solid var(--alert-color); border-radius: var(--radius); background: color-mix(in srgb, var(--alert-color), transparent 90%); } .wb-alert p { margin: .25rem 0 0; } .wb-alert__close { align-self: flex-start; border: 0; background: transparent; color: inherit; cursor: pointer; font-size: 1.4rem; }",
+      "js": "document.querySelectorAll('.wb-alert__close').forEach((button) => button.addEventListener('click', () => button.closest('.wb-alert')?.remove()));"
+    },
+    "badge": {
+      "description": "Petit indicateur de statut.",
+      "default_variant": "primary",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "primary": {
+          "html": "<span class='wb-badge wb-badge-primary {{class}}'>{{content.text}}</span>",
+          "css": ".wb-badge-primary { background: var(--primary); color: var(--primary-contrast); }",
+          "js": ""
+        },
+        "success": {
+          "html": "<span class='wb-badge wb-badge-success {{class}}'>{{content.text}}</span>",
+          "css": ".wb-badge-success { background: var(--success); color: #fff; }",
+          "js": ""
+        },
+        "warning": {
+          "html": "<span class='wb-badge wb-badge-warning {{class}}'>{{content.text}}</span>",
+          "css": ".wb-badge-warning { background: var(--warning); color: #111; }",
+          "js": ""
+        },
+        "danger": {
+          "html": "<span class='wb-badge wb-badge-danger {{class}}'>{{content.text}}</span>",
+          "css": ".wb-badge-danger { background: var(--danger); color: #fff; }",
+          "js": ""
+        },
+        "neutral": {
+          "html": "<span class='wb-badge wb-badge-neutral {{class}}'>{{content.text}}</span>",
+          "css": ".wb-badge-neutral { background: var(--surface-2); color: var(--text); }",
+          "js": ""
+        },
+        "outline": {
+          "html": "<span class='wb-badge wb-badge-outline {{class}}'>{{content.text}}</span>",
+          "css": ".wb-badge-outline { border: 1px solid var(--primary); color: var(--primary); }",
+          "js": ""
+        }
+      },
+      "css": ".wb-badge { display: inline-flex; align-items: center; padding: .18rem .55rem; border-radius: 999px; font-size: .78rem; font-weight: 750; }"
+    },
+    "avatar": {
+      "description": "Avatar image avec texte alternatif.",
+      "default_variant": "round",
+      "required": [
+        "content.src",
+        "content.alt"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "round": {
+          "html": "<img class='wb-avatar wb-avatar-round {{class}}' src='{{content.src}}' alt='{{content.alt}}' width='{{content.size}}' height='{{content.size}}'>",
+          "css": ".wb-avatar-round { border-radius: 50%; }",
+          "js": ""
+        },
+        "square": {
+          "html": "<img class='wb-avatar wb-avatar-square {{class}}' src='{{content.src}}' alt='{{content.alt}}' width='{{content.size}}' height='{{content.size}}'>",
+          "css": ".wb-avatar-square { border-radius: var(--radius); }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "size": "48"
+        }
+      },
+      "css": ".wb-avatar { display: inline-block; object-fit: cover; background: var(--surface-2); }"
+    },
+    "image": {
+      "description": "Image responsive avec légende facultative.",
+      "default_variant": "responsive",
+      "required": [
+        "content.src",
+        "content.alt"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "responsive": {
+          "html": "<figure class='wb-image wb-image-responsive {{class}}'><img src='{{content.src}}' alt='{{content.alt}}' loading='{{content.loading}}'>{{#content.caption}}<figcaption>{{content.caption}}</figcaption>{{/content.caption}}</figure>",
+          "css": ".wb-image-responsive img { width: 100%; height: auto; }",
+          "js": ""
+        },
+        "cover": {
+          "html": "<figure class='wb-image wb-image-cover {{class}}'><img src='{{content.src}}' alt='{{content.alt}}' loading='{{content.loading}}'>{{#content.caption}}<figcaption>{{content.caption}}</figcaption>{{/content.caption}}</figure>",
+          "css": ".wb-image-cover img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius); }",
+          "js": ""
+        },
+        "circle": {
+          "html": "<figure class='wb-image wb-image-circle {{class}}'><img src='{{content.src}}' alt='{{content.alt}}' loading='{{content.loading}}'>{{#content.caption}}<figcaption>{{content.caption}}</figcaption>{{/content.caption}}</figure>",
+          "css": ".wb-image-circle img { width: min(100%, 20rem); aspect-ratio: 1; object-fit: cover; border-radius: 50%; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "caption": "",
+          "loading": "lazy"
+        }
+      },
+      "css": ".wb-image { margin: 0; } .wb-image figcaption { margin-top: .45rem; color: var(--text-muted); font-size: .875rem; }"
+    },
+    "input": {
+      "description": "Champ de saisie avec label et aide.",
+      "default_variant": "text",
+      "required": [
+        "content.label",
+        "content.name"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "text": {
+          "html": "<label class='wb-field {{class}}'><span>{{content.label}}</span><input type='text' name='{{content.name}}' placeholder='{{content.placeholder}}' {{#content.required}}required{{/content.required}}>{{#content.help}}<small>{{content.help}}</small>{{/content.help}}</label>",
+          "css": "",
+          "js": ""
+        },
+        "email": {
+          "html": "<label class='wb-field {{class}}'><span>{{content.label}}</span><input type='email' name='{{content.name}}' placeholder='{{content.placeholder}}' {{#content.required}}required{{/content.required}}>{{#content.help}}<small>{{content.help}}</small>{{/content.help}}</label>",
+          "css": "",
+          "js": ""
+        },
+        "password": {
+          "html": "<label class='wb-field {{class}}'><span>{{content.label}}</span><input type='password' name='{{content.name}}' placeholder='{{content.placeholder}}' {{#content.required}}required{{/content.required}}>{{#content.help}}<small>{{content.help}}</small>{{/content.help}}</label>",
+          "css": "",
+          "js": ""
+        },
+        "search": {
+          "html": "<label class='wb-field {{class}}'><span>{{content.label}}</span><input type='search' name='{{content.name}}' placeholder='{{content.placeholder}}' {{#content.required}}required{{/content.required}}>{{#content.help}}<small>{{content.help}}</small>{{/content.help}}</label>",
+          "css": "",
+          "js": ""
+        },
+        "tel": {
+          "html": "<label class='wb-field wb-input-tel {{class}}'><span>{{content.label}}</span><input type='tel' name='{{content.name}}' placeholder='{{content.placeholder}}' {{#content.required}}required{{/content.required}}>{{#content.help}}<small>{{content.help}}</small>{{/content.help}}</label>",
+          "css": "",
+          "js": ""
+        },
+        "url": {
+          "html": "<label class='wb-field wb-input-url {{class}}'><span>{{content.label}}</span><input type='url' name='{{content.name}}' placeholder='{{content.placeholder}}' {{#content.required}}required{{/content.required}}>{{#content.help}}<small>{{content.help}}</small>{{/content.help}}</label>",
+          "css": "",
+          "js": ""
+        },
+        "number": {
+          "html": "<label class='wb-field wb-input-number {{class}}'><span>{{content.label}}</span><input type='number' name='{{content.name}}' placeholder='{{content.placeholder}}' {{#content.required}}required{{/content.required}}>{{#content.help}}<small>{{content.help}}</small>{{/content.help}}</label>",
+          "css": "",
+          "js": ""
+        },
+        "date": {
+          "html": "<label class='wb-field wb-input-date {{class}}'><span>{{content.label}}</span><input type='date' name='{{content.name}}' placeholder='{{content.placeholder}}' {{#content.required}}required{{/content.required}}>{{#content.help}}<small>{{content.help}}</small>{{/content.help}}</label>",
+          "css": "",
+          "js": ""
+        },
+        "time": {
+          "html": "<label class='wb-field wb-input-time {{class}}'><span>{{content.label}}</span><input type='time' name='{{content.name}}' placeholder='{{content.placeholder}}' {{#content.required}}required{{/content.required}}>{{#content.help}}<small>{{content.help}}</small>{{/content.help}}</label>",
+          "css": "",
+          "js": ""
+        },
+        "color": {
+          "html": "<label class='wb-field wb-input-color {{class}}'><span>{{content.label}}</span><input type='color' name='{{content.name}}' placeholder='{{content.placeholder}}' {{#content.required}}required{{/content.required}}>{{#content.help}}<small>{{content.help}}</small>{{/content.help}}</label>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "placeholder": "",
+          "required": false,
+          "help": ""
+        }
+      },
+      "css": ".wb-field { display: grid; gap: .4rem; } .wb-field > span { font-weight: 650; } .wb-field input, .wb-field textarea, .wb-field select { width: 100%; min-height: 2.75rem; padding: .6rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); } .wb-field input:focus, .wb-field textarea:focus, .wb-field select:focus { border-color: var(--focus); outline: 3px solid color-mix(in srgb, var(--focus), transparent 70%); } .wb-field small { color: var(--text-muted); }"
+    },
+    "textarea": {
+      "description": "Zone de texte multiligne.",
+      "default_variant": "default",
+      "required": [
+        "content.label",
+        "content.name"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<label class='wb-field wb-textarea {{class}}'><span>{{content.label}}</span><textarea name='{{content.name}}' rows='{{content.rows}}' placeholder='{{content.placeholder}}' {{#content.required}}required{{/content.required}}></textarea>{{#content.help}}<small>{{content.help}}</small>{{/content.help}}</label>",
+          "css": ".wb-textarea textarea { resize: vertical; min-height: 8rem; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "rows": "5",
+          "placeholder": "",
+          "required": false,
+          "help": ""
+        }
+      },
+      "css": ".wb-field { display: grid; gap: .4rem; } .wb-field > span { font-weight: 650; } .wb-field input, .wb-field textarea, .wb-field select { width: 100%; min-height: 2.75rem; padding: .6rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); } .wb-field input:focus, .wb-field textarea:focus, .wb-field select:focus { border-color: var(--focus); outline: 3px solid color-mix(in srgb, var(--focus), transparent 70%); } .wb-field small { color: var(--text-muted); }"
+    },
+    "select": {
+      "description": "Liste de sélection.",
+      "default_variant": "default",
+      "required": [
+        "content.label",
+        "content.name",
+        "content.options"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<label class='wb-field wb-select {{class}}'><span>{{content.label}}</span><select name='{{content.name}}' {{#content.required}}required{{/content.required}}>{{#content.options}}<option value='{{value}}' {{#selected}}selected{{/selected}}>{{text}}</option>{{/content.options}}</select></label>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "required": false
+        }
+      },
+      "css": ".wb-field { display: grid; gap: .4rem; } .wb-field > span { font-weight: 650; } .wb-field input, .wb-field textarea, .wb-field select { width: 100%; min-height: 2.75rem; padding: .6rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); } .wb-field input:focus, .wb-field textarea:focus, .wb-field select:focus { border-color: var(--focus); outline: 3px solid color-mix(in srgb, var(--focus), transparent 70%); } .wb-field small { color: var(--text-muted); }"
+    },
+    "checkbox": {
+      "description": "Case à cocher.",
+      "default_variant": "default",
+      "required": [
+        "content.name",
+        "content.label"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<label class='wb-check {{class}}'><input type='checkbox' name='{{content.name}}' value='{{content.value}}' {{#content.checked}}checked{{/content.checked}} {{#content.required}}required{{/content.required}}><span>{{content.label}}</span></label>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "value": "1",
+          "checked": false,
+          "required": false
+        }
+      },
+      "css": ".wb-check { display: inline-flex; align-items: flex-start; gap: .55rem; cursor: pointer; } .wb-check input { width: 1.1rem; height: 1.1rem; margin-top: .15rem; accent-color: var(--primary); }"
+    },
+    "radio-group": {
+      "description": "Groupe de boutons radio.",
+      "default_variant": "default",
+      "required": [
+        "content.name",
+        "content.label",
+        "content.options"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<fieldset class='wb-radio-group {{class}}'><legend>{{content.label}}</legend>{{#content.options}}<label><input type='radio' name='{{content.name}}' value='{{value}}' {{#checked}}checked{{/checked}}><span>{{text}}</span></label>{{/content.options}}</fieldset>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "css": ".wb-radio-group { display: grid; gap: .65rem; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius); } .wb-radio-group legend { padding-inline: .35rem; font-weight: 700; } .wb-radio-group label { display: flex; align-items: center; gap: .5rem; } .wb-radio-group input { accent-color: var(--primary); }"
+    },
+    "form": {
+      "description": "Formulaire contenant des composants enfants.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": true,
+      "variants": {
+        "default": {
+          "html": "<form class='wb-form wb-form-default {{class}}' action='{{content.action}}' method='{{content.method}}' {{#content.novalidate}}novalidate{{/content.novalidate}}>{{{children}}}</form>",
+          "css": ".wb-form-default { max-width: 42rem; }",
+          "js": ""
+        },
+        "inline": {
+          "html": "<form class='wb-form wb-form-inline {{class}}' action='{{content.action}}' method='{{content.method}}'>{{{children}}}</form>",
+          "css": ".wb-form-inline { flex-direction: row; align-items: end; flex-wrap: wrap; } .wb-form-inline > * { flex: 1 1 12rem; }",
+          "js": ""
+        },
+        "card": {
+          "html": "<form class='wb-form wb-form-card {{class}}' action='{{content.action}}' method='{{content.method}}'>{{{children}}}</form>",
+          "css": ".wb-form-card { max-width: 42rem; padding: clamp(1rem, 4vw, 2rem); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "action": "#",
+          "method": "post",
+          "novalidate": false
+        }
+      },
+      "css": ".wb-form { display: flex; flex-direction: column; gap: 1rem; }"
+    },
+    "list": {
+      "description": "Liste simple alimentée par une boucle Mustache.",
+      "default_variant": "unordered",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "unordered": {
+          "html": "<ul class='wb-list wb-list-unordered {{class}}'>{{#content.items}}<li>{{text}}</li>{{/content.items}}</ul>",
+          "css": "",
+          "js": ""
+        },
+        "ordered": {
+          "html": "<ol class='wb-list wb-list-ordered {{class}}'>{{#content.items}}<li>{{text}}</li>{{/content.items}}</ol>",
+          "css": "",
+          "js": ""
+        },
+        "unstyled": {
+          "html": "<ul class='wb-list wb-list-unstyled {{class}}'>{{#content.items}}<li>{{text}}</li>{{/content.items}}</ul>",
+          "css": ".wb-list-unstyled { list-style: none; padding-left: 0; }",
+          "js": ""
+        },
+        "checklist": {
+          "html": "<ul class='wb-list wb-list-checklist {{class}}'>{{#content.items}}<li><span aria-hidden='true'>✓</span>{{text}}</li>{{/content.items}}</ul>",
+          "css": ".wb-list-checklist { padding: 0; list-style: none; } .wb-list-checklist li { display: flex; gap: .55rem; } .wb-list-checklist li span { color: var(--success); font-weight: 800; }",
+          "js": ""
+        }
+      },
+      "css": ".wb-list { display: grid; gap: .5rem; }"
+    },
+    "table": {
+      "description": "Tableau responsive à en-têtes et cellules imbriqués.",
+      "default_variant": "simple",
+      "required": [
+        "content.headers",
+        "content.rows"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "simple": {
+          "html": "<div class='wb-table-wrap {{class}}'><table class='wb-table wb-table-simple'><caption>{{content.caption}}</caption><thead><tr>{{#content.headers}}<th scope='col'>{{.}}</th>{{/content.headers}}</tr></thead><tbody>{{#content.rows}}<tr>{{#cells}}<td>{{.}}</td>{{/cells}}</tr>{{/content.rows}}</tbody></table></div>",
+          "css": "",
+          "js": ""
+        },
+        "striped": {
+          "html": "<div class='wb-table-wrap {{class}}'><table class='wb-table wb-table-striped'><caption>{{content.caption}}</caption><thead><tr>{{#content.headers}}<th scope='col'>{{.}}</th>{{/content.headers}}</tr></thead><tbody>{{#content.rows}}<tr>{{#cells}}<td>{{.}}</td>{{/cells}}</tr>{{/content.rows}}</tbody></table></div>",
+          "css": ".wb-table-striped tbody tr:nth-child(odd) { background: var(--surface); }",
+          "js": ""
+        },
+        "compact": {
+          "html": "<div class='wb-table-wrap {{class}}'><table class='wb-table wb-table-compact'><caption>{{content.caption}}</caption><thead><tr>{{#content.headers}}<th scope='col'>{{.}}</th>{{/content.headers}}</tr></thead><tbody>{{#content.rows}}<tr>{{#cells}}<td>{{.}}</td>{{/cells}}</tr>{{/content.rows}}</tbody></table></div>",
+          "css": ".wb-table-compact th, .wb-table-compact td { padding: .4rem .6rem; font-size: .875rem; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "caption": ""
+        }
+      },
+      "css": ".wb-table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); } .wb-table { width: 100%; border-collapse: collapse; } .wb-table caption { padding: .75rem; font-weight: 700; text-align: left; } .wb-table th, .wb-table td { padding: .75rem; border-bottom: 1px solid var(--border); text-align: left; white-space: nowrap; } .wb-table th { background: var(--surface-2); }"
+    },
+    "quote": {
+      "description": "Citation avec source.",
+      "default_variant": "default",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<figure class='wb-quote wb-quote-default {{class}}'><blockquote>“{{content.text}}”</blockquote>{{#content.author}}<figcaption>— {{content.author}}{{#content.source}}, <cite>{{content.source}}</cite>{{/content.source}}</figcaption>{{/content.author}}</figure>",
+          "css": "",
+          "js": ""
+        },
+        "highlight": {
+          "html": "<figure class='wb-quote wb-quote-highlight {{class}}'><blockquote>“{{content.text}}”</blockquote>{{#content.author}}<figcaption>— {{content.author}}</figcaption>{{/content.author}}</figure>",
+          "css": ".wb-quote-highlight { background: var(--surface); border-left: .3rem solid var(--primary); }",
+          "js": ""
+        },
+        "pull": {
+          "html": "<figure class='wb-quote wb-quote-pull {{class}}'><blockquote>“{{content.text}}”</blockquote>{{#content.author}}<figcaption>— {{content.author}}</figcaption>{{/content.author}}</figure>",
+          "css": ".wb-quote-pull { padding-inline: clamp(1rem, 6vw, 5rem); text-align: center; } .wb-quote-pull blockquote { font-size: clamp(1.6rem, 5vw, 3.2rem); }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "author": "",
+          "source": ""
+        }
+      },
+      "css": ".wb-quote { margin: 0; padding: 1.25rem; border-radius: var(--radius); } .wb-quote blockquote { margin: 0; font-size: clamp(1.2rem, 3vw, 1.7rem); font-weight: 600; } .wb-quote figcaption { margin-top: .75rem; color: var(--text-muted); }"
+    },
+    "breadcrumb": {
+      "description": "Fil d'Ariane accessible.",
+      "default_variant": "default",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<nav class='wb-breadcrumb {{class}}' aria-label='Fil d’Ariane'><ol>{{#content.items}}<li>{{#href}}<a href='{{href}}'>{{text}}</a>{{/href}}{{^href}}<span aria-current='page'>{{text}}</span>{{/href}}</li>{{/content.items}}</ol></nav>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "css": ".wb-breadcrumb ol { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; } .wb-breadcrumb li + li::before { content: '/'; margin-right: .4rem; color: var(--text-muted); } .wb-breadcrumb a { color: var(--primary); }"
+    },
+    "pagination": {
+      "description": "Pagination accessible.",
+      "default_variant": "default",
+      "required": [
+        "content.pages"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<nav class='wb-pagination {{class}}' aria-label='Pagination'><a href='{{content.previous_href}}' aria-label='Page précédente'>‹</a>{{#content.pages}}<a href='{{href}}' {{#current}}aria-current='page'{{/current}}>{{text}}</a>{{/content.pages}}<a href='{{content.next_href}}' aria-label='Page suivante'>›</a></nav>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "previous_href": "#",
+          "next_href": "#"
+        }
+      },
+      "css": ".wb-pagination { display: flex; flex-wrap: wrap; gap: .35rem; } .wb-pagination a { display: grid; min-width: 2.5rem; min-height: 2.5rem; place-items: center; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; } .wb-pagination a[aria-current='page'] { border-color: var(--primary); background: var(--primary); color: var(--primary-contrast); }"
+    },
+    "progress": {
+      "description": "Barre de progression avec ARIA.",
+      "default_variant": "primary",
+      "required": [
+        "content.value",
+        "content.percent"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "primary": {
+          "html": "<div class='wb-progress wb-progress-primary {{class}}' role='progressbar' aria-valuenow='{{content.value}}' aria-valuemin='0' aria-valuemax='{{content.max}}' aria-label='{{content.label}}'><span style='width: {{content.percent}}%'></span></div>",
+          "css": ".wb-progress-primary span { background: var(--primary); }",
+          "js": ""
+        },
+        "success": {
+          "html": "<div class='wb-progress wb-progress-success {{class}}' role='progressbar' aria-valuenow='{{content.value}}' aria-valuemin='0' aria-valuemax='{{content.max}}' aria-label='{{content.label}}'><span style='width: {{content.percent}}%'></span></div>",
+          "css": ".wb-progress-success span { background: var(--success); }",
+          "js": ""
+        },
+        "warning": {
+          "html": "<div class='wb-progress wb-progress-warning {{class}}' role='progressbar' aria-valuenow='{{content.value}}' aria-valuemin='0' aria-valuemax='{{content.max}}' aria-label='{{content.label}}'><span style='width: {{content.percent}}%'></span></div>",
+          "css": ".wb-progress-warning span { background: var(--warning); }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "max": "100",
+          "label": "Progression"
+        }
+      },
+      "css": ".wb-progress { height: .75rem; overflow: hidden; border-radius: 999px; background: var(--surface-2); } .wb-progress span { display: block; height: 100%; border-radius: inherit; transition: width .3s ease; }"
+    },
+    "spinner": {
+      "description": "Indicateur de chargement animé.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<span class='wb-spinner wb-spinner-default {{class}}' role='status'><span class='sr-only'>{{content.label}}</span></span>",
+          "css": "",
+          "js": ""
+        },
+        "large": {
+          "html": "<span class='wb-spinner wb-spinner-large {{class}}' role='status'><span class='sr-only'>{{content.label}}</span></span>",
+          "css": ".wb-spinner-large { width: 3rem; height: 3rem; border-width: .35rem; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "label": "Chargement…"
+        }
+      },
+      "css": ".wb-spinner { display: inline-block; width: 1.5rem; height: 1.5rem; border: .22rem solid var(--surface-2); border-top-color: var(--primary); border-radius: 50%; animation: wb-spin .8s linear infinite; } @keyframes wb-spin { to { transform: rotate(360deg); } } @media (prefers-reduced-motion: reduce) { .wb-spinner { animation-duration: 1.8s; } }"
+    },
+    "divider": {
+      "description": "Séparateur horizontal.",
+      "default_variant": "solid",
+      "required": [],
+      "accepts_children": false,
+      "variants": {
+        "solid": {
+          "html": "<hr class='wb-divider wb-divider-solid {{class}}'>",
+          "css": "",
+          "js": ""
+        },
+        "dashed": {
+          "html": "<hr class='wb-divider wb-divider-dashed {{class}}'>",
+          "css": ".wb-divider-dashed { border-top-style: dashed; }",
+          "js": ""
+        }
+      },
+      "css": ".wb-divider { width: 100%; margin-block: 1.5rem; border: 0; border-top: 1px solid var(--border); }"
+    },
+    "modal": {
+      "description": "Boîte de dialogue native pilotée par data-modal-open.",
+      "default_variant": "default",
+      "required": [
+        "content.title"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "default": {
+          "html": "<dialog class='wb-modal {{class}}' id='{{id}}'><button class='wb-modal__close' type='button' aria-label='Fermer'>×</button><div class='wb-modal__content'><h2>{{content.title}}</h2>{{#content.text}}<p>{{content.text}}</p>{{/content.text}}{{{children}}}</div></dialog>",
+          "css": "",
+          "js": ""
+        },
+        "fullscreen": {
+          "html": "<dialog class='wb-modal wb-modal-fullscreen {{class}}' id='{{id}}'><button class='wb-modal__close' type='button' aria-label='Fermer'>×</button><div class='wb-modal__content'><h2>{{content.title}}</h2>{{#content.text}}<p>{{content.text}}</p>{{/content.text}}{{{children}}}</div></dialog>",
+          "css": ".wb-modal-fullscreen { width: 100vw; max-width: none; height: 100vh; max-height: none; border: 0; border-radius: 0; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "text": ""
+        }
+      },
+      "css": ".wb-modal { width: min(100% - 2rem, 38rem); padding: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); box-shadow: var(--shadow); } .wb-modal::backdrop { background: rgba(0, 0, 0, .6); } .wb-modal__content { padding: 1.5rem; } .wb-modal__close { position: absolute; top: .65rem; right: .65rem; border: 0; background: transparent; color: inherit; font-size: 1.5rem; cursor: pointer; }",
+      "js": "document.querySelectorAll('.wb-modal').forEach((modal) => { modal.querySelector('.wb-modal__close')?.addEventListener('click', () => modal.close()); modal.addEventListener('click', (event) => { if (event.target === modal) modal.close(); }); }); document.querySelectorAll('[data-modal-open]').forEach((trigger) => trigger.addEventListener('click', () => document.getElementById(trigger.dataset.modalOpen)?.showModal()));"
+    },
+    "drawer": {
+      "description": "Panneau latéral ouvrable.",
+      "default_variant": "right",
+      "required": [
+        "content.title"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "right": {
+          "html": "<aside class='wb-drawer wb-drawer-right {{class}}' id='{{id}}' aria-hidden='true'><button class='wb-drawer__close' type='button' aria-label='Fermer'>×</button><h2>{{content.title}}</h2>{{{children}}}</aside>",
+          "css": ".wb-drawer-right { right: 0; transform: translateX(102%); } .wb-drawer-right.is-open { transform: translateX(0); }",
+          "js": ""
+        },
+        "left": {
+          "html": "<aside class='wb-drawer wb-drawer-left {{class}}' id='{{id}}' aria-hidden='true'><button class='wb-drawer__close' type='button' aria-label='Fermer'>×</button><h2>{{content.title}}</h2>{{{children}}}</aside>",
+          "css": ".wb-drawer-left { left: 0; transform: translateX(-102%); } .wb-drawer-left.is-open { transform: translateX(0); }",
+          "js": ""
+        }
+      },
+      "css": ".wb-drawer { position: fixed; z-index: 50; top: 0; width: min(90vw, 24rem); height: 100dvh; padding: 1.5rem; background: var(--bg); color: var(--text); box-shadow: var(--shadow); transition: transform .25s ease; } .wb-drawer__close { float: right; border: 0; background: transparent; color: inherit; font-size: 1.5rem; }",
+      "js": "document.querySelectorAll('.wb-drawer').forEach((drawer) => drawer.querySelector('.wb-drawer__close')?.addEventListener('click', () => { drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden', 'true'); })); document.querySelectorAll('[data-drawer-open]').forEach((trigger) => trigger.addEventListener('click', () => { const drawer = document.getElementById(trigger.dataset.drawerOpen); drawer?.classList.add('is-open'); drawer?.setAttribute('aria-hidden', 'false'); }));"
+    },
+    "dropdown": {
+      "description": "Menu déroulant accessible au clic.",
+      "default_variant": "default",
+      "required": [
+        "content.label",
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<div class='wb-dropdown {{class}}'><button class='wb-dropdown__toggle' type='button' aria-expanded='false'>{{content.label}}</button><div class='wb-dropdown__menu' hidden>{{#content.items}}<a href='{{href}}'>{{text}}</a>{{/content.items}}</div></div>",
+          "css": "",
+          "js": ""
+        },
+        "right": {
+          "html": "<div class='wb-dropdown wb-dropdown-right {{class}}'><button class='wb-dropdown__toggle' type='button' aria-expanded='false'>{{content.label}}</button><div class='wb-dropdown__menu' hidden>{{#content.items}}<a href='{{href}}'>{{text}}</a>{{/content.items}}</div></div>",
+          "css": ".wb-dropdown-right .wb-dropdown__menu { right: 0; }",
+          "js": ""
+        }
+      },
+      "css": ".wb-dropdown { position: relative; display: inline-block; } .wb-dropdown__toggle { padding: .6rem .9rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); } .wb-dropdown__menu { position: absolute; z-index: 30; top: calc(100% + .4rem); min-width: 12rem; padding: .4rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); box-shadow: var(--shadow); } .wb-dropdown__menu a { display: block; padding: .5rem .65rem; border-radius: calc(var(--radius) * .7); color: var(--text); text-decoration: none; } .wb-dropdown__menu a:hover { background: var(--surface); }",
+      "js": "document.querySelectorAll('.wb-dropdown').forEach((root) => { const button = root.querySelector('.wb-dropdown__toggle'); const menu = root.querySelector('.wb-dropdown__menu'); button?.addEventListener('click', () => { const open = menu.hasAttribute('hidden'); menu.toggleAttribute('hidden', !open); button.setAttribute('aria-expanded', String(open)); }); });"
+    },
+    "accordion": {
+      "description": "Accordéon de panneaux repliables.",
+      "default_variant": "default",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<div class='wb-accordion {{class}}'>{{#content.items}}<section class='wb-accordion__item'><h3><button type='button' aria-expanded='false'>{{title}}</button></h3><div class='wb-accordion__panel' hidden><p>{{text}}</p></div></section>{{/content.items}}</div>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "css": ".wb-accordion { border-block: 1px solid var(--border); } .wb-accordion__item + .wb-accordion__item { border-top: 1px solid var(--border); } .wb-accordion h3 { margin: 0; } .wb-accordion h3 button { width: 100%; padding: 1rem 0; border: 0; background: transparent; color: var(--text); font-weight: 700; text-align: left; cursor: pointer; } .wb-accordion__panel { padding: 0 0 1rem; color: var(--text-muted); }",
+      "js": "document.querySelectorAll('.wb-accordion__item').forEach((item) => { const button = item.querySelector('button'); const panel = item.querySelector('.wb-accordion__panel'); button?.addEventListener('click', () => { const open = button.getAttribute('aria-expanded') === 'true'; button.setAttribute('aria-expanded', String(!open)); panel?.toggleAttribute('hidden', open); }); });"
+    },
+    "tabs": {
+      "description": "Onglets accessibles au clavier et à la souris.",
+      "default_variant": "default",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<div class='wb-tabs {{class}}'><div class='wb-tabs__list' role='tablist'>{{#content.items}}<button type='button' role='tab' aria-selected='{{#selected}}true{{/selected}}{{^selected}}false{{/selected}}'>{{label}}</button>{{/content.items}}</div><div class='wb-tabs__panels'>{{#content.items}}<section role='tabpanel' {{^selected}}hidden{{/selected}}><h3>{{label}}</h3><p>{{text}}</p></section>{{/content.items}}</div></div>",
+          "css": "",
+          "js": ""
+        },
+        "pills": {
+          "html": "<div class='wb-tabs wb-tabs-pills {{class}}'><div class='wb-tabs__list' role='tablist'>{{#content.items}}<button type='button' role='tab' aria-selected='{{#selected}}true{{/selected}}{{^selected}}false{{/selected}}'>{{label}}</button>{{/content.items}}</div><div class='wb-tabs__panels'>{{#content.items}}<section role='tabpanel' {{^selected}}hidden{{/selected}}><h3>{{label}}</h3><p>{{text}}</p></section>{{/content.items}}</div></div>",
+          "css": ".wb-tabs-pills .wb-tabs__list { padding: .3rem; border: 0; border-radius: var(--radius); background: var(--surface-2); } .wb-tabs-pills [role='tab'] { border: 0; border-radius: calc(var(--radius) * .75); } .wb-tabs-pills [role='tab'][aria-selected='true'] { background: var(--bg); box-shadow: 0 1px 4px rgba(0,0,0,.12); }",
+          "js": ""
+        }
+      },
+      "css": ".wb-tabs__list { display: flex; gap: .25rem; overflow-x: auto; border-bottom: 1px solid var(--border); } .wb-tabs [role='tab'] { padding: .7rem 1rem; border: 0; border-bottom: .2rem solid transparent; background: transparent; color: var(--text-muted); cursor: pointer; } .wb-tabs [role='tab'][aria-selected='true'] { border-bottom-color: var(--primary); color: var(--text); } .wb-tabs [role='tabpanel'] { padding-block: 1rem; }",
+      "js": "document.querySelectorAll('.wb-tabs').forEach((root) => { const tabs = [...root.querySelectorAll('[role=tab]')]; const panels = [...root.querySelectorAll('[role=tabpanel]')]; tabs.forEach((tab, index) => tab.addEventListener('click', () => { tabs.forEach((item, i) => item.setAttribute('aria-selected', String(i === index))); panels.forEach((panel, i) => panel.toggleAttribute('hidden', i !== index)); })); });"
+    },
+    "toast": {
+      "description": "Notification flottante fermable.",
+      "default_variant": "info",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "info": {
+          "html": "<div class='wb-toast wb-toast-info {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div><button type='button' aria-label='Fermer'>×</button></div>",
+          "css": ".wb-toast-info { --toast-color: var(--info); }",
+          "js": ""
+        },
+        "success": {
+          "html": "<div class='wb-toast wb-toast-success {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div><button type='button' aria-label='Fermer'>×</button></div>",
+          "css": ".wb-toast-success { --toast-color: var(--success); }",
+          "js": ""
+        },
+        "error": {
+          "html": "<div class='wb-toast wb-toast-error {{class}}' role='alert'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div><button type='button' aria-label='Fermer'>×</button></div>",
+          "css": ".wb-toast-error { --toast-color: var(--danger); }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "title": ""
+        }
+      },
+      "css": ".wb-toast { display: flex; justify-content: space-between; gap: 1rem; width: min(100%, 24rem); padding: 1rem; border-left: .3rem solid var(--toast-color); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); } .wb-toast p { margin: .2rem 0 0; } .wb-toast button { border: 0; background: transparent; color: inherit; font-size: 1.3rem; }",
+      "js": "document.querySelectorAll('.wb-toast > button').forEach((button) => button.addEventListener('click', () => button.closest('.wb-toast')?.remove()));"
+    },
+    "stats": {
+      "description": "Grille d'indicateurs chiffrés.",
+      "default_variant": "grid",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "grid": {
+          "html": "<dl class='wb-stats wb-stats-grid {{class}}'>{{#content.items}}<div><dt>{{label}}</dt><dd>{{value}}</dd>{{#detail}}<small>{{detail}}</small>{{/detail}}</div>{{/content.items}}</dl>",
+          "css": "",
+          "js": ""
+        },
+        "inline": {
+          "html": "<dl class='wb-stats wb-stats-inline {{class}}'>{{#content.items}}<div><dt>{{label}}</dt><dd>{{value}}</dd></div>{{/content.items}}</dl>",
+          "css": ".wb-stats-inline { display: flex; flex-wrap: wrap; gap: 1px; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--border); } .wb-stats-inline > div { flex: 1 1 10rem; border: 0; border-radius: 0; background: var(--surface); }",
+          "js": ""
+        }
+      },
+      "css": ".wb-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; margin: 0; } .wb-stats > div { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); } .wb-stats dt { color: var(--text-muted); } .wb-stats dd { margin: .3rem 0; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; } .wb-stats small { color: var(--success); }"
+    },
+    "pricing": {
+      "description": "Carte tarifaire avec liste de fonctionnalités.",
+      "default_variant": "card",
+      "required": [
+        "content.title",
+        "content.price",
+        "content.features"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "card": {
+          "html": "<article class='wb-pricing wb-pricing-card {{class}}'><h2>{{content.title}}</h2><p class='wb-pricing__price'>{{content.price}} <small>{{content.period}}</small></p><p>{{content.text}}</p><ul>{{#content.features}}<li>{{.}}</li>{{/content.features}}</ul>{{{children}}}</article>",
+          "css": "",
+          "js": ""
+        },
+        "featured": {
+          "html": "<article class='wb-pricing wb-pricing-featured {{class}}'><span class='wb-pricing__label'>{{content.label}}</span><h2>{{content.title}}</h2><p class='wb-pricing__price'>{{content.price}} <small>{{content.period}}</small></p><p>{{content.text}}</p><ul>{{#content.features}}<li>{{.}}</li>{{/content.features}}</ul>{{{children}}}</article>",
+          "css": ".wb-pricing-featured { border: 2px solid var(--primary); box-shadow: var(--shadow); } .wb-pricing__label { display: inline-block; padding: .2rem .55rem; border-radius: 999px; background: var(--primary); color: var(--primary-contrast); font-size: .75rem; font-weight: 700; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "period": "",
+          "text": "",
+          "label": "Populaire"
+        }
+      },
+      "css": ".wb-pricing { position: relative; padding: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); } .wb-pricing__price { margin: .5rem 0; font-size: 2.2rem; font-weight: 800; } .wb-pricing__price small { color: var(--text-muted); font-size: .9rem; font-weight: 500; } .wb-pricing ul { display: grid; gap: .45rem; padding-left: 1.2rem; }"
+    },
+    "testimonial": {
+      "description": "Témoignage client avec avatar facultatif.",
+      "default_variant": "default",
+      "required": [
+        "content.text",
+        "content.name"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<figure class='wb-testimonial {{class}}'><blockquote>“{{content.text}}”</blockquote><figcaption>{{#content.avatar}}<img src='{{content.avatar}}' alt=''>{{/content.avatar}}<span><strong>{{content.name}}</strong>{{#content.role}}<small>{{content.role}}</small>{{/content.role}}</span></figcaption></figure>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "avatar": "",
+          "role": ""
+        }
+      },
+      "css": ".wb-testimonial { margin: 0; padding: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); } .wb-testimonial blockquote { margin: 0 0 1rem; font-size: 1.1rem; } .wb-testimonial figcaption { display: flex; align-items: center; gap: .7rem; } .wb-testimonial img { width: 2.75rem; height: 2.75rem; border-radius: 50%; object-fit: cover; } .wb-testimonial figcaption span { display: grid; } .wb-testimonial small { color: var(--text-muted); }"
+    },
+    "footer": {
+      "description": "Pied de page simple ou à colonnes.",
+      "default_variant": "simple",
+      "required": [
+        "content.name"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "simple": {
+          "html": "<footer class='wb-footer wb-footer-simple {{class}}'><p>© {{content.year}} {{content.name}}. {{content.text}}</p><nav aria-label='Liens de pied de page'>{{#content.links}}<a href='{{href}}'>{{text}}</a>{{/content.links}}</nav>{{{children}}}</footer>",
+          "css": "",
+          "js": ""
+        },
+        "columns": {
+          "html": "<footer class='wb-footer wb-footer-columns {{class}}'><div class='wb-footer__brand'><strong>{{content.name}}</strong><p>{{content.text}}</p></div>{{#content.columns}}<section><h2>{{title}}</h2>{{#links}}<a href='{{href}}'>{{text}}</a>{{/links}}</section>{{/content.columns}}{{{children}}}</footer>",
+          "css": ".wb-footer-columns { grid-template-columns: minmax(14rem, 2fr) repeat(auto-fit, minmax(10rem, 1fr)); }",
+          "js": ""
+        },
+        "centered": {
+          "html": "<footer class='wb-footer wb-footer-centered {{class}}'><strong>{{content.name}}</strong><nav aria-label='Liens de pied de page'>{{#content.links}}<a href='{{href}}'>{{text}}</a>{{/content.links}}</nav><p>© {{content.year}} {{content.text}}</p>{{{children}}}</footer>",
+          "css": ".wb-footer-centered { justify-items: center; text-align: center; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "year": "2026",
+          "text": "",
+          "links": [],
+          "columns": []
+        }
+      },
+      "css": ".wb-footer { display: grid; gap: 1.5rem; padding: clamp(2rem, 6vw, 4rem); border-top: 1px solid var(--border); background: var(--surface); } .wb-footer nav { display: flex; flex-wrap: wrap; gap: 1rem; } .wb-footer section { display: flex; flex-direction: column; gap: .4rem; } .wb-footer h2 { margin: 0 0 .4rem; font-size: 1rem; } .wb-footer a { color: var(--text-muted); }"
+    },
+    "video": {
+      "description": "Vidéo HTML5 responsive.",
+      "default_variant": "responsive",
+      "required": [
+        "content.src"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "responsive": {
+          "html": "<figure class='wb-video {{class}}'><video controls preload='{{content.preload}}' {{#content.poster}}poster='{{content.poster}}'{{/content.poster}}><source src='{{content.src}}' type='{{content.mime}}'>Votre navigateur ne prend pas en charge la vidéo.</video>{{#content.caption}}<figcaption>{{content.caption}}</figcaption>{{/content.caption}}</figure>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "mime": "video/mp4",
+          "preload": "metadata",
+          "poster": "",
+          "caption": ""
+        }
+      },
+      "css": ".wb-video { margin: 0; } .wb-video video { width: 100%; border-radius: var(--radius); background: #000; } .wb-video figcaption { margin-top: .5rem; color: var(--text-muted); }"
+    },
+    "code-block": {
+      "description": "Bloc de code avec langage affiché.",
+      "default_variant": "default",
+      "required": [
+        "content.code"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<figure class='wb-code {{class}}'><figcaption>{{content.language}}</figcaption><pre><code>{{content.code}}</code></pre></figure>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "language": "Code"
+        }
+      },
+      "css": ".wb-code { margin: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: #0d1526; color: #e5edff; } .wb-code figcaption { padding: .5rem .8rem; border-bottom: 1px solid #2d3b57; color: #a8b3cf; font-size: .8rem; } .wb-code pre { margin: 0; padding: 1rem; overflow-x: auto; } .wb-code code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }"
+    },
+    "details": {
+      "description": "Panneau natif details/summary.",
+      "default_variant": "default",
+      "required": [
+        "content.title"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "default": {
+          "html": "<details class='wb-details {{class}}' {{#content.open}}open{{/content.open}}><summary>{{content.title}}</summary><div>{{content.text}}</div>{{{children}}}</details>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "text": "",
+          "open": false
+        }
+      },
+      "css": ".wb-details { border: 1px solid var(--border); border-radius: var(--radius); } .wb-details summary { padding: 1rem; cursor: pointer; font-weight: 700; } .wb-details > div { padding: 0 1rem 1rem; color: var(--text-muted); }"
+    },
+    "callout": {
+      "description": "Encart éditorial avec titre.",
+      "default_variant": "note",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "note": {
+          "html": "<aside class='wb-callout wb-callout-note {{class}}'><strong>{{content.title}}</strong><p>{{content.text}}</p>{{{children}}}</aside>",
+          "css": ".wb-callout-note { --callout-color: var(--info); }",
+          "js": ""
+        },
+        "tip": {
+          "html": "<aside class='wb-callout wb-callout-tip {{class}}'><strong>{{content.title}}</strong><p>{{content.text}}</p>{{{children}}}</aside>",
+          "css": ".wb-callout-tip { --callout-color: var(--success); }",
+          "js": ""
+        },
+        "important": {
+          "html": "<aside class='wb-callout wb-callout-important {{class}}'><strong>{{content.title}}</strong><p>{{content.text}}</p>{{{children}}}</aside>",
+          "css": ".wb-callout-important { --callout-color: var(--danger); }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "title": "À noter"
+        }
+      },
+      "css": ".wb-callout { padding: 1rem 1.2rem; border: 1px solid color-mix(in srgb, var(--callout-color), transparent 50%); border-radius: var(--radius); background: color-mix(in srgb, var(--callout-color), transparent 92%); } .wb-callout p { margin: .35rem 0 0; }"
+    },
+    "gallery": {
+      "description": "Galerie d'images responsive.",
+      "default_variant": "grid",
+      "required": [
+        "content.images"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "grid": {
+          "html": "<div class='wb-gallery wb-gallery-grid {{class}}'>{{#content.images}}<figure><img src='{{src}}' alt='{{alt}}' loading='lazy'>{{#caption}}<figcaption>{{caption}}</figcaption>{{/caption}}</figure>{{/content.images}}</div>",
+          "css": "",
+          "js": ""
+        },
+        "masonry": {
+          "html": "<div class='wb-gallery wb-gallery-masonry {{class}}'>{{#content.images}}<figure><img src='{{src}}' alt='{{alt}}' loading='lazy'>{{#caption}}<figcaption>{{caption}}</figcaption>{{/caption}}</figure>{{/content.images}}</div>",
+          "css": ".wb-gallery-masonry { columns: 3 15rem; display: block; } .wb-gallery-masonry figure { margin: 0 0 1rem; break-inside: avoid; }",
+          "js": ""
+        },
+        "featured": {
+          "html": "<div class='wb-gallery wb-gallery-featured {{class}}'>{{#content.images}}<figure><img src='{{src}}' alt='{{alt}}' loading='lazy'>{{#caption}}<figcaption>{{caption}}</figcaption>{{/caption}}</figure>{{/content.images}}</div>",
+          "css": ".wb-gallery-featured { grid-template-columns: repeat(2, 1fr); } .wb-gallery-featured figure:first-child { grid-row: span 2; } .wb-gallery-featured figure:first-child img { height: 100%; } @media (max-width: 40rem) { .wb-gallery-featured { grid-template-columns: 1fr; } }",
+          "js": ""
+        }
+      },
+      "css": ".wb-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1rem; } .wb-gallery figure { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius); } .wb-gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; } .wb-gallery figcaption { padding: .5rem; color: var(--text-muted); font-size: .85rem; }"
+    },
+    "carousel": {
+      "description": "Carrousel simple avec contrôles précédent/suivant.",
+      "default_variant": "simple",
+      "required": [
+        "content.slides"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "simple": {
+          "html": "<section class='wb-carousel {{class}}' aria-label='{{content.label}}'><div class='wb-carousel__track'>{{#content.slides}}<article class='wb-carousel__slide'><img src='{{image}}' alt='{{alt}}'><h2>{{title}}</h2><p>{{text}}</p></article>{{/content.slides}}</div><div class='wb-carousel__controls'><button type='button' data-direction='-1' aria-label='Précédent'>‹</button><button type='button' data-direction='1' aria-label='Suivant'>›</button></div></section>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "label": "Carrousel"
+        }
+      },
+      "css": ".wb-carousel { overflow: hidden; } .wb-carousel__track { display: flex; transition: transform .3s ease; } .wb-carousel__slide { min-width: 100%; padding: 1rem; } .wb-carousel__slide img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; border-radius: var(--radius); } .wb-carousel__controls { display: flex; justify-content: end; gap: .5rem; margin-top: .6rem; } .wb-carousel__controls button { width: 2.6rem; height: 2.6rem; border: 1px solid var(--border); border-radius: 50%; background: var(--surface); color: var(--text); cursor: pointer; }",
+      "js": "document.querySelectorAll('.wb-carousel').forEach((root) => { const track = root.querySelector('.wb-carousel__track'); const slides = root.querySelectorAll('.wb-carousel__slide'); let index = 0; root.querySelectorAll('[data-direction]').forEach((button) => button.addEventListener('click', () => { index = (index + Number(button.dataset.direction) + slides.length) % slides.length; track.style.transform = `translateX(-${index * 100}%)`; })); });"
+    },
+    "heading": {
+      "description": "Titre éditorial de niveau 1, 2 ou 3.",
+      "default_variant": "h2",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": false,
+      "css": ".wb-heading { margin: 0 0 .65em; color: var(--text); line-height: 1.15; text-wrap: balance; }",
+      "variants": {
+        "h1": {
+          "html": "<h1 class='wb-heading wb-heading-h1 {{class}}'>{{content.text}}</h1>",
+          "css": ".wb-heading-h1 { font-size: clamp(2.2rem, 6vw, 4.5rem); }",
+          "js": ""
+        },
+        "h2": {
+          "html": "<h2 class='wb-heading wb-heading-h2 {{class}}'>{{content.text}}</h2>",
+          "css": ".wb-heading-h2 { font-size: clamp(1.7rem, 4vw, 2.8rem); }",
+          "js": ""
+        },
+        "h3": {
+          "html": "<h3 class='wb-heading wb-heading-h3 {{class}}'>{{content.text}}</h3>",
+          "css": ".wb-heading-h3 { font-size: clamp(1.25rem, 3vw, 1.7rem); }",
+          "js": ""
+        },
+        "display": {
+          "html": "<h1 class='wb-heading wb-heading-display {{class}}'>{{content.text}}</h1>",
+          "css": ".wb-heading-display { font-size: clamp(3rem, 10vw, 8rem); letter-spacing: -.045em; line-height: .92; }",
+          "js": ""
+        }
+      }
+    },
+    "text": {
+      "description": "Paragraphe de texte avec styles standard, introduction et atténué.",
+      "default_variant": "default",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<p class='wb-text wb-text-default {{class}}'>{{content.text}}</p>",
+          "css": ".wb-text-default { max-width: 70ch; }",
+          "js": ""
+        },
+        "lead": {
+          "html": "<p class='wb-text wb-text-lead {{class}}'>{{content.text}}</p>",
+          "css": ".wb-text-lead { max-width: 60ch; font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--text-muted); }",
+          "js": ""
+        },
+        "muted": {
+          "html": "<p class='wb-text wb-text-muted {{class}}'>{{content.text}}</p>",
+          "css": ".wb-text-muted { max-width: 70ch; color: var(--text-muted); font-size: .925rem; }",
+          "js": ""
+        },
+        "small": {
+          "html": "<p class='wb-text wb-text-small {{class}}'>{{content.text}}</p>",
+          "css": ".wb-text-small { color: var(--text-muted); font-size: .8rem; }",
+          "js": ""
+        },
+        "mono": {
+          "html": "<p class='wb-text wb-text-mono {{class}}'>{{content.text}}</p>",
+          "css": ".wb-text-mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }",
+          "js": ""
+        }
+      }
+    },
+    "spacer": {
+      "description": "Espace vertical décoratif.",
+      "default_variant": "medium",
+      "required": [],
+      "accepts_children": false,
+      "variants": {
+        "small": {
+          "html": "<div class='wb-spacer wb-spacer-small {{class}}' aria-hidden='true'></div>",
+          "css": ".wb-spacer-small { height: 1rem; }",
+          "js": ""
+        },
+        "medium": {
+          "html": "<div class='wb-spacer wb-spacer-medium {{class}}' aria-hidden='true'></div>",
+          "css": ".wb-spacer-medium { height: 2rem; }",
+          "js": ""
+        },
+        "large": {
+          "html": "<div class='wb-spacer wb-spacer-large {{class}}' aria-hidden='true'></div>",
+          "css": ".wb-spacer-large { height: 4rem; }",
+          "js": ""
+        }
+      }
+    },
+    "main": {
+      "description": "Zone principale sémantique.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": true,
+      "variants": {
+        "default": {
+          "html": "<main class='wb-main {{class}}'>{{{children}}}</main>",
+          "css": ".wb-main { min-height: 60vh; }",
+          "js": ""
+        },
+        "narrow": {
+          "html": "<main class='wb-main wb-main-narrow {{class}}'>{{{children}}}</main>",
+          "css": ".wb-main-narrow { width: min(100% - 2rem, 52rem); min-height: 60vh; margin-inline: auto; }",
+          "js": ""
+        }
+      }
+    },
+    "cluster": {
+      "description": "Groupe horizontal fluide pour tags, actions ou métadonnées.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": true,
+      "variants": {
+        "default": {
+          "html": "<div class='wb-cluster wb-cluster-default {{class}}'>{{{children}}}</div>",
+          "css": "",
+          "js": ""
+        },
+        "between": {
+          "html": "<div class='wb-cluster wb-cluster-between {{class}}'>{{{children}}}</div>",
+          "css": ".wb-cluster-between { justify-content: space-between; }",
+          "js": ""
+        }
+      },
+      "css": ".wb-cluster { display: flex; align-items: center; flex-wrap: wrap; gap: var(--cluster-gap, .75rem); }"
+    },
+    "sidebar-layout": {
+      "description": "Layout contenu/sidebar responsive.",
+      "default_variant": "left",
+      "required": [],
+      "accepts_children": true,
+      "variants": {
+        "left": {
+          "html": "<div class='wb-sidebar-layout wb-sidebar-left {{class}}'>{{{children}}}</div>",
+          "css": ".wb-sidebar-left { grid-template-columns: minmax(14rem, 1fr) minmax(0, 3fr); }",
+          "js": ""
+        },
+        "right": {
+          "html": "<div class='wb-sidebar-layout wb-sidebar-right {{class}}'>{{{children}}}</div>",
+          "css": ".wb-sidebar-right { grid-template-columns: minmax(0, 3fr) minmax(14rem, 1fr); }",
+          "js": ""
+        }
+      },
+      "css": ".wb-sidebar-layout { display: grid; gap: clamp(1rem, 4vw, 3rem); } @media (max-width: 48rem) { .wb-sidebar-layout { grid-template-columns: 1fr; } }"
+    },
+    "aspect-box": {
+      "description": "Cadre imposant un ratio à ses enfants.",
+      "default_variant": "video",
+      "required": [],
+      "accepts_children": true,
+      "variants": {
+        "square": {
+          "html": "<div class='wb-aspect wb-aspect-square {{class}}'>{{{children}}}</div>",
+          "css": ".wb-aspect-square { aspect-ratio: 1; }",
+          "js": ""
+        },
+        "video": {
+          "html": "<div class='wb-aspect wb-aspect-video {{class}}'>{{{children}}}</div>",
+          "css": ".wb-aspect-video { aspect-ratio: 16 / 9; }",
+          "js": ""
+        },
+        "portrait": {
+          "html": "<div class='wb-aspect wb-aspect-portrait {{class}}'>{{{children}}}</div>",
+          "css": ".wb-aspect-portrait { aspect-ratio: 3 / 4; }",
+          "js": ""
+        }
+      },
+      "css": ".wb-aspect { overflow: hidden; } .wb-aspect > img, .wb-aspect > video, .wb-aspect > iframe { width: 100%; height: 100%; object-fit: cover; }"
+    },
+    "surface": {
+      "description": "Surface visuelle servant de panneau générique.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": true,
+      "variants": {
+        "default": {
+          "html": "<div class='wb-surface wb-surface-default {{class}}'>{{{children}}}</div>",
+          "css": "",
+          "js": ""
+        },
+        "raised": {
+          "html": "<div class='wb-surface wb-surface-raised {{class}}'>{{{children}}}</div>",
+          "css": ".wb-surface-raised { box-shadow: var(--shadow); }",
+          "js": ""
+        },
+        "glass": {
+          "html": "<div class='wb-surface wb-surface-glass {{class}}'>{{{children}}}</div>",
+          "css": ".wb-surface-glass { border-color: color-mix(in srgb, white, transparent 65%); background: color-mix(in srgb, var(--surface), transparent 25%); backdrop-filter: blur(14px); }",
+          "js": ""
+        }
+      },
+      "css": ".wb-surface { padding: clamp(1rem, 3vw, 2rem); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }"
+    },
+    "banner": {
+      "description": "Bannière pleine largeur avec actions enfants.",
+      "default_variant": "info",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "info": {
+          "html": "<aside class='wb-banner wb-banner-info {{class}}'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{{children}}}</aside>",
+          "css": ".wb-banner-info { --banner-color: var(--info); }",
+          "js": ""
+        },
+        "promo": {
+          "html": "<aside class='wb-banner wb-banner-promo {{class}}'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{{children}}}</aside>",
+          "css": ".wb-banner-promo { --banner-color: var(--secondary); }",
+          "js": ""
+        },
+        "warning": {
+          "html": "<aside class='wb-banner wb-banner-warning {{class}}'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{{children}}}</aside>",
+          "css": ".wb-banner-warning { --banner-color: var(--warning); }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "title": ""
+        }
+      },
+      "css": ".wb-banner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 1rem clamp(1rem, 4vw, 3rem); border-bottom: 3px solid var(--banner-color); background: color-mix(in srgb, var(--banner-color), transparent 90%); } .wb-banner p { margin: .2rem 0 0; }"
+    },
+    "feature": {
+      "description": "Bloc de fonctionnalité avec pictogramme ou média.",
+      "default_variant": "icon",
+      "required": [
+        "content.title",
+        "content.text"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "icon": {
+          "html": "<article class='wb-feature wb-feature-icon {{class}}'><span class='wb-feature__icon' aria-hidden='true'>{{content.icon}}</span><h2>{{content.title}}</h2><p>{{content.text}}</p>{{{children}}}</article>",
+          "css": "",
+          "js": ""
+        },
+        "media": {
+          "html": "<article class='wb-feature wb-feature-media {{class}}'><img src='{{content.image}}' alt='{{content.image_alt}}'><div><h2>{{content.title}}</h2><p>{{content.text}}</p>{{{children}}}</div></article>",
+          "css": ".wb-feature-media { display: grid; grid-template-columns: minmax(10rem, 1fr) 2fr; align-items: center; gap: 1.25rem; } .wb-feature-media img { border-radius: var(--radius); } @media (max-width: 38rem) { .wb-feature-media { grid-template-columns: 1fr; } }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "icon": "✦",
+          "image": "",
+          "image_alt": ""
+        }
+      },
+      "css": ".wb-feature { padding: 1.25rem; } .wb-feature__icon { display: grid; width: 2.75rem; height: 2.75rem; place-items: center; border-radius: var(--radius); background: var(--primary); color: var(--primary-contrast); font-size: 1.35rem; } .wb-feature h2 { margin: .8rem 0 .3rem; font-size: 1.2rem; } .wb-feature p { margin: 0; color: var(--text-muted); }"
+    },
+    "logo-cloud": {
+      "description": "Grille de logos clients ou partenaires.",
+      "default_variant": "default",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<section class='wb-logo-cloud {{class}}' aria-label='{{content.label}}'>{{#content.items}}<img src='{{src}}' alt='{{alt}}' loading='lazy'>{{/content.items}}</section>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "label": "Partenaires"
+        }
+      },
+      "css": ".wb-logo-cloud { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); align-items: center; gap: 2rem; } .wb-logo-cloud img { max-width: 9rem; max-height: 3rem; margin: auto; object-fit: contain; filter: grayscale(1); opacity: .72; }"
+    },
+    "team-grid": {
+      "description": "Grille de membres d'équipe.",
+      "default_variant": "default",
+      "required": [
+        "content.members"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<section class='wb-team {{class}}'>{{#content.members}}<article><img src='{{image}}' alt='{{name}}' loading='lazy'><h2>{{name}}</h2><p>{{role}}</p>{{#bio}}<small>{{bio}}</small>{{/bio}}</article>{{/content.members}}</section>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "css": ".wb-team { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1.5rem; } .wb-team article { text-align: center; } .wb-team img { width: 9rem; height: 9rem; margin: auto; border-radius: 50%; object-fit: cover; } .wb-team h2 { margin: .75rem 0 .15rem; font-size: 1.1rem; } .wb-team p, .wb-team small { color: var(--text-muted); }"
+    },
+    "timeline": {
+      "description": "Chronologie d'événements.",
+      "default_variant": "vertical",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "vertical": {
+          "html": "<ol class='wb-timeline wb-timeline-vertical {{class}}'>{{#content.items}}<li><time>{{date}}</time><h2>{{title}}</h2><p>{{text}}</p></li>{{/content.items}}</ol>",
+          "css": "",
+          "js": ""
+        },
+        "compact": {
+          "html": "<ol class='wb-timeline wb-timeline-compact {{class}}'>{{#content.items}}<li><time>{{date}}</time><span>{{title}}</span></li>{{/content.items}}</ol>",
+          "css": ".wb-timeline-compact li { display: flex; align-items: baseline; gap: 1rem; padding-block: .55rem; } .wb-timeline-compact li::before { top: .9rem; }",
+          "js": ""
+        }
+      },
+      "css": ".wb-timeline { position: relative; display: grid; gap: 1rem; margin: 0; padding: 0 0 0 1.4rem; border-left: 2px solid var(--border); list-style: none; } .wb-timeline li { position: relative; } .wb-timeline li::before { content: \"\"; position: absolute; top: .45rem; left: calc(-1.4rem - 6px); width: 10px; height: 10px; border-radius: 50%; background: var(--primary); } .wb-timeline time { color: var(--primary); font-size: .8rem; font-weight: 700; } .wb-timeline h2 { margin: .2rem 0; font-size: 1.1rem; } .wb-timeline p { margin: 0; color: var(--text-muted); }"
+    },
+    "steps": {
+      "description": "Indicateur d'étapes de processus.",
+      "default_variant": "horizontal",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "horizontal": {
+          "html": "<ol class='wb-steps wb-steps-horizontal {{class}}'>{{#content.items}}<li class='{{#complete}}is-complete{{/complete}} {{#current}}is-current{{/current}}'><span>{{number}}</span><strong>{{text}}</strong></li>{{/content.items}}</ol>",
+          "css": "",
+          "js": ""
+        },
+        "vertical": {
+          "html": "<ol class='wb-steps wb-steps-vertical {{class}}'>{{#content.items}}<li class='{{#complete}}is-complete{{/complete}} {{#current}}is-current{{/current}}'><span>{{number}}</span><strong>{{text}}</strong></li>{{/content.items}}</ol>",
+          "css": ".wb-steps-vertical { flex-direction: column; } .wb-steps-vertical li { flex-direction: row; }",
+          "js": ""
+        }
+      },
+      "css": ".wb-steps { display: flex; justify-content: space-between; gap: 1rem; margin: 0; padding: 0; list-style: none; } .wb-steps li { display: flex; align-items: center; flex-direction: column; gap: .35rem; color: var(--text-muted); text-align: center; } .wb-steps li span { display: grid; width: 2rem; height: 2rem; place-items: center; border: 2px solid var(--border); border-radius: 50%; } .wb-steps .is-complete span, .wb-steps .is-current span { border-color: var(--primary); background: var(--primary); color: var(--primary-contrast); } .wb-steps .is-current { color: var(--text); }"
+    },
+    "empty-state": {
+      "description": "État vide avec illustration et action.",
+      "default_variant": "default",
+      "required": [
+        "content.title"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "default": {
+          "html": "<section class='wb-empty {{class}}'><div class='wb-empty__icon' aria-hidden='true'>{{content.icon}}</div><h2>{{content.title}}</h2><p>{{content.text}}</p>{{{children}}}</section>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "icon": "◇",
+          "text": ""
+        }
+      },
+      "css": ".wb-empty { display: grid; justify-items: center; max-width: 34rem; margin-inline: auto; padding: clamp(2rem, 6vw, 4rem); text-align: center; } .wb-empty__icon { display: grid; width: 4rem; height: 4rem; place-items: center; border-radius: 50%; background: var(--surface-2); color: var(--primary); font-size: 2rem; } .wb-empty h2 { margin: 1rem 0 .35rem; } .wb-empty p { color: var(--text-muted); }"
+    },
+    "skeleton": {
+      "description": "Placeholder de chargement animé et accessible.",
+      "default_variant": "text",
+      "required": [],
+      "accepts_children": false,
+      "variants": {
+        "text": {
+          "html": "<div class='wb-skeleton wb-skeleton-text {{class}}' aria-label='{{content.label}}' role='status'><i></i><i></i><i></i></div>",
+          "css": ".wb-skeleton-text i { display: block; height: .8rem; margin-block: .55rem; border-radius: 999px; background: var(--surface-2); } .wb-skeleton-text i:last-child { width: 65%; }",
+          "js": ""
+        },
+        "card": {
+          "html": "<div class='wb-skeleton wb-skeleton-card {{class}}' aria-label='{{content.label}}' role='status'><i></i><span></span><span></span></div>",
+          "css": ".wb-skeleton-card { padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius); } .wb-skeleton-card i { display: block; height: 9rem; border-radius: var(--radius); background: var(--surface-2); } .wb-skeleton-card span { display: block; height: .8rem; margin-top: .75rem; border-radius: 999px; background: var(--surface-2); }",
+          "js": ""
+        },
+        "avatar": {
+          "html": "<div class='wb-skeleton wb-skeleton-avatar {{class}}' aria-label='{{content.label}}' role='status'><i></i><span></span></div>",
+          "css": ".wb-skeleton-avatar { display: flex; align-items: center; gap: .75rem; } .wb-skeleton-avatar i { width: 3rem; height: 3rem; border-radius: 50%; background: var(--surface-2); } .wb-skeleton-avatar span { width: 10rem; height: .8rem; border-radius: 999px; background: var(--surface-2); }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "label": "Chargement…"
+        }
+      },
+      "css": ".wb-skeleton > * { background-image: linear-gradient(90deg, transparent, color-mix(in srgb, white, transparent 60%), transparent) !important; background-size: 220% 100% !important; animation: wb-shimmer 1.4s infinite; } @keyframes wb-shimmer { to { background-position: -220% 0; } } @media (prefers-reduced-motion: reduce) { .wb-skeleton > * { animation: none; } }"
+    },
+    "switch": {
+      "description": "Interrupteur booléen accessible.",
+      "default_variant": "default",
+      "required": [
+        "content.name",
+        "content.label"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<label class='wb-switch {{class}}'><input type='checkbox' name='{{content.name}}' {{#content.checked}}checked{{/content.checked}}><span aria-hidden='true'></span><strong>{{content.label}}</strong></label>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "checked": false
+        }
+      },
+      "css": ".wb-switch { display: inline-flex; align-items: center; gap: .65rem; cursor: pointer; } .wb-switch input { position: absolute; opacity: 0; } .wb-switch > span { position: relative; width: 2.8rem; height: 1.55rem; border-radius: 999px; background: var(--surface-2); transition: background .2s; } .wb-switch > span::after { content: \"\"; position: absolute; top: .2rem; left: .2rem; width: 1.15rem; height: 1.15rem; border-radius: 50%; background: white; box-shadow: 0 1px 4px rgba(0,0,0,.25); transition: transform .2s; } .wb-switch input:checked + span { background: var(--primary); } .wb-switch input:checked + span::after { transform: translateX(1.25rem); } .wb-switch input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }"
+    },
+    "range": {
+      "description": "Curseur numérique avec valeur affichée.",
+      "default_variant": "default",
+      "required": [
+        "content.name",
+        "content.label"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<label class='wb-range {{class}}'><span>{{content.label}} <output>{{content.value}}</output></span><input type='range' name='{{content.name}}' min='{{content.min}}' max='{{content.max}}' step='{{content.step}}' value='{{content.value}}'></label>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "min": "0",
+          "max": "100",
+          "step": "1",
+          "value": "50"
+        }
+      },
+      "css": ".wb-range { display: grid; gap: .5rem; } .wb-range > span { display: flex; justify-content: space-between; font-weight: 650; } .wb-range input { width: 100%; accent-color: var(--primary); }",
+      "js": "document.querySelectorAll('.wb-range').forEach((root) => { const input = root.querySelector('input'); const output = root.querySelector('output'); input?.addEventListener('input', () => { output.textContent = input.value; }); });"
+    },
+    "file-dropzone": {
+      "description": "Zone de dépôt de fichiers avec input natif.",
+      "default_variant": "default",
+      "required": [
+        "content.name",
+        "content.label"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<label class='wb-dropzone {{class}}'><input type='file' name='{{content.name}}' {{#content.multiple}}multiple{{/content.multiple}} accept='{{content.accept}}'><span class='wb-dropzone__icon' aria-hidden='true'>⇧</span><strong>{{content.label}}</strong><small>{{content.help}}</small></label>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "multiple": false,
+          "accept": "",
+          "help": "Cliquez ou déposez vos fichiers"
+        }
+      },
+      "css": ".wb-dropzone { display: grid; justify-items: center; gap: .35rem; padding: 2rem; border: 2px dashed var(--border); border-radius: var(--radius); background: var(--surface); text-align: center; cursor: pointer; transition: border-color .2s, background .2s; } .wb-dropzone.is-dragging { border-color: var(--primary); background: color-mix(in srgb, var(--primary), transparent 92%); } .wb-dropzone input { position: absolute; width: 1px; height: 1px; opacity: 0; } .wb-dropzone__icon { font-size: 2rem; color: var(--primary); } .wb-dropzone small { color: var(--text-muted); }",
+      "js": "document.querySelectorAll('.wb-dropzone').forEach((root) => { const input = root.querySelector('input'); const help = root.querySelector('small'); ['dragenter','dragover'].forEach((name) => root.addEventListener(name, (event) => { event.preventDefault(); root.classList.add('is-dragging'); })); ['dragleave','drop'].forEach((name) => root.addEventListener(name, (event) => { event.preventDefault(); root.classList.remove('is-dragging'); })); root.addEventListener('drop', (event) => { if (event.dataTransfer?.files.length) { input.files = event.dataTransfer.files; help.textContent = `${event.dataTransfer.files.length} fichier(s) sélectionné(s)`; } }); input?.addEventListener('change', () => { if (input.files?.length) help.textContent = `${input.files.length} fichier(s) sélectionné(s)`; }); });"
+    },
+    "search-bar": {
+      "description": "Champ de recherche avec bouton d’effacement.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<form class='wb-search {{class}}' action='{{content.action}}' role='search'><label class='sr-only' for='{{id}}-input'>{{content.label}}</label><input id='{{id}}-input' type='search' name='{{content.name}}' placeholder='{{content.placeholder}}'><button type='submit'>{{content.button_text}}</button><button class='wb-search__clear' type='button' aria-label='Effacer'>×</button></form>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "action": "",
+          "label": "Rechercher",
+          "name": "q",
+          "placeholder": "Rechercher…",
+          "button_text": "Rechercher"
+        }
+      },
+      "css": ".wb-search { display: flex; align-items: stretch; max-width: 38rem; } .wb-search input { flex: 1; min-width: 0; padding: .65rem .8rem; border: 1px solid var(--border); border-radius: var(--radius) 0 0 var(--radius); background: var(--bg); color: var(--text); } .wb-search button { border: 0; background: var(--primary); color: var(--primary-contrast); padding-inline: 1rem; } .wb-search__clear { border-left: 1px solid color-mix(in srgb, white, transparent 70%) !important; border-radius: 0 var(--radius) var(--radius) 0; }",
+      "js": "document.querySelectorAll('.wb-search').forEach((root) => { const input = root.querySelector('input'); root.querySelector('.wb-search__clear')?.addEventListener('click', () => { input.value = ''; input.focus(); input.dispatchEvent(new Event('input', { bubbles: true })); }); });"
+    },
+    "rating": {
+      "description": "Notation par étoiles interactive ou en lecture seule.",
+      "default_variant": "interactive",
+      "required": [
+        "content.value"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "interactive": {
+          "html": "<div class='wb-rating wb-rating-interactive {{class}}' role='group' aria-label='{{content.label}}' data-value='{{content.value}}'><input type='hidden' name='{{content.name}}' value='{{content.value}}'>{{#content.stars}}<button type='button' data-value='{{.}}' aria-label='{{.}} sur 5'>★</button>{{/content.stars}}</div>",
+          "css": "",
+          "js": ""
+        },
+        "readonly": {
+          "html": "<div class='wb-rating wb-rating-readonly {{class}}' aria-label='{{content.value}} sur 5'><span style='--rating: {{content.percent}}%'>★★★★★</span></div>",
+          "css": ".wb-rating-readonly span { display: inline-block; background: linear-gradient(90deg, var(--warning) var(--rating), var(--surface-2) var(--rating)); color: transparent; background-clip: text; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "name": "rating",
+          "label": "Note",
+          "stars": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "percent": "100"
+        }
+      },
+      "css": ".wb-rating { display: inline-flex; gap: .2rem; font-size: 1.7rem; } .wb-rating button { padding: 0; border: 0; background: transparent; color: var(--surface-2); cursor: pointer; } .wb-rating button.is-active { color: var(--warning); }",
+      "js": "document.querySelectorAll('.wb-rating-interactive').forEach((root) => { const input = root.querySelector('input'); const buttons = [...root.querySelectorAll('button')]; const paint = (value) => buttons.forEach((button) => button.classList.toggle('is-active', Number(button.dataset.value) <= value)); paint(Number(root.dataset.value)); buttons.forEach((button) => button.addEventListener('click', () => { const value = Number(button.dataset.value); input.value = String(value); root.dataset.value = String(value); paint(value); root.dispatchEvent(new CustomEvent('ratingchange', { detail: { value }, bubbles: true })); })); });"
+    },
+    "tooltip": {
+      "description": "Infobulle accessible au survol et au focus.",
+      "default_variant": "top",
+      "required": [
+        "content.text",
+        "content.tooltip"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "top": {
+          "html": "<span class='wb-tooltip wb-tooltip-top {{class}}' tabindex='0'>{{content.text}}<span role='tooltip'>{{content.tooltip}}</span></span>",
+          "css": "",
+          "js": ""
+        },
+        "bottom": {
+          "html": "<span class='wb-tooltip wb-tooltip-bottom {{class}}' tabindex='0'>{{content.text}}<span role='tooltip'>{{content.tooltip}}</span></span>",
+          "css": ".wb-tooltip-bottom [role='tooltip'] { top: calc(100% + .5rem); bottom: auto; }",
+          "js": ""
+        }
+      },
+      "css": ".wb-tooltip { position: relative; display: inline-block; border-bottom: 1px dotted currentColor; cursor: help; } .wb-tooltip [role='tooltip'] { position: absolute; z-index: 40; bottom: calc(100% + .5rem); left: 50%; width: max-content; max-width: 16rem; padding: .4rem .6rem; border-radius: .35rem; background: var(--text); color: var(--bg); font-size: .78rem; transform: translateX(-50%); opacity: 0; pointer-events: none; transition: opacity .15s; } .wb-tooltip:hover [role='tooltip'], .wb-tooltip:focus [role='tooltip'] { opacity: 1; }"
+    },
+    "popover": {
+      "description": "Panneau contextuel ouvert par un bouton.",
+      "default_variant": "default",
+      "required": [
+        "content.label"
+      ],
+      "accepts_children": true,
+      "variants": {
+        "default": {
+          "html": "<div class='wb-popover {{class}}'><button class='wb-popover__toggle' type='button' aria-expanded='false'>{{content.label}}</button><div class='wb-popover__panel' hidden><h2>{{content.title}}</h2><p>{{content.text}}</p>{{{children}}}</div></div>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "title": "",
+          "text": ""
+        }
+      },
+      "css": ".wb-popover { position: relative; display: inline-block; } .wb-popover__toggle { padding: .6rem .9rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); } .wb-popover__panel { position: absolute; z-index: 40; top: calc(100% + .5rem); left: 0; width: min(20rem, 90vw); padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); box-shadow: var(--shadow); } .wb-popover__panel h2 { margin-top: 0; font-size: 1rem; }",
+      "js": "document.querySelectorAll('.wb-popover').forEach((root) => { const button = root.querySelector('.wb-popover__toggle'); const panel = root.querySelector('.wb-popover__panel'); button?.addEventListener('click', () => { const open = panel.hasAttribute('hidden'); panel.toggleAttribute('hidden', !open); button.setAttribute('aria-expanded', String(open)); }); document.addEventListener('click', (event) => { if (!root.contains(event.target)) { panel.setAttribute('hidden', ''); button.setAttribute('aria-expanded', 'false'); } }); });"
+    },
+    "cookie-banner": {
+      "description": "Bannière de consentement mémorisée localement.",
+      "default_variant": "default",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<aside class='wb-cookie {{class}}' data-storage-key='{{content.storage_key}}' role='dialog' aria-label='{{content.title}}'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div><div class='wb-cookie__actions'><button type='button' data-choice='reject'>{{content.reject_text}}</button><button type='button' data-choice='accept'>{{content.accept_text}}</button></div></aside>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "storage_key": "webuilder-cookie-consent",
+          "title": "Vos préférences",
+          "reject_text": "Refuser",
+          "accept_text": "Accepter"
+        }
+      },
+      "css": ".wb-cookie { position: fixed; z-index: 100; right: 1rem; bottom: 1rem; display: flex; align-items: center; gap: 1rem; width: min(calc(100% - 2rem), 46rem); padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); box-shadow: var(--shadow); } .wb-cookie p { margin: .25rem 0 0; color: var(--text-muted); } .wb-cookie__actions { display: flex; gap: .5rem; } .wb-cookie button { padding: .5rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); } .wb-cookie button[data-choice=accept] { background: var(--primary); color: var(--primary-contrast); } @media (max-width: 42rem) { .wb-cookie { align-items: stretch; flex-direction: column; } }",
+      "js": "document.querySelectorAll('.wb-cookie').forEach((root) => { const key = root.dataset.storageKey; if (localStorage.getItem(key)) { root.remove(); return; } root.querySelectorAll('[data-choice]').forEach((button) => button.addEventListener('click', () => { localStorage.setItem(key, button.dataset.choice); root.remove(); document.dispatchEvent(new CustomEvent('cookieconsent', { detail: { choice: button.dataset.choice } })); })); });"
+    },
+    "copy-button": {
+      "description": "Bouton copiant du texte dans le presse-papiers.",
+      "default_variant": "default",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<button class='wb-copy {{class}}' type='button' data-copy-text='{{content.text}}' data-success-text='{{content.success_text}}'>{{content.label}}</button>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "label": "Copier",
+          "success_text": "Copié !"
+        }
+      },
+      "css": ".wb-copy { display: inline-flex; padding: .5rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); cursor: pointer; }",
+      "js": "document.querySelectorAll('.wb-copy').forEach((button) => button.addEventListener('click', async () => { const original = button.textContent; try { await navigator.clipboard.writeText(button.dataset.copyText); button.textContent = button.dataset.successText; setTimeout(() => { button.textContent = original; }, 1500); } catch (error) { console.error('Clipboard unavailable', error); } }));"
+    },
+    "back-to-top": {
+      "description": "Bouton flottant de retour en haut.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<button class='wb-back-to-top {{class}}' type='button' aria-label='{{content.label}}'>↑</button>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "label": "Retour en haut"
+        }
+      },
+      "css": ".wb-back-to-top { position: fixed; z-index: 30; right: 1rem; bottom: 1rem; display: grid; width: 3rem; height: 3rem; place-items: center; border: 0; border-radius: 50%; background: var(--primary); color: var(--primary-contrast); box-shadow: var(--shadow); cursor: pointer; opacity: 0; transform: translateY(1rem); pointer-events: none; transition: opacity .2s, transform .2s; } .wb-back-to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }",
+      "js": "document.querySelectorAll('.wb-back-to-top').forEach((button) => { const update = () => button.classList.toggle('is-visible', scrollY > 500); addEventListener('scroll', update, { passive: true }); update(); button.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' })); });"
+    },
+    "counter": {
+      "description": "Compteur animé au passage dans la fenêtre.",
+      "default_variant": "default",
+      "required": [
+        "content.value"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<strong class='wb-counter {{class}}' data-target='{{content.value}}' data-duration='{{content.duration}}'>0</strong>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "duration": "1200"
+        }
+      },
+      "css": ".wb-counter { font-variant-numeric: tabular-nums; font-size: clamp(1.8rem, 5vw, 3.5rem); }",
+      "js": "document.querySelectorAll('.wb-counter').forEach((element) => { const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (!entry.isIntersecting) return; observer.disconnect(); const target = Number(element.dataset.target); const duration = Number(element.dataset.duration); const start = performance.now(); const tick = (now) => { const progress = Math.min(1, (now - start) / duration); element.textContent = String(Math.round(target * (1 - Math.pow(1 - progress, 3)))); if (progress < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); })); observer.observe(element); });"
+    },
+    "countdown": {
+      "description": "Compte à rebours vers une date ISO.",
+      "default_variant": "default",
+      "required": [
+        "content.datetime"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<div class='wb-countdown {{class}}' data-target='{{content.datetime}}'><div><strong data-unit='days'>0</strong><span>jours</span></div><div><strong data-unit='hours'>0</strong><span>heures</span></div><div><strong data-unit='minutes'>0</strong><span>minutes</span></div><div><strong data-unit='seconds'>0</strong><span>secondes</span></div></div>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "css": ".wb-countdown { display: flex; flex-wrap: wrap; gap: .75rem; } .wb-countdown > div { min-width: 5rem; padding: .8rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); text-align: center; } .wb-countdown strong, .wb-countdown span { display: block; } .wb-countdown strong { font-size: 1.6rem; } .wb-countdown span { color: var(--text-muted); font-size: .7rem; text-transform: uppercase; }",
+      "js": "document.querySelectorAll('.wb-countdown').forEach((root) => { const target = new Date(root.dataset.target).getTime(); const update = () => { let seconds = Math.max(0, Math.floor((target - Date.now()) / 1000)); const values = { days: Math.floor(seconds / 86400), hours: Math.floor(seconds / 3600) % 24, minutes: Math.floor(seconds / 60) % 60, seconds: seconds % 60 }; Object.entries(values).forEach(([unit, value]) => { const node = root.querySelector(`[data-unit=${unit}]`); if (node) node.textContent = String(value).padStart(2, '0'); }); if (seconds <= 0) clearInterval(timer); }; const timer = setInterval(update, 1000); update(); });"
+    },
+    "audio": {
+      "description": "Lecteur audio HTML5.",
+      "default_variant": "default",
+      "required": [
+        "content.src"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<figure class='wb-audio {{class}}'><audio controls preload='{{content.preload}}' src='{{content.src}}'></audio>{{#content.caption}}<figcaption>{{content.caption}}</figcaption>{{/content.caption}}</figure>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "preload": "metadata",
+          "caption": ""
+        }
+      },
+      "css": ".wb-audio { margin: 0; } .wb-audio audio { width: 100%; } .wb-audio figcaption { margin-top: .4rem; color: var(--text-muted); font-size: .85rem; }"
+    },
+    "iframe": {
+      "description": "Contenu externe responsive en iframe.",
+      "default_variant": "responsive",
+      "required": [
+        "content.src",
+        "content.title"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "responsive": {
+          "html": "<div class='wb-iframe {{class}}'><iframe src='{{content.src}}' title='{{content.title}}' loading='lazy' allowfullscreen></iframe></div>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "css": ".wb-iframe { overflow: hidden; aspect-ratio: 16 / 9; border-radius: var(--radius); background: var(--surface-2); } .wb-iframe iframe { width: 100%; height: 100%; border: 0; }"
+    },
+    "social-links": {
+      "description": "Liste de liens vers les réseaux sociaux.",
+      "default_variant": "default",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<nav class='wb-social {{class}}' aria-label='{{content.label}}'>{{#content.items}}<a href='{{href}}' target='_blank' rel='noopener noreferrer' aria-label='{{name}}'>{{icon}}<span>{{name}}</span></a>{{/content.items}}</nav>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "label": "Réseaux sociaux"
+        }
+      },
+      "css": ".wb-social { display: flex; flex-wrap: wrap; gap: .5rem; } .wb-social a { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .65rem; border: 1px solid var(--border); border-radius: 999px; color: var(--text); text-decoration: none; } .wb-social a:hover { border-color: var(--primary); color: var(--primary); }"
+    },
+    "data-list": {
+      "description": "Liste structurée clé/valeur.",
+      "default_variant": "default",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<dl class='wb-data-list wb-data-list-default {{class}}'>{{#content.items}}<div><dt>{{label}}</dt><dd>{{value}}</dd></div>{{/content.items}}</dl>",
+          "css": "",
+          "js": ""
+        },
+        "striped": {
+          "html": "<dl class='wb-data-list wb-data-list-striped {{class}}'>{{#content.items}}<div><dt>{{label}}</dt><dd>{{value}}</dd></div>{{/content.items}}</dl>",
+          "css": ".wb-data-list-striped > div:nth-child(odd) { background: var(--surface); }",
+          "js": ""
+        }
+      },
+      "css": ".wb-data-list { margin: 0; border: 1px solid var(--border); border-radius: var(--radius); } .wb-data-list > div { display: grid; grid-template-columns: minmax(8rem, 1fr) 2fr; gap: 1rem; padding: .7rem 1rem; } .wb-data-list > div + div { border-top: 1px solid var(--border); } .wb-data-list dt { color: var(--text-muted); } .wb-data-list dd { margin: 0; font-weight: 600; }"
+    },
+    "meter": {
+      "description": "Jauge native avec libellé.",
+      "default_variant": "default",
+      "required": [
+        "content.label",
+        "content.value"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<label class='wb-meter {{class}}'><span>{{content.label}} <strong>{{content.value}}/{{content.max}}</strong></span><meter min='{{content.min}}' max='{{content.max}}' low='{{content.low}}' high='{{content.high}}' optimum='{{content.optimum}}' value='{{content.value}}'>{{content.value}}</meter></label>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "min": "0",
+          "max": "100",
+          "low": "30",
+          "high": "70",
+          "optimum": "90"
+        }
+      },
+      "css": ".wb-meter { display: grid; gap: .4rem; } .wb-meter > span { display: flex; justify-content: space-between; } .wb-meter meter { width: 100%; height: 1rem; accent-color: var(--primary); }"
+    },
+    "kbd": {
+      "description": "Affichage d’un raccourci clavier.",
+      "default_variant": "default",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<kbd class='wb-kbd {{class}}'>{{content.text}}</kbd>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "css": ".wb-kbd { display: inline-block; padding: .18rem .45rem; border: 1px solid var(--border); border-bottom-width: 3px; border-radius: .35rem; background: var(--surface); color: var(--text); font-family: ui-monospace, monospace; font-size: .82em; }"
+    },
+    "marquee": {
+      "description": "Ruban de contenu défilant sans JavaScript.",
+      "default_variant": "default",
+      "required": [
+        "content.items"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<div class='wb-marquee {{class}}' aria-label='{{content.label}}'><div>{{#content.items}}<span>{{.}}</span>{{/content.items}}{{#content.items}}<span aria-hidden='true'>{{.}}</span>{{/content.items}}</div></div>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "label": "Informations défilantes"
+        }
+      },
+      "css": ".wb-marquee { overflow: hidden; } .wb-marquee > div { display: flex; width: max-content; animation: wb-marquee 24s linear infinite; } .wb-marquee span { padding-inline: 2rem; white-space: nowrap; } @keyframes wb-marquee { to { transform: translateX(-50%); } } @media (prefers-reduced-motion: reduce) { .wb-marquee > div { animation-play-state: paused; } }"
+    },
+    "status-dot": {
+      "description": "Statut compact avec indicateur coloré.",
+      "default_variant": "online",
+      "required": [
+        "content.text"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "online": {
+          "html": "<span class='wb-status wb-status-online {{class}}'>{{content.text}}</span>",
+          "css": ".wb-status-online::before { background: var(--success); }",
+          "js": ""
+        },
+        "offline": {
+          "html": "<span class='wb-status wb-status-offline {{class}}'>{{content.text}}</span>",
+          "css": ".wb-status-offline::before { background: var(--text-muted); }",
+          "js": ""
+        },
+        "busy": {
+          "html": "<span class='wb-status wb-status-busy {{class}}'>{{content.text}}</span>",
+          "css": ".wb-status-busy::before { background: var(--danger); }",
+          "js": ""
+        }
+      },
+      "css": ".wb-status { display: inline-flex; align-items: center; gap: .4rem; font-size: .875rem; } .wb-status::before { content: \"\"; width: .55rem; height: .55rem; border-radius: 50%; box-shadow: 0 0 0 3px var(--surface-2); }"
+    },
+    "floating-action": {
+      "description": "Bouton d’action flottant.",
+      "default_variant": "primary",
+      "required": [
+        "content.label"
+      ],
+      "accepts_children": false,
+      "variants": {
+        "primary": {
+          "html": "<button class='wb-fab wb-fab-primary {{class}}' type='button' aria-label='{{content.label}}'>{{content.icon}}</button>",
+          "css": ".wb-fab-primary { background: var(--primary); color: var(--primary-contrast); }",
+          "js": ""
+        },
+        "secondary": {
+          "html": "<button class='wb-fab wb-fab-secondary {{class}}' type='button' aria-label='{{content.label}}'>{{content.icon}}</button>",
+          "css": ".wb-fab-secondary { background: var(--secondary); color: white; }",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "icon": "+"
+        }
+      },
+      "css": ".wb-fab { position: fixed; z-index: 30; right: 1.25rem; bottom: 1.25rem; display: grid; width: 3.5rem; height: 3.5rem; place-items: center; border: 0; border-radius: 50%; box-shadow: var(--shadow); cursor: pointer; font-size: 1.5rem; transition: transform .15s; } .wb-fab:hover { transform: scale(1.06); }"
+    },
+    "skip-link": {
+      "description": "Lien d’évitement pour l’accessibilité.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<a class='wb-skip-link {{class}}' href='{{content.href}}'>{{content.text}}</a>",
+          "css": "",
+          "js": ""
+        }
+      },
+      "defaults": {
+        "content": {
+          "href": "#main",
+          "text": "Aller au contenu principal"
+        }
+      },
+      "css": ".wb-skip-link { position: fixed; z-index: 999; top: .5rem; left: .5rem; padding: .6rem .9rem; border-radius: var(--radius); background: var(--primary); color: var(--primary-contrast); transform: translateY(-180%); transition: transform .15s; } .wb-skip-link:focus { transform: none; }"
+    }
+  },
+  "shortcuts": {
+    "class": {
+      "m-0": "margin: 0;",
+      "m-1": "margin: .25rem;",
+      "m-2": "margin: .5rem;",
+      "m-3": "margin: 1rem;",
+      "m-4": "margin: 1.5rem;",
+      "m-6": "margin: 3rem;",
+      "mt-0": "margin-top: 0;",
+      "mt-1": "margin-top: .25rem;",
+      "mt-2": "margin-top: .5rem;",
+      "mt-3": "margin-top: 1rem;",
+      "mt-4": "margin-top: 1.5rem;",
+      "mt-6": "margin-top: 3rem;",
+      "mb-0": "margin-bottom: 0;",
+      "mb-1": "margin-bottom: .25rem;",
+      "mb-2": "margin-bottom: .5rem;",
+      "mb-3": "margin-bottom: 1rem;",
+      "mb-4": "margin-bottom: 1.5rem;",
+      "mb-6": "margin-bottom: 3rem;",
+      "mx-auto": "margin-left: auto; margin-right: auto;",
+      "ml-auto": "margin-left: auto;",
+      "mr-auto": "margin-right: auto;",
+      "p-0": "padding: 0;",
+      "p-1": "padding: .25rem;",
+      "p-2": "padding: .5rem;",
+      "p-3": "padding: 1rem;",
+      "p-4": "padding: 1.5rem;",
+      "p-6": "padding: 3rem;",
+      "px-2": "padding-left: .5rem; padding-right: .5rem;",
+      "px-3": "padding-left: 1rem; padding-right: 1rem;",
+      "px-4": "padding-left: 1.5rem; padding-right: 1.5rem;",
+      "py-2": "padding-top: .5rem; padding-bottom: .5rem;",
+      "py-3": "padding-top: 1rem; padding-bottom: 1rem;",
+      "py-4": "padding-top: 1.5rem; padding-bottom: 1.5rem;",
+      "py-6": "padding-top: 3rem; padding-bottom: 3rem;",
+      "flex": "display: flex;",
+      "inline-flex": "display: inline-flex;",
+      "grid": "display: grid;",
+      "block": "display: block;",
+      "inline-block": "display: inline-block;",
+      "hidden": "display: none;",
+      "flex-col": "flex-direction: column;",
+      "flex-wrap": "flex-wrap: wrap;",
+      "items-center": "align-items: center;",
+      "items-start": "align-items: flex-start;",
+      "justify-center": "justify-content: center;",
+      "justify-between": "justify-content: space-between;",
+      "justify-end": "justify-content: flex-end;",
+      "gap-1": "gap: .25rem;",
+      "gap-2": "gap: .5rem;",
+      "gap-3": "gap: 1rem;",
+      "gap-4": "gap: 1.5rem;",
+      "gap-6": "gap: 3rem;",
+      "w-full": "width: 100%;",
+      "max-w-sm": "max-width: 24rem;",
+      "max-w-md": "max-width: 32rem;",
+      "max-w-lg": "max-width: 48rem;",
+      "max-w-xl": "max-width: 64rem;",
+      "text-left": "text-align: left;",
+      "text-center": "text-align: center;",
+      "text-right": "text-align: right;",
+      "text-sm": "font-size: .875rem;",
+      "text-lg": "font-size: 1.125rem;",
+      "text-xl": "font-size: 1.5rem;",
+      "font-bold": "font-weight: 700;",
+      "font-semibold": "font-weight: 600;",
+      "text-muted": "color: var(--text-muted);",
+      "text-primary": "color: var(--primary);",
+      "bg-surface": "background: var(--surface);",
+      "rounded": "border-radius: var(--radius);",
+      "rounded-full": "border-radius: 9999px;",
+      "border": "border: 1px solid var(--border);",
+      "shadow": "box-shadow: var(--shadow);",
+      "sticky": "position: sticky; top: 0; z-index: 20;",
+      "relative": "position: relative;",
+      "overflow-hidden": "overflow: hidden;",
+      "sr-only": "position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;",
+      "static": "position: static;",
+      "fixed": "position: fixed;",
+      "absolute": "position: absolute;",
+      "inset-0": "inset: 0;",
+      "top-0": "top: 0;",
+      "right-0": "right: 0;",
+      "bottom-0": "bottom: 0;",
+      "left-0": "left: 0;",
+      "z-0": "z-index: 0;",
+      "z-10": "z-index: 10;",
+      "z-20": "z-index: 20;",
+      "z-30": "z-index: 30;",
+      "z-50": "z-index: 50;",
+      "visible": "visibility: visible;",
+      "invisible": "visibility: hidden;",
+      "opacity-0": "opacity: 0;",
+      "opacity-25": "opacity: .25;",
+      "opacity-50": "opacity: .5;",
+      "opacity-75": "opacity: .75;",
+      "opacity-100": "opacity: 1;",
+      "overflow-auto": "overflow: auto;",
+      "overflow-scroll": "overflow: scroll;",
+      "overflow-x-auto": "overflow-x: auto;",
+      "overflow-y-auto": "overflow-y: auto;",
+      "overflow-visible": "overflow: visible;",
+      "flex-1": "flex: 1 1 0%;",
+      "flex-auto": "flex: 1 1 auto;",
+      "flex-none": "flex: none;",
+      "grow": "flex-grow: 1;",
+      "grow-0": "flex-grow: 0;",
+      "shrink": "flex-shrink: 1;",
+      "shrink-0": "flex-shrink: 0;",
+      "items-end": "align-items: flex-end;",
+      "items-stretch": "align-items: stretch;",
+      "justify-start": "justify-content: flex-start;",
+      "justify-around": "justify-content: space-around;",
+      "justify-evenly": "justify-content: space-evenly;",
+      "self-center": "align-self: center;",
+      "self-start": "align-self: flex-start;",
+      "self-end": "align-self: flex-end;",
+      "place-center": "place-items: center;",
+      "content-center": "align-content: center;",
+      "grid-cols-1": "grid-template-columns: repeat(1, minmax(0, 1fr));",
+      "grid-cols-2": "grid-template-columns: repeat(2, minmax(0, 1fr));",
+      "grid-cols-3": "grid-template-columns: repeat(3, minmax(0, 1fr));",
+      "grid-cols-4": "grid-template-columns: repeat(4, minmax(0, 1fr));",
+      "grid-cols-6": "grid-template-columns: repeat(6, minmax(0, 1fr));",
+      "grid-cols-12": "grid-template-columns: repeat(12, minmax(0, 1fr));",
+      "w-auto": "width: auto;",
+      "w-screen": "width: 100vw;",
+      "h-full": "height: 100%;",
+      "h-screen": "height: 100vh;",
+      "min-h-screen": "min-height: 100vh;",
+      "max-w-prose": "max-width: 65ch;",
+      "max-w-2xl": "max-width: 42rem;",
+      "max-w-3xl": "max-width: 48rem;",
+      "max-w-4xl": "max-width: 56rem;",
+      "max-w-5xl": "max-width: 64rem;",
+      "max-w-6xl": "max-width: 72rem;",
+      "max-w-7xl": "max-width: 80rem;",
+      "text-xs": "font-size: .75rem;",
+      "text-base": "font-size: 1rem;",
+      "text-2xl": "font-size: 1.875rem;",
+      "text-3xl": "font-size: 2.25rem;",
+      "text-4xl": "font-size: 3rem;",
+      "text-5xl": "font-size: 3.75rem;",
+      "font-normal": "font-weight: 400;",
+      "font-medium": "font-weight: 500;",
+      "font-extrabold": "font-weight: 800;",
+      "uppercase": "text-transform: uppercase;",
+      "lowercase": "text-transform: lowercase;",
+      "capitalize": "text-transform: capitalize;",
+      "italic": "font-style: italic;",
+      "not-italic": "font-style: normal;",
+      "underline": "text-decoration: underline;",
+      "no-underline": "text-decoration: none;",
+      "truncate": "overflow: hidden; text-overflow: ellipsis; white-space: nowrap;",
+      "whitespace-nowrap": "white-space: nowrap;",
+      "break-words": "overflow-wrap: break-word;",
+      "leading-none": "line-height: 1;",
+      "leading-tight": "line-height: 1.25;",
+      "leading-normal": "line-height: 1.5;",
+      "leading-loose": "line-height: 2;",
+      "tracking-tight": "letter-spacing: -.025em;",
+      "tracking-wide": "letter-spacing: .05em;",
+      "bg-primary": "background-color: var(--primary);",
+      "bg-secondary": "background-color: var(--secondary);",
+      "bg-transparent": "background-color: transparent;",
+      "text-white": "color: white;",
+      "text-success": "color: var(--success);",
+      "text-danger": "color: var(--danger);",
+      "border-primary": "border-color: var(--primary);",
+      "rounded-none": "border-radius: 0;",
+      "rounded-sm": "border-radius: .25rem;",
+      "rounded-md": "border-radius: .5rem;",
+      "rounded-lg": "border-radius: 1rem;",
+      "rounded-xl": "border-radius: 1.5rem;",
+      "border-0": "border-width: 0;",
+      "border-2": "border-width: 2px;",
+      "border-4": "border-width: 4px;",
+      "border-dashed": "border-style: dashed;",
+      "object-cover": "object-fit: cover;",
+      "object-contain": "object-fit: contain;",
+      "aspect-square": "aspect-ratio: 1;",
+      "aspect-video": "aspect-ratio: 16 / 9;",
+      "cursor-pointer": "cursor: pointer;",
+      "cursor-not-allowed": "cursor: not-allowed;",
+      "select-none": "user-select: none;",
+      "pointer-events-none": "pointer-events: none;",
+      "transition": "transition: all .2s ease;",
+      "transition-colors": "transition: color .2s ease, background-color .2s ease, border-color .2s ease;",
+      "duration-300": "transition-duration: .3s;",
+      "isolate": "isolation: isolate;"
+    }
+  }
+}

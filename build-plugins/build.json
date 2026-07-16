@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "title": "Mon nouveau site",
+    "theme": "light",
+    "lang": "fr",
+    "description": "Site créé avec WeBuilder"
+  },
+  "assets": [],
+  "pages": [
+    {
+      "path": "index.html",
+      "components": [
+        {
+          "type": "hero",
+          "variant": "centered",
+          "content": {
+            "eyebrow": "Nouveau projet",
+            "title": "Votre site commence ici",
+            "text": "Modifiez build.json et profitez de la preview avec rechargement automatique."
+          },
+          "children": [
+            {
+              "type": "button",
+              "variant": "primary",
+              "content": {
+                "text": "Commencer"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

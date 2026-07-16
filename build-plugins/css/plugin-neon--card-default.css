@@ -1,0 +1,7 @@
+/* WeBuilder: neon:card / default */
+
+.neon-card { position: relative; padding: 1.5rem; border: 1px solid color-mix(in srgb, var(--primary), transparent 35%); background: linear-gradient(145deg, color-mix(in srgb, var(--surface), white 3%), var(--surface)); overflow: hidden; } .neon-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--primary), transparent 85%), transparent); transform: translateX(-100%); transition: transform .5s; } .neon-card:hover::before { transform: translateX(100%); } .neon-card > * { position: relative; z-index: 1; }
+
+.neon-card-default h2 { color: var(--primary); text-shadow: 0 0 12px color-mix(in srgb, var(--primary), transparent 35%); }
+
+/* Instance classes: md:neon:glow-strong, neon:glow. Shortcut declarations live in shortcuts.css. */

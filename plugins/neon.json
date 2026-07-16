@@ -1,0 +1,88 @@
+{
+  "name": "Neon UI Plugin",
+  "version": "1.0.0",
+  "themes": {
+    "cyber": {
+      "label": "Cyber Neon",
+      "css": ":root {\n  --color-scheme: dark;\n  --bg: #050510;\n  --surface: #0d0d22;\n  --surface-2: #181832;\n  --text: #f5f3ff;\n  --text-muted: #aaa6c7;\n  --primary: #00f5d4;\n  --primary-contrast: #001713;\n  --secondary: #f72585;\n  --success: #39ff14;\n  --warning: #ffe600;\n  --danger: #ff2a6d;\n  --info: #00bbf9;\n  --border: #34345f;\n  --focus: #00f5d4;\n  --radius: .3rem;\n  --shadow: 0 0 28px rgba(0, 245, 212, .18);\n  --font-sans: Inter, system-ui, sans-serif;\n}"
+    }
+  },
+  "components": {
+    "card": {
+      "description": "Carte cyberpunk avec bordure lumineuse.",
+      "default_variant": "default",
+      "required": [],
+      "accepts_children": true,
+      "css": ".neon-card { position: relative; padding: 1.5rem; border: 1px solid color-mix(in srgb, var(--primary), transparent 35%); background: linear-gradient(145deg, color-mix(in srgb, var(--surface), white 3%), var(--surface)); overflow: hidden; } .neon-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--primary), transparent 85%), transparent); transform: translateX(-100%); transition: transform .5s; } .neon-card:hover::before { transform: translateX(100%); } .neon-card > * { position: relative; z-index: 1; }",
+      "variants": {
+        "default": {
+          "html": "<article class='neon-card neon-card-default {{class}}'><h2>{{content.title}}</h2>{{#content.text}}<p>{{content.text}}</p>{{/content.text}}{{{children}}}</article>",
+          "css": ".neon-card-default h2 { color: var(--primary); text-shadow: 0 0 12px color-mix(in srgb, var(--primary), transparent 35%); }",
+          "js": ""
+        },
+        "magenta": {
+          "html": "<article class='neon-card neon-card-magenta {{class}}'><h2>{{content.title}}</h2>{{#content.text}}<p>{{content.text}}</p>{{/content.text}}{{{children}}}</article>",
+          "css": ".neon-card-magenta { border-color: var(--secondary); } .neon-card-magenta h2 { color: var(--secondary); text-shadow: 0 0 12px color-mix(in srgb, var(--secondary), transparent 35%); }",
+          "js": ""
+        }
+      },
+      "defaults": {"content": {"title": "", "text": ""}}
+    },
+    "button": {
+      "description": "Bouton néon avec impulsion au clic.",
+      "default_variant": "cyan",
+      "required": ["content.text"],
+      "accepts_children": false,
+      "css": ".neon-button { position: relative; padding: .65rem 1.1rem; border: 1px solid currentColor; background: transparent; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: color .2s, background .2s, box-shadow .2s; } .neon-button.is-pulsing { animation: neon-plugin-pulse .35s ease; } @keyframes neon-plugin-pulse { 50% { transform: scale(.96); } }",
+      "js": "document.querySelectorAll('.neon-button').forEach((button) => button.addEventListener('click', () => { button.classList.remove('is-pulsing'); void button.offsetWidth; button.classList.add('is-pulsing'); }));",
+      "variants": {
+        "cyan": {
+          "html": "<button class='neon-button neon-button-cyan {{class}}' type='{{content.button_type}}' data-id='{{id}}'>{{content.text}}</button>",
+          "css": ".neon-button-cyan { color: var(--primary); box-shadow: inset 0 0 12px transparent, 0 0 12px color-mix(in srgb, var(--primary), transparent 55%); } .neon-button-cyan:hover { background: var(--primary); color: var(--primary-contrast); box-shadow: 0 0 24px var(--primary); }",
+          "js": ""
+        },
+        "magenta": {
+          "html": "<button class='neon-button neon-button-magenta {{class}}' type='{{content.button_type}}' data-id='{{id}}'>{{content.text}}</button>",
+          "css": ".neon-button-magenta { color: var(--secondary); box-shadow: 0 0 12px color-mix(in srgb, var(--secondary), transparent 55%); } .neon-button-magenta:hover { background: var(--secondary); color: white; box-shadow: 0 0 24px var(--secondary); }",
+          "js": ""
+        }
+      },
+      "defaults": {"content": {"button_type": "button"}}
+    },
+    "heading": {
+      "description": "Titre avec effet de décalage chromatique.",
+      "default_variant": "glitch",
+      "required": ["content.text"],
+      "accepts_children": false,
+      "variants": {
+        "glitch": {
+          "html": "<h1 class='neon-heading {{class}}' data-text='{{content.text}}'>{{content.text}}</h1>",
+          "css": ".neon-heading { position: relative; width: fit-content; color: var(--text); font-size: clamp(2.5rem, 9vw, 7rem); line-height: .95; letter-spacing: -.04em; text-transform: uppercase; } .neon-heading::before, .neon-heading::after { content: attr(data-text); position: absolute; inset: 0; pointer-events: none; opacity: .65; } .neon-heading::before { color: var(--primary); transform: translate(2px, -1px); clip-path: inset(0 0 48% 0); } .neon-heading::after { color: var(--secondary); transform: translate(-2px, 1px); clip-path: inset(52% 0 0); }",
+          "js": ""
+        }
+      }
+    },
+    "terminal": {
+      "description": "Terminal avec copie de commande.",
+      "default_variant": "default",
+      "required": ["content.lines"],
+      "accepts_children": false,
+      "variants": {
+        "default": {
+          "html": "<section class='neon-terminal {{class}}'><header><span></span><span></span><span></span><strong>{{content.title}}</strong></header><pre>{{#content.lines}}<code>{{prompt}} {{command}}</code>{{/content.lines}}</pre><button type='button'>{{content.copy_text}}</button></section>",
+          "css": ".neon-terminal { position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: #020207; color: #c8ffe8; box-shadow: 0 0 30px rgba(0,0,0,.5); } .neon-terminal header { display: flex; align-items: center; gap: .4rem; padding: .55rem .75rem; border-bottom: 1px solid var(--border); background: #111126; } .neon-terminal header span { width: .65rem; height: .65rem; border-radius: 50%; background: var(--danger); } .neon-terminal header span:nth-child(2) { background: var(--warning); } .neon-terminal header span:nth-child(3) { background: var(--success); } .neon-terminal header strong { margin-left: .4rem; color: var(--text-muted); font-size: .75rem; } .neon-terminal pre { display: grid; gap: .4rem; min-height: 8rem; margin: 0; padding: 1rem; overflow-x: auto; } .neon-terminal code { display: block; font-family: ui-monospace, monospace; } .neon-terminal button { position: absolute; right: .6rem; bottom: .6rem; padding: .35rem .55rem; border: 1px solid var(--primary); background: #020207; color: var(--primary); }",
+          "js": "document.querySelectorAll('.neon-terminal').forEach((terminal) => terminal.querySelector('button')?.addEventListener('click', async (event) => { const text = [...terminal.querySelectorAll('code')].map((line) => line.textContent).join('\\n'); await navigator.clipboard.writeText(text); event.currentTarget.textContent = 'Copié !'; }));"
+        }
+      },
+      "defaults": {"content": {"title": "terminal", "copy_text": "Copier"}}
+    }
+  },
+  "shortcuts": {
+    "class": {
+      "glow": "box-shadow: 0 0 24px color-mix(in srgb, var(--primary), transparent 45%);",
+      "glow-strong": "box-shadow: 0 0 48px color-mix(in srgb, var(--primary), transparent 20%);",
+      "gradient-text": "color: transparent; background: linear-gradient(90deg, var(--primary), var(--secondary)); background-clip: text;",
+      "scanlines": "background-image: repeating-linear-gradient(0deg, transparent 0 2px, rgba(255,255,255,.025) 2px 4px);"
+    }
+  }
+}

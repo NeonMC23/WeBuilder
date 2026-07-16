@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "title": "Boucles et enfants",
+    "theme": "ocean",
+    "lang": "fr"
+  },
+  "assets": [],
+  "pages": [
+    {
+      "path": "index.html",
+      "components": [
+        {
+          "type": "section",
+          "variant": "muted",
+          "content": {"label": "Démonstration"},
+          "children": [
+            {
+              "type": "container",
+              "variant": "default",
+              "children": [
+                {
+                  "type": "list",
+                  "variant": "unordered",
+                  "content": {
+                    "items": [
+                      {"text": "Boucle Mustache"},
+                      {"text": "Composants enfants"},
+                      {"text": "Thème océan"}
+                    ]
+                  }
+                },
+                {
+                  "type": "table",
+                  "variant": "striped",
+                  "class": ["mt-4"],
+                  "content": {
+                    "caption": "Versions",
+                    "headers": ["Outil", "Version", "Rôle"],
+                    "rows": [
+                      {"cells": ["Python", "3.10+", "Build"]},
+                      {"cells": ["Mustache", "Interne", "Templates"]},
+                      {"cells": ["JavaScript", "Vanilla", "Interactions"]}
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+/* WeBuilder: section / default */
+
+.wb-section { padding-block: clamp(2.5rem, 7vw, 6rem); }
