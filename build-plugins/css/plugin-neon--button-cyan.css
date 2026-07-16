@@ -1,7 +1,0 @@
-/* WeBuilder: neon:button / cyan */
-
-.neon-button { position: relative; padding: .65rem 1.1rem; border: 1px solid currentColor; background: transparent; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: color .2s, background .2s, box-shadow .2s; } .neon-button.is-pulsing { animation: neon-plugin-pulse .35s ease; } @keyframes neon-plugin-pulse { 50% { transform: scale(.96); } }
-
-.neon-button-cyan { color: var(--primary); box-shadow: inset 0 0 12px transparent, 0 0 12px color-mix(in srgb, var(--primary), transparent 55%); } .neon-button-cyan:hover { background: var(--primary); color: var(--primary-contrast); box-shadow: 0 0 24px var(--primary); }
-
-/* Instance classes: mt-4. Shortcut declarations live in shortcuts.css. */
