@@ -1,5 +1,0 @@
-/* WeBuilder: stack / horizontal */
-
-.wb-stack { display: flex; gap: var(--stack-gap, 1rem); } .wb-stack-horizontal { align-items: center; flex-wrap: wrap; }
-
-/* Instance classes: mt-4. Shortcut declarations live in shortcuts.css. */
