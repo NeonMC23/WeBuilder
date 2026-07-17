@@ -1,0 +1,7 @@
+/* WeBuilder: hero / centered */
+
+.wb-hero { display: grid; gap: clamp(1.5rem, 5vw, 4rem); padding: clamp(3rem, 9vw, 7rem) clamp(1rem, 4vw, 3rem); background: linear-gradient(135deg, var(--surface), var(--surface-2)); } .wb-hero h1 { max-width: 18ch; margin: 0; font-size: clamp(2.2rem, 7vw, 5rem); line-height: 1.04; } .wb-hero__eyebrow { color: var(--primary); font-weight: 750; letter-spacing: .08em; text-transform: uppercase; } .wb-hero__lead { max-width: 60ch; color: var(--text-muted); font-size: clamp(1.05rem, 2vw, 1.3rem); } .wb-hero__actions { display: flex; flex-wrap: wrap; justify-content: inherit; gap: .75rem; margin-top: 1.5rem; }
+
+.wb-hero-centered { text-align: center; align-items: center; }
+
+/* Instance classes: md:py-32, py-24. Shortcut declarations live in shortcuts.css. */

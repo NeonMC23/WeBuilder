@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modular website generated with WeBuilder">
+  <meta name="author" content="WeBuilder Team">
+  <title>Guide — WeBuilder</title>
+  <link rel="icon" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/header-minimal.css">
+  <link rel="stylesheet" href="/css/section-muted.css">
+  <link rel="stylesheet" href="/css/container-default.css">
+  <link rel="stylesheet" href="/css/callout-tip.css">
+  <link rel="stylesheet" href="/css/code-block-default.css">
+  <link rel="stylesheet" href="/css/accordion-default.css">
+  <link rel="stylesheet" href="/css/details-default.css">
+  <link rel="stylesheet" href="/css/footer-columns.css">
+  <link rel="stylesheet" href="/css/shortcuts.css">
+</head>
+<body class="theme-dark">
+<header class='site-header site-header-minimal ' data-wb-component="header" data-wb-variant="minimal" data-wb-instance="guide-html--0--component" data-wb-page="guide.html"><div class='site-header__inner'><a class='site-header__brand' href='/'>WeBuilder</a><nav aria-label='Main navigation'><a href='/index.html'>Home</a><a href='/contact.html'>Contact</a><a href='/guide.html'>Guide</a></nav></div></header>
+<section class='wb-section wb-section-muted ' aria-label='Quick guide' data-wb-component="section" data-wb-variant="muted" data-wb-instance="guide-html--1--component" data-wb-page="guide.html"><div class='wb-container ' data-wb-component="container" data-wb-variant="default" data-wb-instance="guide-html--1-0--component" data-wb-page="guide.html"><aside class="wb-callout wb-callout-tip mb-4" data-wb-component="callout" data-wb-variant="tip" data-wb-instance="guide-html--1-0-0--component" data-wb-page="guide.html"><strong>Getting started</strong><p>Run the command from the webuilder directory.</p></aside>
+<figure class="wb-code mb-4" data-wb-component="code-block" data-wb-variant="default" data-wb-instance="guide-html--1-0-1--component" data-wb-page="guide.html"><figcaption>Terminal</figcaption><pre><code>python build.py --input build.json --output ./build</code></pre></figure>
+<div class='wb-accordion ' data-wb-component="accordion" data-wb-variant="default" data-wb-instance="guide-html--1-0-2--component" data-wb-page="guide.html"><section class='wb-accordion__item'><h3><button type='button' aria-expanded='false'>Where are components defined?</button></h3><div class='wb-accordion__panel' hidden><p>In library.json under the components key.</p></div></section><section class='wb-accordion__item'><h3><button type='button' aria-expanded='false'>How do I add an event?</button></h3><div class='wb-accordion__panel' hidden><p>Add an events object to the component in build.json.</p></div></section><section class='wb-accordion__item'><h3><button type='button' aria-expanded='false'>How do I enable dark mode?</button></h3><div class='wb-accordion__panel' hidden><p>Set meta.theme to dark.</p></div></section></div>
+<details class="wb-details mt-4" data-wb-component="details" data-wb-variant="default" data-wb-instance="guide-html--1-0-3--component" data-wb-page="guide.html"><summary>Show technical details</summary><div>The Mustache engine uses the Python standard library, while watch mode uses watchdog.</div></details></div></section>
+<footer class='wb-footer wb-footer-columns ' data-wb-component="footer" data-wb-variant="columns" data-wb-instance="guide-html--2--component" data-wb-page="guide.html"><div class='wb-footer__brand'><strong>WeBuilder</strong><p>Demo documentation.</p></div><section><h2>Pages</h2><a href='/index.html'>Home</a><a href='/contact.html'>Contact</a></section><section><h2>Resources</h2><a href='#'>README</a><a href='#'>library.json</a></section></footer>
+  <script src="/js/global.js"></script>
+  <script src="/js/components/accordion.js"></script>
+</body>
+</html>

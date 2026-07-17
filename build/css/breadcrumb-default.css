@@ -1,0 +1,5 @@
+/* WeBuilder: breadcrumb / default */
+
+.wb-breadcrumb ol { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; } .wb-breadcrumb li + li::before { content: '/'; margin-right: .4rem; color: var(--text-muted); } .wb-breadcrumb a { color: var(--primary); }
+
+/* Instance classes: mb-4. Shortcut declarations live in shortcuts.css. */

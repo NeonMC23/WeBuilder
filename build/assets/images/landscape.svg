@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract landscape</title>
+  <desc id="desc">A blue sky above abstract purple hills.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#60a5fa"/><stop offset="1" stop-color="#dbeafe"/></linearGradient>
+    <linearGradient id="hill" x2="1" y2="1"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#312e81"/></linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#sky)"/>
+  <circle cx="930" cy="145" r="70" fill="#fef08a"/>
+  <path d="M0 480L220 275l180 170 200-245 250 290 150-155 200 170v170H0z" fill="url(#hill)"/>
+  <path d="M0 540l270-130 180 95 245-115 220 125 285-80v240H0z" fill="#0f766e" opacity=".85"/>
+</svg>

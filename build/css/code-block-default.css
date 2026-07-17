@@ -1,0 +1,5 @@
+/* WeBuilder: code-block / default */
+
+.wb-code { margin: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: #0d1526; color: #e5edff; } .wb-code figcaption { padding: .5rem .8rem; border-bottom: 1px solid #2d3b57; color: #a8b3cf; font-size: .8rem; } .wb-code pre { margin: 0; padding: 1rem; overflow-x: auto; } .wb-code code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+
+/* Instance classes: mb-4. Shortcut declarations live in shortcuts.css. */

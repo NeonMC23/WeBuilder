@@ -1,0 +1,7 @@
+/* WeBuilder: header / minimal */
+
+.site-header { position: relative; z-index: 10; padding: .85rem 1rem; } .site-header__inner { width: min(100%, 72rem); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; } .site-header__brand { display: inline-flex; align-items: center; gap: .6rem; color: inherit; font-weight: 750; text-decoration: none; } .site-header__brand img { width: 2rem; height: 2rem; } .site-header nav { display: flex; flex-wrap: wrap; gap: .35rem 1rem; } .site-header nav a { text-decoration: none; } @media (max-width: 38rem) { .site-header__inner { align-items: flex-start; flex-direction: column; } }
+
+.site-header-minimal { background: var(--bg); border-bottom: 1px solid var(--border); }
+
+/* Instance classes: sticky. Shortcut declarations live in shortcuts.css. */

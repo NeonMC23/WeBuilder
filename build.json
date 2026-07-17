@@ -41,7 +41,8 @@
                 "href": "/guide.html"
               }
             ]
-          }
+          },
+          "children": []
         },
         {
           "type": "hero",
@@ -483,6 +484,38 @@
           }
         }
       ]
+    },
+    {
+      "path": "github.html",
+      "components": [
+        {
+          "content": {
+            "home_href": "/index.html",
+            "logo": "/assets/images/logo.svg",
+            "nav": [
+              {
+                "text": "Home",
+                "href": "/index.html"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact.html"
+              },
+              {
+                "text": "Guide",
+                "href": "/guide.html"
+              }
+            ],
+            "title": "GitHub Presentation"
+          },
+          "type": "header",
+          "variant": "primary",
+          "children": []
+        }
+      ],
+      "meta": {
+        "title": "GitHub Repository Show"
+      }
     }
   ]
 }

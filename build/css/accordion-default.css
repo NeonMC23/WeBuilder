@@ -1,0 +1,3 @@
+/* WeBuilder: accordion / default */
+
+.wb-accordion { border-block: 1px solid var(--border); } .wb-accordion__item + .wb-accordion__item { border-top: 1px solid var(--border); } .wb-accordion h3 { margin: 0; } .wb-accordion h3 button { width: 100%; padding: 1rem 0; border: 0; background: transparent; color: var(--text); font-weight: 700; text-align: left; cursor: pointer; } .wb-accordion__panel { padding: 0 0 1rem; color: var(--text-muted); }

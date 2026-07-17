@@ -1,0 +1,7 @@
+/* WeBuilder: callout / tip */
+
+.wb-callout { padding: 1rem 1.2rem; border: 1px solid color-mix(in srgb, var(--callout-color), transparent 50%); border-radius: var(--radius); background: color-mix(in srgb, var(--callout-color), transparent 92%); } .wb-callout p { margin: .35rem 0 0; }
+
+.wb-callout-tip { --callout-color: var(--success); }
+
+/* Instance classes: mb-4. Shortcut declarations live in shortcuts.css. */
