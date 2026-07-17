@@ -1,5 +1,0 @@
-/* WeBuilder: commerce:card / default */
-
-.commerce-card { position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); } .commerce-card > img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; } .commerce-card__body { display: grid; gap: .6rem; padding: 1rem; } .commerce-card__body h2, .commerce-card__body p { margin: 0; } .commerce-card__body p { color: var(--text-muted); } .commerce-card__body > strong { color: var(--primary); font-size: 1.35rem; } .commerce-card__badge { position: absolute; z-index: 2; top: .6rem; left: .6rem; padding: .25rem .5rem; border-radius: 999px; background: var(--danger); color: white; font-size: .72rem; font-weight: 800; }
-
-/* Instance classes: commerce:product-hover, hover:commerce:sale-ring. Shortcut declarations live in shortcuts.css. */

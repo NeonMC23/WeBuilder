@@ -71,7 +71,7 @@
                         },
                         {
                           "type": "commerce:card",
-                          "variant": "default",
+                          "variant": "default-right",
                           "class": [
                             "commerce:product-hover",
                             "hover:commerce:sale-ring"

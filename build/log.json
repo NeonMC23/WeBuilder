@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "2026-07-17T18:01:28+02:00",
+    "timestamp": "2026-07-17T18:03:44+02:00",
     "level": "info",
     "message": "Plugin loaded",
     "plugin": "neon",
@@ -11,7 +11,7 @@
     "shortcuts": 4
   },
   {
-    "timestamp": "2026-07-17T18:01:28+02:00",
+    "timestamp": "2026-07-17T18:03:44+02:00",
     "level": "info",
     "message": "Plugin loaded",
     "plugin": "commerce",
@@ -22,10 +22,14 @@
     "shortcuts": 4
   },
   {
-    "timestamp": "2026-07-17T18:01:28+02:00",
-    "level": "error",
-    "message": "Variant 'default' was not found for component 'commerce:card'",
-    "page": "index.html",
-    "component": "0.0.0.1.1"
+    "timestamp": "2026-07-17T18:03:44+02:00",
+    "level": "info",
+    "message": "Build successful",
+    "pages": 1,
+    "plugins": [
+      "neon",
+      "commerce"
+    ],
+    "output": "C:\\Users\\piotr\\Desktop\\WeBuilder\\build"
   }
 ]
