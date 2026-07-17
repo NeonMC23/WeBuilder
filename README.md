@@ -1,6 +1,6 @@
 # WeBuilder CLI
 
-**Version 1.3.0 — final v1 CLI release**
+**Version 1.3.2 — final v1 CLI release**
 
 WeBuilder is a Python static-site builder that turns a declarative `build.json` file into a complete multi-page website. It generates HTML, component-level CSS, vanilla JavaScript, copied assets, and a structured build log without requiring a browser-side framework.
 
@@ -844,4 +844,4 @@ OUTPUT/log.json
 
 ## v1 support boundary
 
-Version 1.3.0 is the final feature release of the WeBuilder v1 CLI. The v1 configuration format, core library model, plugin namespace syntax, output structure, and command-line workflow are now considered stable. Critical fixes can be made in patch releases; visual authoring and drag-and-drop capabilities are reserved for v2.
+Version 1.3.2 is the final feature release of the WeBuilder v1 CLI. The v1 configuration format, core library model, plugin namespace syntax, output structure, and command-line workflow are now considered stable. Critical fixes can be made in patch releases; visual authoring and drag-and-drop capabilities are reserved for v2.

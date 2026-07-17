@@ -2,7 +2,7 @@
 
 All notable changes to WeBuilder CLI are documented here.
 
-## 1.3.0 — Final v1 CLI release
+## 1.3.2 — Final v1 CLI release
 
 ### Internationalization
 
@@ -15,7 +15,7 @@ All notable changes to WeBuilder CLI are documented here.
 - Removed stale generated `.html` and `.htm` pages before a successful regeneration while preserving unknown root files.
 - Added validation and copying for page-level favicon overrides.
 - Refined error wording and CLI help for professional support.
-- Updated the runtime, library metadata, preview server identifier, and generated assets to 1.3.0.
+- Updated the runtime, library metadata, preview server identifier, and generated assets to 1.3.2.
 
 ### Support boundary
 
