@@ -1,2 +1,2 @@
-# Requis uniquement pour `python build.py --watch`
+# Required only for `python build.py --watch`.
 watchdog>=4.0,<7.0
