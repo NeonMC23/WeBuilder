@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
-  <title id="title">Paysage abstrait</title>
-  <desc id="desc">Un ciel bleu et des collines violettes abstraites.</desc>
+  <title id="title">Abstract landscape</title>
+  <desc id="desc">A blue sky above abstract purple hills.</desc>
   <defs>
     <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#60a5fa"/><stop offset="1" stop-color="#dbeafe"/></linearGradient>
     <linearGradient id="hill" x2="1" y2="1"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#312e81"/></linearGradient>
