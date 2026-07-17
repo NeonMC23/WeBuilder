@@ -1,6 +1,6 @@
 # Contributing to WeBuilder CLI
 
-WeBuilder v1 is feature-complete. Contributions to v1 should focus on correctness, security, accessibility, documentation, compatibility, and high-quality additions to the core library. Large visual-authoring features belong to the v2 design process. You can also help by creating your own plugins.
+WeBuilder v2 combines the stable v1 build engine with a dependency-free visual editor. Contributions should preserve CLI and configuration compatibility while improving correctness, security, accessibility, documentation, the component ecosystem, and the GUI authoring workflow. You can also help by creating your own plugins.
 
 ## Development setup
 
@@ -31,6 +31,18 @@ A normal build does not require `watchdog`; it is installed for watch-mode devel
 - Attach browser behavior with `addEventListener`, never inline event attributes.
 - Escape ordinary Mustache values; use triple braces only for trusted HTML.
 - Keep component CSS and JavaScript isolated and deterministic.
+- Keep the GUI frontend framework-free and compatible with its local Content Security Policy.
+- Treat every GUI file path, upload, and mutating API request as untrusted input.
+- Preserve keyboard access, visible focus, labels, and semantic controls in the visual editor.
+
+## Visual editor changes
+
+- Keep backend endpoints in `gui/server.py` dependency-free.
+- Keep frontend files in `gui/static/` and avoid remote assets or CDN dependencies.
+- Add backend API tests to `tests/test_gui.py`.
+- Run `node --check gui/static/app.js` when Node.js is available.
+- Verify startup through both `python build.py --gui` and `python gui/server.py`.
+- Do not write editor-only scripts or styles into production build artifacts.
 
 ## Core library additions
 

@@ -1,13 +1,18 @@
-# WeBuilder CLI
+# WeBuilder
 
-**Version 1.3.2 — final v1 CLI release**
+**Version 2.0.0 — visual editor foundation**
 
-WeBuilder is a Python static-site builder that turns a declarative `build.json` file into a complete multi-page website. It generates HTML, component-level CSS, vanilla JavaScript, copied assets, and a structured build log without requiring a browser-side framework.
+WeBuilder is a Python static-site builder and local visual authoring environment. A declarative `build.json` becomes a complete multi-page website with HTML, component-level CSS, vanilla JavaScript, copied assets, and structured logs—without a browser-side framework.
 
-The v1 CLI is feature-complete and stable. Future visual editing and drag-and-drop work belongs to v2; the JSON model and plugin namespaces introduced in v1 are designed to support that evolution.
+Version 2 introduces a dependency-free web GUI for visual page composition while preserving the stable v1 CLI, JSON format, component library, plugin namespaces, utility engine, and generated output.
 
 ## Highlights
 
+- Local visual editor served entirely by Python's standard library.
+- Native drag and drop for adding, nesting, and reordering components.
+- Visual metadata, page, component property, event, plugin, and asset editors.
+- Embedded generated-site preview with selected-component highlighting.
+- Autosave, optional live builds, undo/redo, raw JSON, and import/export.
 - One canonical core library: `webuilder/library.json`.
 - 82 core components and 191 core variants.
 - 189 static utilities plus open-ended, on-demand CSS utilities.
@@ -56,6 +61,21 @@ my-site/
 └── plugins/
 ```
 
+### Open the visual editor
+
+```bash
+python build.py \
+  --input ./my-site/build.json \
+  --output ./my-site/build \
+  --gui
+```
+
+The editor opens at `http://localhost:8080/`. It can also be launched directly:
+
+```bash
+python gui/server.py --input ./my-site/build.json --output ./my-site/build
+```
+
 ### Build once
 
 ```bash
@@ -64,7 +84,7 @@ python build.py \
   --output ./my-site/build
 ```
 
-### Develop with preview and live reload
+### Develop with CLI preview and live reload
 
 ```bash
 python build.py \
@@ -87,13 +107,84 @@ WeBuilder builds the project, starts the server in the current terminal, prints 
 
 Use `Ctrl+C` to stop the preview and watcher cleanly.
 
+## Visual editor
+
+The v2 GUI is a local single-page application built with HTML, CSS, and vanilla JavaScript. Its backend uses `ThreadingHTTPServer` and calls the existing Python build engine directly; it does not shell out to a second terminal or require a web framework.
+
+### Authoring features
+
+- Edit global title, theme, language, description, author, and favicon.
+- Add, duplicate, select, rename, and delete pages.
+- Search and filter the complete core and plugin component catalog.
+- Drag new components into a page.
+- Reorder and nest existing components with native drag and drop.
+- Select a component and edit its variant, ID, utility classes, content fields, and event JSON.
+- Duplicate or delete components and their nested children.
+- Enable or disable discovered plugins and immediately refresh components and themes.
+- Upload, preview, copy, and delete project assets.
+- Edit or import the complete raw JSON configuration when needed.
+- Export the current document as `build.json`.
+- Undo and redo up to 60 in-memory document changes.
+- Autosave drafts with atomic writes and rotating backups under `.webuilder/backups/`.
+- Run builds, inspect structured logs, and display the generated page in an iframe.
+- Highlight the selected component in the generated preview.
+- Optionally rebuild and refresh the preview after each edit with **Live build**.
+
+### GUI commands
+
+```bash
+# Default GUI port: 8080
+python build.py --gui
+
+# Choose another port
+python build.py --gui --gui-port 9090
+
+# Let the operating system choose a free port
+python build.py --gui --gui-port 0
+
+# Do not open the browser automatically
+python build.py --gui --no-open
+
+# Start with namespaced plugins enabled
+python build.py --gui \
+  --plugin plugins/neon.json plugins/commerce.json
+```
+
+The standalone server exposes the same options:
+
+```bash
+python gui/server.py --help
+```
+
+### Local GUI API
+
+The editor backend exposes same-origin JSON endpoints:
+
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/api/status` | GET | Project paths, engine version, revision, and build status. |
+| `/api/load-build` | GET | Load the current `build.json`. |
+| `/api/save` | POST | Atomically save a draft configuration. |
+| `/api/components` | GET | List core and enabled-plugin components. |
+| `/api/themes` | GET | List core and enabled-plugin themes. |
+| `/api/plugins` | GET/POST | Discover and enable or disable plugins. |
+| `/api/assets` | GET | List source assets and metadata. |
+| `/api/upload-assets` | POST | Upload assets and add references to `build.json`. |
+| `/api/delete-asset` | POST | Delete an asset and remove its configuration reference. |
+| `/api/build` | POST | Build the project and return structured logs. |
+| `/api/preview` | POST | Build and return preview information. |
+| `/api/logs` | GET | Return the latest `log.json` entries. |
+| `/preview/{page}` | GET | Serve generated pages inside the editor. |
+
+The server binds to `127.0.0.1` by default, rejects unsafe paths and cross-origin mutations, limits upload sizes, sanitizes filenames, and never injects editor code into generated production files.
+
 ## CLI reference
 
 ```text
 python build.py [--input BUILD_JSON] [--output OUTPUT]
                 [--plugin PLUGIN_JSON [PLUGIN_JSON ...]]
-                [--watch] [--preview]
-                [--host HOST] [--port PORT] [--no-open]
+                [--watch] [--preview] [--gui]
+                [--host HOST] [--port PORT] [--gui-port PORT] [--no-open]
                 [--init DIRECTORY]
                 [--list-components [QUERY]]
                 [--show-component TYPE]
@@ -106,9 +197,11 @@ python build.py [--input BUILD_JSON] [--output OUTPUT]
 | `--output` | `./build` | Dedicated output directory. |
 | `--plugin` | none | Load one or more plugin JSON files. May be repeated. |
 | `--watch` | off | Watch `build.json`, source assets, the core library, and loaded plugins. |
-| `--preview` | off | Start the integrated HTTP preview server. |
-| `--host` | `127.0.0.1` | Preview bind address. |
-| `--port` | `8000` | Preview port. Use `0` to select a free port. |
+| `--preview` | off | Start the integrated CLI site preview server. |
+| `--gui` | off | Start the v2 visual editor. |
+| `--host` | `127.0.0.1` | Preview or GUI bind address. |
+| `--port` | `8000` | CLI preview port. Use `0` to select a free port. |
+| `--gui-port` | `8080` | Visual editor port. Use `0` to select a free port. |
 | `--no-open` | off | Do not open the browser automatically. |
 | `--init` | — | Create a new project scaffold. |
 | `--list-components` | — | List components, optionally filtered by a query. |
@@ -774,6 +867,12 @@ The suite covers Mustache parsing, multiple pages, nested components, assets, ge
 ```text
 webuilder/
 ├── build.py
+├── gui/
+│   ├── server.py
+│   └── static/
+│       ├── index.html
+│       ├── app.js
+│       └── styles.css
 ├── library.json
 ├── build.json
 ├── README.md
@@ -802,6 +901,9 @@ webuilder/
 - Arbitrary utility values reject rule-breaking syntax and remote `url(...)` values.
 - Page and asset paths reject absolute paths and parent traversal.
 - Plugin namespaces are validated and duplicate namespaces are rejected.
+- GUI API mutations require a trusted local Host and same-origin browser request.
+- GUI asset uploads are size-limited, filename-sanitized, and path-confined.
+- GUI saves use atomic replacement and retain up to 20 local backups.
 - The output safety check prevents source-directory cleanup.
 
 ## Troubleshooting
@@ -828,11 +930,16 @@ Generated URLs are root-relative. Use:
 python build.py --preview
 ```
 
-### Port 8000 is already in use
+### Port 8000 or 8080 is already in use
 
 ```bash
 python build.py --preview --port 0
+python build.py --gui --gui-port 0
 ```
+
+### The GUI cannot save or upload
+
+Open the GUI through the exact URL printed by the server. Mutating API requests from another origin are rejected intentionally. Confirm that `build.json` and the project `assets/` directory are writable.
 
 ### A build fails validation
 
@@ -842,6 +949,6 @@ Inspect the structured log:
 OUTPUT/log.json
 ```
 
-## v1 support boundary
+## Version 2 status
 
-Version 1.3.2 is the final feature release of the WeBuilder v1 CLI. The v1 configuration format, core library model, plugin namespace syntax, output structure, and command-line workflow are now considered stable. Critical fixes can be made in patch releases; visual authoring and drag-and-drop capabilities are reserved for v2.
+Version 2.0.0 establishes the visual editor architecture and a functional first authoring workflow. The v1 CLI remains supported and its configuration format, core library model, plugin namespace syntax, utility syntax, and output structure remain compatible. Future v2 work can build on this foundation with richer theme design, preview-to-canvas selection, component-specific form schemas, collaborative workflows, and packaged desktop distribution.

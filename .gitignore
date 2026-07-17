@@ -1,7 +1,7 @@
 __pycache__/
 *.py[cod]
-.git/
 .venv/
 .pytest_cache/
 .DS_Store
+.webuilder/
 VERSION-UP.md

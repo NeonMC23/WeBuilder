@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <title>WeBuilder Visual Editor</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-shell" id="app-shell">
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-mark" aria-hidden="true">W</div>
+        <div>
+          <div class="brand-line">WeBuilder <span class="version-badge">v2</span></div>
+          <div class="project-path" id="project-path">Loading project…</div>
+        </div>
+      </div>
+
+      <div class="document-state" aria-live="polite">
+        <span class="status-dot" id="document-status-dot"></span>
+        <span id="document-status">Loading</span>
+      </div>
+
+      <div class="topbar-actions">
+        <button class="button ghost icon-button" id="undo-button" type="button" title="Undo (Ctrl/Cmd+Z)" aria-label="Undo">↶</button>
+        <button class="button ghost icon-button" id="redo-button" type="button" title="Redo (Ctrl/Cmd+Shift+Z)" aria-label="Redo">↷</button>
+        <label class="toggle-label" title="Save changes automatically">
+          <input type="checkbox" id="autosave-toggle" checked>
+          <span>Autosave</span>
+        </label>
+        <label class="toggle-label" title="Build and refresh the preview after edits">
+          <input type="checkbox" id="live-build-toggle">
+          <span>Live build</span>
+        </label>
+        <button class="button ghost" id="save-button" type="button">Save</button>
+        <button class="button secondary" id="build-button" type="button">Build</button>
+        <button class="button primary" id="preview-button" type="button">Preview</button>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <aside class="panel library-panel" aria-label="Project navigation">
+        <div class="panel-tabs" role="tablist" aria-label="Left panel">
+          <button class="panel-tab is-active" type="button" data-left-tab="components" role="tab">Components</button>
+          <button class="panel-tab" type="button" data-left-tab="pages" role="tab">Pages</button>
+          <button class="panel-tab" type="button" data-left-tab="plugins" role="tab">Plugins</button>
+        </div>
+
+        <section class="tab-content is-active" data-left-panel="components">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Library</p>
+              <h2>Components</h2>
+            </div>
+            <span class="count-badge" id="component-count">0</span>
+          </div>
+          <label class="search-field">
+            <span class="sr-only">Search components</span>
+            <input type="search" id="component-search" placeholder="Search components…" autocomplete="off">
+          </label>
+          <select id="namespace-filter" class="compact-select" aria-label="Filter component namespace">
+            <option value="all">All namespaces</option>
+          </select>
+          <div class="component-library" id="components-list" aria-live="polite"></div>
+        </section>
+
+        <section class="tab-content" data-left-panel="pages">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Document</p>
+              <h2>Pages</h2>
+            </div>
+            <button class="button small primary" id="add-page-button" type="button">Add</button>
+          </div>
+          <div class="pages-list" id="pages-list"></div>
+        </section>
+
+        <section class="tab-content" data-left-panel="plugins">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Extensions</p>
+              <h2>Plugins</h2>
+            </div>
+          </div>
+          <p class="muted-copy">Enable project or bundled plugins for this editor session.</p>
+          <div class="plugins-list" id="plugins-list"></div>
+          <button class="button secondary full-width" id="apply-plugins-button" type="button">Apply plugins</button>
+        </section>
+      </aside>
+
+      <main class="editor-column">
+        <section class="meta-bar" aria-label="Site metadata">
+          <button class="meta-summary" id="meta-toggle" type="button" aria-expanded="false">
+            <span>
+              <span class="eyebrow">Site settings</span>
+              <strong id="site-title-summary">Untitled site</strong>
+            </span>
+            <span class="meta-summary-values">
+              <span id="site-theme-summary">light</span>
+              <span aria-hidden="true">·</span>
+              <span id="site-language-summary">en</span>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </span>
+          </button>
+          <form class="meta-form" id="meta-form" hidden>
+            <label>Title<input type="text" id="meta-title" autocomplete="off"></label>
+            <label>Theme<select id="meta-theme"></select></label>
+            <label>Language<input type="text" id="meta-lang" maxlength="20" autocomplete="off"></label>
+            <label>Description<textarea id="meta-description" rows="2"></textarea></label>
+            <label>Author<input type="text" id="meta-author" autocomplete="off"></label>
+            <label>Favicon<input type="text" id="meta-favicon" placeholder="assets/favicon.svg" autocomplete="off"></label>
+          </form>
+        </section>
+
+        <section class="page-toolbar" aria-label="Current page controls">
+          <div class="page-selector-wrap">
+            <label for="current-page-select">Page</label>
+            <select id="current-page-select"></select>
+          </div>
+          <label class="page-path-field">
+            <span>Output path</span>
+            <input type="text" id="current-page-path" autocomplete="off">
+          </label>
+          <button class="button ghost small" id="duplicate-page-button" type="button">Duplicate</button>
+          <button class="button danger ghost small" id="delete-page-button" type="button">Delete</button>
+        </section>
+
+        <section class="canvas-panel">
+          <div class="canvas-heading">
+            <div>
+              <p class="eyebrow">Visual tree</p>
+              <h1 id="canvas-title">index.html</h1>
+            </div>
+            <div class="canvas-tools">
+              <span class="muted-copy">Drag components here or use + Add</span>
+              <button class="button ghost small" id="collapse-all-button" type="button">Collapse all</button>
+            </div>
+          </div>
+          <div class="canvas" id="canvas" tabindex="0" aria-label="Page component tree"></div>
+        </section>
+      </main>
+
+      <aside class="panel inspector-panel" aria-label="Inspector">
+        <div class="panel-tabs" role="tablist" aria-label="Inspector panels">
+          <button class="panel-tab is-active" type="button" data-right-tab="properties" role="tab">Properties</button>
+          <button class="panel-tab" type="button" data-right-tab="assets" role="tab">Assets</button>
+          <button class="panel-tab" type="button" data-right-tab="json" role="tab">JSON</button>
+        </div>
+
+        <section class="tab-content is-active" data-right-panel="properties">
+          <div class="empty-inspector" id="empty-inspector">
+            <div class="empty-icon" aria-hidden="true">◇</div>
+            <h2>Select a component</h2>
+            <p>Choose an item in the canvas to edit its variant, classes, content, and events.</p>
+          </div>
+          <div id="component-inspector" hidden>
+            <div class="panel-heading inspector-heading">
+              <div>
+                <p class="eyebrow" id="inspector-namespace">Core component</p>
+                <h2 id="inspector-title">Component</h2>
+              </div>
+              <button class="button ghost icon-button" id="close-inspector-button" type="button" aria-label="Clear selection">×</button>
+            </div>
+            <form id="properties-form" class="properties-form">
+              <label>Type<input type="text" id="prop-type" readonly></label>
+              <label>Variant<select id="prop-variant"></select></label>
+              <label>ID<input type="text" id="prop-id" placeholder="Optional data ID" autocomplete="off"></label>
+              <label>Classes<input type="text" id="prop-classes" placeholder="p-4 md:p-8 hover:shadow" autocomplete="off"></label>
+
+              <div class="subsection-heading">
+                <h3>Content</h3>
+                <button class="text-button" id="add-content-field-button" type="button">+ Field</button>
+              </div>
+              <div id="content-fields" class="content-fields"></div>
+
+              <label>Events JSON
+                <textarea id="prop-events" class="code-input" rows="7" spellcheck="false" placeholder="{&quot;click&quot;: &quot;console.log(el)&quot;}"></textarea>
+              </label>
+              <div class="form-error" id="properties-error" role="alert"></div>
+              <button class="button primary full-width" type="submit">Apply properties</button>
+            </form>
+
+            <div class="inspector-actions">
+              <button class="button ghost" id="duplicate-component-button" type="button">Duplicate</button>
+              <button class="button danger ghost" id="delete-component-button" type="button">Delete</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-content" data-right-panel="assets">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Project files</p>
+              <h2>Assets</h2>
+            </div>
+            <span class="count-badge" id="asset-count">0</span>
+          </div>
+          <label class="upload-zone" id="upload-zone">
+            <input type="file" id="asset-upload" multiple>
+            <span class="upload-icon" aria-hidden="true">⇧</span>
+            <strong>Upload assets</strong>
+            <small>Images, fonts, documents, and media up to 25 MB each</small>
+          </label>
+          <label>Target folder
+            <input type="text" id="asset-directory" value="images" placeholder="images" autocomplete="off">
+          </label>
+          <div class="assets-list" id="assets-list"></div>
+        </section>
+
+        <section class="tab-content" data-right-panel="json">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Advanced</p>
+              <h2>Raw configuration</h2>
+            </div>
+          </div>
+          <p class="muted-copy">Apply valid JSON to replace the current in-memory document.</p>
+          <textarea id="raw-json-editor" class="raw-json-editor" spellcheck="false"></textarea>
+          <div class="form-error" id="raw-json-error" role="alert"></div>
+          <div class="stacked-actions">
+            <button class="button primary full-width" id="apply-json-button" type="button">Apply JSON</button>
+            <button class="button ghost full-width" id="export-button" type="button">Export build.json</button>
+            <label class="button ghost full-width file-button">Import configuration<input type="file" id="import-input" accept=".json,.webuilder,application/json"></label>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <section class="preview-drawer" id="preview-drawer" hidden>
+      <div class="drawer-heading">
+        <div>
+          <p class="eyebrow">Generated site</p>
+          <h2 id="preview-title">Preview</h2>
+        </div>
+        <div class="drawer-actions">
+          <button class="button ghost small" id="refresh-preview-button" type="button">Refresh</button>
+          <button class="button ghost small" id="open-preview-button" type="button">Open tab</button>
+          <button class="button ghost icon-button" id="close-preview-button" type="button" aria-label="Close preview">×</button>
+        </div>
+      </div>
+      <iframe id="preview-iframe" title="Generated website preview"></iframe>
+    </section>
+
+    <section class="logs-drawer" id="logs-drawer" aria-label="Build logs">
+      <button class="logs-toggle" id="logs-toggle" type="button" aria-expanded="false">
+        <span><strong>Build logs</strong> <span class="log-summary" id="log-summary">No build run</span></span>
+        <span aria-hidden="true">⌃</span>
+      </button>
+      <div class="logs-content" id="logs-content" hidden>
+        <div class="logs-toolbar">
+          <button class="text-button" id="clear-logs-button" type="button">Clear</button>
+        </div>
+        <div id="logs-list" class="logs-list"></div>
+      </div>
+    </section>
+  </div>
+
+  <dialog id="page-dialog" class="dialog">
+    <form method="dialog" id="page-dialog-form">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">New document</p>
+          <h2>Add page</h2>
+        </div>
+        <button class="button ghost icon-button" id="close-page-dialog-button" type="button" aria-label="Close">×</button>
+      </div>
+      <label>Output path<input type="text" id="new-page-path" value="page.html" required autocomplete="off"></label>
+      <label>Page title<input type="text" id="new-page-title" placeholder="Optional override" autocomplete="off"></label>
+      <div class="form-error" id="page-dialog-error" role="alert"></div>
+      <div class="dialog-actions">
+        <button class="button ghost" value="cancel" type="button" id="cancel-page-button">Cancel</button>
+        <button class="button primary" value="default" type="submit">Add page</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="busy-overlay" id="busy-overlay" hidden>
+    <div class="spinner" aria-hidden="true"></div>
+    <strong id="busy-message">Working…</strong>
+  </div>
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

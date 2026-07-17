@@ -2,7 +2,7 @@
 
 ## Supported line
 
-WeBuilder CLI v1 receives critical correctness and security fixes through patch releases. New product features are reserved for v2.
+The current WeBuilder v2 line receives correctness and security fixes. The stable v1 CLI behavior remains supported inside v2 for build compatibility.
 
 ## Reporting a vulnerability
 
@@ -26,4 +26,6 @@ WeBuilder is a developer tool that compiles trusted project input:
 
 Do not build untrusted `build.json`, `library.json`, or plugin files without reviewing them.
 
-WeBuilder validates page paths, asset paths, plugin namespaces, arbitrary utility values, and output-directory safety. These checks reduce accidental or malicious file-system and CSS injection risks, but they do not sandbox intentionally executable HTML, CSS, or JavaScript content.
+WeBuilder validates page paths, asset paths, plugin namespaces, arbitrary utility values, and output-directory safety. The visual editor additionally confines static and preview paths, restricts mutating requests to trusted local hosts and same-origin browser sessions, limits upload sizes, sanitizes filenames, and performs atomic saves with backups.
+
+These checks reduce accidental or malicious file-system, request, and CSS injection risks, but they do not sandbox intentionally executable HTML, CSS, or JavaScript content. The GUI should remain bound to loopback unless the operator explicitly accepts LAN exposure.

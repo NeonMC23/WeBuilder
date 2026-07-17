@@ -1,6 +1,38 @@
 # Changelog
 
-All notable changes to WeBuilder CLI are documented here.
+All notable changes to WeBuilder are documented here.
+
+## 2.0.0 — Visual editor foundation
+
+### GUI backend
+
+- Added a dependency-free local editor server in `gui/server.py` using `ThreadingHTTPServer`.
+- Added APIs for loading and atomically saving `build.json`, listing components and themes, running builds, returning logs, managing plugins, and managing assets.
+- Added generated-site preview serving from the same origin, including clean page paths and component highlighting.
+- Added plugin discovery, activation persistence, validation, and merged core/plugin catalogs.
+- Added multipart asset uploads without an external framework, with size limits, safe filenames, path confinement, and configuration updates.
+- Added rotating draft backups under `.webuilder/backups/`.
+- Added local Host and same-origin checks for mutating requests.
+
+### Vanilla visual editor
+
+- Added the responsive GUI in `gui/static/` with no frontend dependency.
+- Added visual metadata and page editing.
+- Added searchable core and plugin component catalogs.
+- Added native drag and drop for creating, reordering, and nesting components.
+- Added a component inspector for variants, IDs, utilities, dynamic content, and event JSON.
+- Added page and component duplication and deletion.
+- Added plugin activation controls and theme catalog refresh.
+- Added asset upload, preview, path copying, and deletion.
+- Added embedded build preview, structured logs, selected-component highlighting, autosave, and optional live builds.
+- Added undo/redo, raw JSON editing, and configuration import/export.
+
+### CLI integration
+
+- Added `--gui` and `--gui-port` to `build.py`.
+- Preserved direct startup with `python gui/server.py`.
+- Updated the engine, preview server, GUI server, and core library metadata to 2.0.0.
+- Preserved v1 build, preview, watch, plugin, and output compatibility.
 
 ## 1.3.2 — Final v1 CLI release
 

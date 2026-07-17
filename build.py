@@ -25,7 +25,7 @@ from pathlib import Path, PurePosixPath
 from typing import Any, Callable, Iterable, Sequence
 from urllib.parse import urlsplit, urlunsplit
 
-VERSION = "1.3.0"
+VERSION = "2.0.0"
 ROOT_DIR = Path(__file__).resolve().parent
 DEFAULT_LIBRARY_PATH = ROOT_DIR / "library.json"
 MISSING = object()
@@ -1674,7 +1674,7 @@ class PreviewState:
 class PreviewRequestHandler(SimpleHTTPRequestHandler):
     """Static preview handler with clean URLs and injected live reload."""
 
-    server_version = "WeBuilderPreview/1.3"
+    server_version = "WeBuilderPreview/2.0"
 
     def __init__(
         self,
@@ -2081,7 +2081,7 @@ def create_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="WeBuilder",
         description=(
-            "Build and preview a modular website with a core library "
+            "Build, preview, and visually edit a modular website with a core library "
             f"({DEFAULT_LIBRARY_PATH}) and optional namespaced plugins."
         ),
     )
@@ -2114,7 +2114,18 @@ def create_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--preview",
         action="store_true",
-        help="start the integrated preview server in this terminal",
+        help="start the integrated site preview server in this terminal",
+    )
+    parser.add_argument(
+        "--gui",
+        action="store_true",
+        help="start the WeBuilder v2 visual editor",
+    )
+    parser.add_argument(
+        "--gui-port",
+        type=int,
+        default=8080,
+        help="visual editor port; 0 selects a free port (default: 8080)",
     )
     parser.add_argument(
         "--host",
@@ -2130,7 +2141,7 @@ def create_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--no-open",
         action="store_true",
-        help="do not open the browser automatically with --preview",
+        help="do not open the browser automatically with --preview or --gui",
     )
     parser.add_argument(
         "--init",
@@ -2159,12 +2170,35 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.port < 0 or args.port > 65535:
         print("--port must be between 0 and 65535", file=sys.stderr)
         return 2
+    if args.gui_port < 0 or args.gui_port > 65535:
+        print("--gui-port must be between 0 and 65535", file=sys.stderr)
+        return 2
+    if args.gui and args.preview:
+        print("--gui and --preview cannot be used together", file=sys.stderr)
+        return 2
+    if args.gui and args.watch:
+        print("--watch is not required with --gui; use Live build in the editor", file=sys.stderr)
+        return 2
     if args.init:
         return initialise_project(args.init)
     if args.list_components is not None:
         return list_components(args.list_components, plugin_paths)
     if args.show_component:
         return show_component(args.show_component, plugin_paths)
+    if args.gui:
+        try:
+            from gui.server import run_gui
+        except ImportError as exc:
+            print(f"Unable to load the visual editor: {exc}", file=sys.stderr)
+            return 2
+        return run_gui(
+            args.input,
+            args.output,
+            plugin_paths,
+            host=args.host,
+            port=args.gui_port,
+            open_browser=not args.no_open,
+        )
     if args.preview:
         return preview_site(
             args.input,
