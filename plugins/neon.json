@@ -1,4 +1,5 @@
 {
+  "$schema": "../schemas/library.schema.json",
   "name": "Neon UI Plugin",
   "version": "1.0.0",
   "themes": {
@@ -9,7 +10,7 @@
   },
   "components": {
     "card": {
-      "description": "Carte cyberpunk avec bordure lumineuse.",
+      "description": "Cyberpunk card with a glowing border.",
       "default_variant": "default",
       "required": [],
       "accepts_children": true,
@@ -26,12 +27,19 @@
           "js": ""
         }
       },
-      "defaults": {"content": {"title": "", "text": ""}}
+      "defaults": {
+        "content": {
+          "title": "",
+          "text": ""
+        }
+      }
     },
     "button": {
-      "description": "Bouton néon avec impulsion au clic.",
+      "description": "Neon button with a click pulse effect.",
       "default_variant": "cyan",
-      "required": ["content.text"],
+      "required": [
+        "content.text"
+      ],
       "accepts_children": false,
       "css": ".neon-button { position: relative; padding: .65rem 1.1rem; border: 1px solid currentColor; background: transparent; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: color .2s, background .2s, box-shadow .2s; } .neon-button.is-pulsing { animation: neon-plugin-pulse .35s ease; } @keyframes neon-plugin-pulse { 50% { transform: scale(.96); } }",
       "js": "document.querySelectorAll('.neon-button').forEach((button) => button.addEventListener('click', () => { button.classList.remove('is-pulsing'); void button.offsetWidth; button.classList.add('is-pulsing'); }));",
@@ -47,12 +55,18 @@
           "js": ""
         }
       },
-      "defaults": {"content": {"button_type": "button"}}
+      "defaults": {
+        "content": {
+          "button_type": "button"
+        }
+      }
     },
     "heading": {
-      "description": "Titre avec effet de décalage chromatique.",
+      "description": "Heading with a chromatic glitch effect.",
       "default_variant": "glitch",
-      "required": ["content.text"],
+      "required": [
+        "content.text"
+      ],
       "accepts_children": false,
       "variants": {
         "glitch": {
@@ -63,18 +77,25 @@
       }
     },
     "terminal": {
-      "description": "Terminal avec copie de commande.",
+      "description": "Terminal with command copying.",
       "default_variant": "default",
-      "required": ["content.lines"],
+      "required": [
+        "content.lines"
+      ],
       "accepts_children": false,
       "variants": {
         "default": {
           "html": "<section class='neon-terminal {{class}}'><header><span></span><span></span><span></span><strong>{{content.title}}</strong></header><pre>{{#content.lines}}<code>{{prompt}} {{command}}</code>{{/content.lines}}</pre><button type='button'>{{content.copy_text}}</button></section>",
           "css": ".neon-terminal { position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: #020207; color: #c8ffe8; box-shadow: 0 0 30px rgba(0,0,0,.5); } .neon-terminal header { display: flex; align-items: center; gap: .4rem; padding: .55rem .75rem; border-bottom: 1px solid var(--border); background: #111126; } .neon-terminal header span { width: .65rem; height: .65rem; border-radius: 50%; background: var(--danger); } .neon-terminal header span:nth-child(2) { background: var(--warning); } .neon-terminal header span:nth-child(3) { background: var(--success); } .neon-terminal header strong { margin-left: .4rem; color: var(--text-muted); font-size: .75rem; } .neon-terminal pre { display: grid; gap: .4rem; min-height: 8rem; margin: 0; padding: 1rem; overflow-x: auto; } .neon-terminal code { display: block; font-family: ui-monospace, monospace; } .neon-terminal button { position: absolute; right: .6rem; bottom: .6rem; padding: .35rem .55rem; border: 1px solid var(--primary); background: #020207; color: var(--primary); }",
-          "js": "document.querySelectorAll('.neon-terminal').forEach((terminal) => terminal.querySelector('button')?.addEventListener('click', async (event) => { const text = [...terminal.querySelectorAll('code')].map((line) => line.textContent).join('\\n'); await navigator.clipboard.writeText(text); event.currentTarget.textContent = 'Copié !'; }));"
+          "js": "document.querySelectorAll('.neon-terminal').forEach((terminal) => terminal.querySelector('button')?.addEventListener('click', async (event) => { const text = [...terminal.querySelectorAll('code')].map((line) => line.textContent).join('\\n'); await navigator.clipboard.writeText(text); event.currentTarget.textContent = 'Copied!'; }));"
         }
       },
-      "defaults": {"content": {"title": "terminal", "copy_text": "Copier"}}
+      "defaults": {
+        "content": {
+          "title": "terminal",
+          "copy_text": "Copy"
+        }
+      }
     }
   },
   "shortcuts": {

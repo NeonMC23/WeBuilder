@@ -25,7 +25,7 @@ from pathlib import Path, PurePosixPath
 from typing import Any, Callable, Iterable, Sequence
 from urllib.parse import urlsplit, urlunsplit
 
-VERSION = "1.2.0"
+VERSION = "1.3.0"
 ROOT_DIR = Path(__file__).resolve().parent
 DEFAULT_LIBRARY_PATH = ROOT_DIR / "library.json"
 MISSING = object()
@@ -94,7 +94,7 @@ class MustacheRenderer:
                 match = _TOKEN_RE.search(template, position)
                 if not match:
                     if stop_name is not None:
-                        raise TemplateError(f"Section Mustache non fermée : {stop_name!r}")
+                        raise TemplateError(f"Unclosed Mustache section: {stop_name!r}")
                     if position < len(template):
                         nodes.append(_TextNode(template[position:]))
                     position = len(template)
@@ -112,15 +112,15 @@ class MustacheRenderer:
                 name = regular_name.strip()
                 if sigil in ("#", "^"):
                     if not name:
-                        raise TemplateError("Une section Mustache doit avoir un nom")
+                        raise TemplateError("A Mustache section must have a name")
                     children, _ = parse_nodes(name)
                     nodes.append(_SectionNode(name, children, inverted=sigil == "^"))
                 elif sigil == "/":
                     if stop_name is None:
-                        raise TemplateError(f"Fermeture Mustache inattendue : {name!r}")
+                        raise TemplateError(f"Unexpected Mustache closing tag: {name!r}")
                     if name != stop_name:
                         raise TemplateError(
-                            f"Section Mustache {stop_name!r} fermée par {name!r}"
+                            f"Mustache section {stop_name!r} closed by {name!r}"
                         )
                     return tuple(nodes), position
                 elif sigil == "!":
@@ -717,15 +717,15 @@ def _load_json(path: Path) -> dict[str, Any]:
         with path.open("r", encoding="utf-8") as handle:
             data = json.load(handle)
     except FileNotFoundError as exc:
-        raise ConfigurationError(f"Fichier introuvable : {path}") from exc
+        raise ConfigurationError(f"File not found: {path}") from exc
     except json.JSONDecodeError as exc:
         raise ConfigurationError(
-            f"JSON invalide dans {path} (ligne {exc.lineno}, colonne {exc.colno}) : {exc.msg}"
+            f"Invalid JSON in {path} (line {exc.lineno}, column {exc.colno}): {exc.msg}"
         ) from exc
     except OSError as exc:
-        raise ConfigurationError(f"Impossible de lire {path} : {exc}") from exc
+        raise ConfigurationError(f"Unable to read {path}: {exc}") from exc
     if not isinstance(data, dict):
-        raise ConfigurationError(f"La racine de {path} doit être un objet JSON")
+        raise ConfigurationError(f"The root value in {path} must be a JSON object")
     return data
 
 
@@ -760,13 +760,13 @@ def _validate_plugin_section_keys(
         return {}
     if not isinstance(section, dict):
         raise ConfigurationError(
-            f"Plugin {plugin_name!r} : {section_name!r} doit être un objet ({path})"
+            f"Plugin {plugin_name!r}: {section_name!r} must be an object ({path})"
         )
     for local_name in section:
         if not isinstance(local_name, str) or not _PLUGIN_NAME_RE.fullmatch(local_name):
             raise ConfigurationError(
-                f"Plugin {plugin_name!r} : nom invalide dans {section_name}: {local_name!r}. "
-                "Les noms locaux ne doivent pas contenir de ':'"
+                f"Plugin {plugin_name!r}: invalid name in {section_name}: {local_name!r}. "
+                "Local names must not contain ':'"
             )
     return section
 
@@ -790,15 +790,15 @@ def load_library_with_plugins(
     merged.setdefault("themes", {})
     merged.setdefault("shortcuts", {})
     if not isinstance(merged["components"], dict):
-        raise ConfigurationError("library.json central : 'components' doit être un objet")
+        raise ConfigurationError("Core library.json: 'components' must be an object")
     if not isinstance(merged["themes"], dict):
-        raise ConfigurationError("library.json central : 'themes' doit être un objet")
+        raise ConfigurationError("Core library.json: 'themes' must be an object")
     if not isinstance(merged["shortcuts"], dict):
-        raise ConfigurationError("library.json central : 'shortcuts' doit être un objet")
+        raise ConfigurationError("Core library.json: 'shortcuts' must be an object")
     merged["shortcuts"].setdefault("class", {})
     if not isinstance(merged["shortcuts"].get("class"), dict):
         raise ConfigurationError(
-            "library.json central : 'shortcuts.class' doit être un objet"
+            "Core library.json: 'shortcuts.class' must be an object"
         )
 
     infos: list[PluginInfo] = []
@@ -806,21 +806,21 @@ def load_library_with_plugins(
     for plugin_path in _resolve_plugin_paths(plugin_paths):
         if plugin_path.suffix.lower() != ".json":
             raise ConfigurationError(
-                f"Un plugin doit être un fichier {{plugin-name}}.json : {plugin_path}"
+                f"A plugin must be a {{plugin-name}}.json file: {plugin_path}"
             )
         plugin_name = plugin_path.stem
         if not _PLUGIN_NAME_RE.fullmatch(plugin_name):
             raise ConfigurationError(
-                f"Nom de plugin invalide {plugin_name!r}. Format attendu : "
-                "lettres, chiffres, tirets et underscores, en commençant par une lettre"
+                f"Invalid plugin name {plugin_name!r}. Expected format: "
+                "letters, digits, hyphens, and underscores, starting with a letter"
             )
         if plugin_name in _PLUGIN_RESERVED_NAMES:
             raise ConfigurationError(
-                f"Nom de plugin réservé ou ambigu : {plugin_name!r}"
+                f"Reserved or ambiguous plugin name: {plugin_name!r}"
             )
         if plugin_name in seen_names:
             raise ConfigurationError(
-                f"Plugin dupliqué {plugin_name!r} : {seen_names[plugin_name]} et {plugin_path}"
+                f"Duplicate plugin namespace {plugin_name!r}: {seen_names[plugin_name]} and {plugin_path}"
             )
         seen_names[plugin_name] = plugin_path
 
@@ -836,7 +836,7 @@ def load_library_with_plugins(
             shortcuts_container = {}
         if not isinstance(shortcuts_container, dict):
             raise ConfigurationError(
-                f"Plugin {plugin_name!r} : 'shortcuts' doit être un objet"
+                f"Plugin {plugin_name!r}: 'shortcuts' must be an object"
             )
         shortcut_classes = _validate_plugin_section_keys(
             plugin_name,
@@ -846,41 +846,41 @@ def load_library_with_plugins(
         )
         if not components and not themes and not shortcut_classes:
             raise ConfigurationError(
-                f"Plugin {plugin_name!r} vide : ajoutez components, themes ou shortcuts.class"
+                f"Empty plugin {plugin_name!r}: add components, themes, or shortcuts.class"
             )
 
         plugin_renderer = MustacheRenderer()
         for local_name, definition in components.items():
             if not isinstance(definition, dict):
                 raise ConfigurationError(
-                    f"Plugin {plugin_name!r} : composant {local_name!r} invalide"
+                    f"Plugin {plugin_name!r}: invalid component {local_name!r}"
                 )
             variants = definition.get("variants")
             if not isinstance(variants, dict) or not variants:
                 raise ConfigurationError(
-                    f"Plugin {plugin_name!r} : le composant {local_name!r} doit avoir des variantes"
+                    f"Plugin {plugin_name!r}: component {local_name!r} must define variants"
                 )
             for variant_name, variant_definition in variants.items():
                 if not isinstance(variant_definition, dict) or not isinstance(
                     variant_definition.get("html"), str
                 ):
                     raise ConfigurationError(
-                        f"Plugin {plugin_name!r} : template manquant pour "
+                        f"Plugin {plugin_name!r}: missing template for "
                         f"{local_name!r}/{variant_name!r}"
                     )
                 try:
                     plugin_renderer.parse(variant_definition["html"])
                 except TemplateError as exc:
                     raise ConfigurationError(
-                        f"Plugin {plugin_name!r} : template invalide pour "
-                        f"{local_name!r}/{variant_name!r} : {exc}"
+                        f"Plugin {plugin_name!r}: invalid template for "
+                        f"{local_name!r}/{variant_name!r}: {exc}"
                     ) from exc
         for local_name, definition in themes.items():
             if not isinstance(definition, dict) or not isinstance(
                 definition.get("css"), str
             ):
                 raise ConfigurationError(
-                    f"Plugin {plugin_name!r} : thème {local_name!r} sans CSS valide"
+                    f"Plugin {plugin_name!r}: theme {local_name!r} does not contain valid CSS"
                 )
 
         for local_name, definition in components.items():
@@ -890,13 +890,13 @@ def load_library_with_plugins(
         for local_name, declarations in shortcut_classes.items():
             if not isinstance(declarations, str):
                 raise ConfigurationError(
-                    f"Plugin {plugin_name!r} : le raccourci {local_name!r} doit être une chaîne CSS"
+                    f"Plugin {plugin_name!r}: shortcut {local_name!r} must be a CSS string"
                 )
             merged["shortcuts"]["class"][
                 f"{plugin_name}:{local_name}"
             ] = declarations
 
-        version = str(plugin_library.get("version", "non spécifiée"))
+        version = str(plugin_library.get("version", "unspecified"))
         infos.append(
             PluginInfo(
                 name=plugin_name,
@@ -950,46 +950,46 @@ class SiteBuilder:
     def validate(self) -> bool:
         components_library = self.library_data.get("components")
         if not isinstance(components_library, dict) or not components_library:
-            self.logger.error("library.json doit contenir un objet 'components' non vide")
+            self.logger.error("library.json must contain a non-empty 'components' object")
             components_library = {}
 
         themes = self.library_data.get("themes", {})
         if not isinstance(themes, dict):
-            self.logger.error("library.json : 'themes' doit être un objet")
+            self.logger.error("library.json: 'themes' must be an object")
             themes = {}
 
         meta = self.build_data.get("meta", {})
         if not isinstance(meta, dict):
-            self.logger.error("build.json : 'meta' doit être un objet")
+            self.logger.error("build.json: 'meta' must be an object")
             meta = {}
         theme_name = meta.get("theme", "light")
         if theme_name not in themes:
-            self.logger.error(f"Thème {theme_name!r} introuvable dans library.json")
+            self.logger.error(f"Theme {theme_name!r} was not found in the loaded libraries")
 
         raw_pages = self.build_data.get("pages")
         if not isinstance(raw_pages, list) or not raw_pages:
-            self.logger.error("build.json : 'pages' doit être une liste non vide")
+            self.logger.error("build.json: 'pages' must be a non-empty array")
             raw_pages = []
 
         seen_page_paths: set[str] = set()
         for page_index, page in enumerate(raw_pages):
             if not isinstance(page, dict):
-                self.logger.error(f"La page #{page_index + 1} doit être un objet")
+                self.logger.error(f"Page #{page_index + 1} must be an object")
                 continue
             page_path = page.get("path")
             if not isinstance(page_path, str) or not page_path.strip():
-                self.logger.error(f"La page #{page_index + 1} doit avoir un champ 'path'")
+                self.logger.error(f"Page #{page_index + 1} must define a 'path' field")
                 continue
             safe_page_path = _safe_posix_path(page_path)
             if safe_page_path is None or safe_page_path.suffix.lower() not in (".html", ".htm"):
                 self.logger.error(
-                    f"Chemin de page non sûr ou non HTML : {page_path!r}", page=page_path
+                    f"Unsafe or non-HTML page path: {page_path!r}", page=page_path
                 )
                 continue
             canonical_page_path = safe_page_path.as_posix()
             if canonical_page_path in seen_page_paths:
                 self.logger.error(
-                    f"Chemin de page dupliqué : {canonical_page_path!r}",
+                    f"Duplicate page path: {canonical_page_path!r}",
                     page=canonical_page_path,
                 )
                 continue
@@ -998,7 +998,7 @@ class SiteBuilder:
             raw_components = page.get("components", [])
             if not isinstance(raw_components, list):
                 self.logger.error(
-                    "Le champ 'components' de la page doit être une liste",
+                    "The page 'components' field must be an array",
                     page=canonical_page_path,
                 )
                 raw_components = []
@@ -1026,19 +1026,19 @@ class SiteBuilder:
         page_path: str,
         tree_path: str,
     ) -> ComponentUse | None:
-        location = f"composant {tree_path}"
+        location = f"component {tree_path}"
         if not isinstance(raw_component, dict):
-            self.logger.error(f"{location} doit être un objet", page=page_path)
+            self.logger.error(f"{location} must be an object", page=page_path)
             return None
 
         type_name = raw_component.get("type")
         if not isinstance(type_name, str) or not type_name:
-            self.logger.error(f"{location} : champ 'type' obligatoire", page=page_path)
+            self.logger.error(f"{location}: required 'type' field is missing", page=page_path)
             return None
         component_definition = components_library.get(type_name)
         if not isinstance(component_definition, dict):
             self.logger.error(
-                f"Composant {type_name!r} introuvable dans library.json",
+                f"Component {type_name!r} was not found in the loaded libraries",
                 page=page_path,
                 component=tree_path,
             )
@@ -1047,7 +1047,7 @@ class SiteBuilder:
         variants = component_definition.get("variants")
         if not isinstance(variants, dict) or not variants:
             self.logger.error(
-                f"Le composant {type_name!r} n'a aucune variante valide",
+                f"Component {type_name!r} has no valid variants",
                 page=page_path,
                 component=tree_path,
             )
@@ -1057,7 +1057,7 @@ class SiteBuilder:
             variant_name = next(iter(variants))
         if not isinstance(variant_name, str) or not isinstance(variants.get(variant_name), dict):
             self.logger.error(
-                f"Variante {variant_name!r} introuvable pour le composant {type_name!r}",
+                f"Variant {variant_name!r} was not found for component {type_name!r}",
                 page=page_path,
                 component=tree_path,
             )
@@ -1082,7 +1082,7 @@ class SiteBuilder:
             value = _get_path(merged_data, required_path)
             if value is MISSING or value is None or value == "":
                 self.logger.error(
-                    f"Champ obligatoire manquant : {required_path!r} pour {type_name!r}",
+                    f"Missing required field {required_path!r} for {type_name!r}",
                     page=page_path,
                     component=tree_path,
                 )
@@ -1093,7 +1093,7 @@ class SiteBuilder:
             and any(not isinstance(item, str) for item in class_value)
         ):
             self.logger.error(
-                f"Le champ 'class' de {type_name!r} doit être une chaîne ou une liste de chaînes",
+                f"The 'class' field of {type_name!r} must be a string or an array of strings",
                 page=page_path,
                 component=tree_path,
             )
@@ -1108,7 +1108,7 @@ class SiteBuilder:
         else:
             explicit_id = None
             self.logger.error(
-                f"Le champ 'id' de {type_name!r} doit être une chaîne ou un entier",
+                f"The 'id' field of {type_name!r} must be a string or integer",
                 page=page_path,
                 component=tree_path,
             )
@@ -1117,7 +1117,7 @@ class SiteBuilder:
         events: dict[str, str] = {}
         if not isinstance(events_value, dict):
             self.logger.error(
-                f"Le champ 'events' de {type_name!r} doit être un objet",
+                f"The 'events' field of {type_name!r} must be an object",
                 page=page_path,
                 component=tree_path,
             )
@@ -1127,13 +1127,13 @@ class SiteBuilder:
                     r"[A-Za-z][A-Za-z0-9:_-]*", event_name
                 ):
                     self.logger.error(
-                        f"Nom d'événement invalide : {event_name!r}",
+                        f"Invalid event name: {event_name!r}",
                         page=page_path,
                         component=tree_path,
                     )
                 elif not isinstance(event_code, str):
                     self.logger.error(
-                        f"Le code de l'événement {event_name!r} doit être une chaîne",
+                        f"Event code for {event_name!r} must be a string",
                         page=page_path,
                         component=tree_path,
                     )
@@ -1143,14 +1143,14 @@ class SiteBuilder:
         raw_children = raw_component.get("children", [])
         if not isinstance(raw_children, list):
             self.logger.error(
-                f"Le champ 'children' de {type_name!r} doit être une liste",
+                f"The 'children' field of {type_name!r} must be an array",
                 page=page_path,
                 component=tree_path,
             )
             raw_children = []
         if raw_children and component_definition.get("accepts_children", True) is False:
             self.logger.error(
-                f"Le composant {type_name!r} n'accepte pas d'enfants",
+                f"Component {type_name!r} does not accept children",
                 page=page_path,
                 component=tree_path,
             )
@@ -1207,30 +1207,35 @@ class SiteBuilder:
     def _validate_assets(self, meta: dict[str, Any]) -> None:
         asset_references = self.build_data.get("assets", [])
         if not isinstance(asset_references, list):
-            self.logger.error("build.json : 'assets' doit être une liste")
+            self.logger.error("build.json: 'assets' must be an array")
             asset_references = []
         references: list[Any] = list(asset_references)
-        favicon = meta.get("favicon")
-        if favicon and favicon not in references:
-            references.append(favicon)
+        favicon_candidates: list[Any] = [meta.get("favicon")]
+        for page, _ in self.pages:
+            page_meta = page.get("meta", {})
+            if isinstance(page_meta, dict):
+                favicon_candidates.append(page_meta.get("favicon"))
+        for favicon in favicon_candidates:
+            if favicon and favicon not in references:
+                references.append(favicon)
 
         destinations: dict[str, str] = {}
         for reference in references:
             if not isinstance(reference, str):
-                self.logger.error(f"Référence d'asset invalide : {reference!r}")
+                self.logger.error(f"Invalid asset reference: {reference!r}")
                 continue
             mapping = self._resolve_asset(reference)
             if mapping is None:
-                self.logger.error(f"Chemin d'asset non sûr : {reference!r}")
+                self.logger.error(f"Unsafe asset path: {reference!r}")
                 continue
             if not mapping.source.is_file():
-                self.logger.error(f"Asset introuvable : {reference!r}")
+                self.logger.error(f"Asset not found: {reference!r}")
                 continue
             destination_key = mapping.destination_relative.as_posix()
             previous = destinations.get(destination_key)
             if previous and previous != str(mapping.source):
                 self.logger.error(
-                    f"Deux assets ciblent build/assets/{destination_key} : {previous!r} et {reference!r}"
+                    f"Two assets target build/assets/{destination_key}: {previous!r} and {reference!r}"
                 )
                 continue
             destinations[destination_key] = str(mapping.source)
@@ -1248,14 +1253,14 @@ class SiteBuilder:
             template = use.variant_definition.get("html")
             if not isinstance(template, str) or not template.strip():
                 self.logger.error(
-                    f"Template HTML manquant pour {use.type_name!r}/{use.variant_name!r}"
+                    f"Missing HTML template for {use.type_name!r}/{use.variant_name!r}"
                 )
                 continue
             try:
                 self.renderer.parse(template)
             except TemplateError as exc:
                 self.logger.error(
-                    f"Template invalide pour {use.type_name!r}/{use.variant_name!r} : {exc}"
+                    f"Invalid template for {use.type_name!r}/{use.variant_name!r}: {exc}"
                 )
 
     # ------------------------------ generation -----------------------------
@@ -1271,8 +1276,12 @@ class SiteBuilder:
 
     def _prepare_output(self) -> None:
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        # Only remove directories owned by WeBuilder.  Arbitrary user files in
-        # the output root are deliberately preserved.
+        # Remove only artifacts owned by WeBuilder. Unknown files in the output
+        # root are preserved, while stale generated pages are deleted.
+        for pattern in ("*.html", "*.htm"):
+            for page_file in self.output_dir.rglob(pattern):
+                if page_file.is_file() or page_file.is_symlink():
+                    page_file.unlink()
         for directory_name in ("css", "js", "assets"):
             target = self.output_dir / directory_name
             if target.exists():
@@ -1478,7 +1487,7 @@ document.querySelectorAll('[data-wb-instance]').forEach((element) => {{
             page_meta = _deep_merge(global_meta, page.get("meta", {})) if isinstance(page.get("meta"), dict) else global_meta
             page_path = str(page["path"]).replace("\\", "/")
             title = page_meta.get("title", "Site WeBuilder")
-            lang = page_meta.get("lang", "fr")
+            lang = page_meta.get("lang", "en")
             description = page_meta.get("description", "")
             author = page_meta.get("author", "")
             robots = page_meta.get("robots", "")
@@ -1591,7 +1600,7 @@ def build_site(
         # (or one of its parents) so cleanup can never remove source assets.
         if output == input_file or output in input_file.parents:
             logger.error(
-                "Le dossier de sortie doit être un sous-dossier dédié, pas le dossier du projet ni l'un de ses parents"
+                "The output directory must be dedicated; it cannot be the project directory or one of its parents"
             )
             if not quiet:
                 print("Build failed: unsafe output directory", file=sys.stderr)
@@ -1633,7 +1642,7 @@ def build_site(
             print(f"Build failed: {exc}", file=sys.stderr)
         return False
     except Exception as exc:  # Last-resort structured logging for CLI users.
-        logger.error(f"Erreur inattendue : {type(exc).__name__}: {exc}")
+        logger.error(f"Unexpected error: {type(exc).__name__}: {exc}")
         if not quiet:
             print(f"Build failed unexpectedly: {exc}", file=sys.stderr)
         return False
@@ -1665,7 +1674,7 @@ class PreviewState:
 class PreviewRequestHandler(SimpleHTTPRequestHandler):
     """Static preview handler with clean URLs and injected live reload."""
 
-    server_version = "WeBuilderPreview/1.2"
+    server_version = "WeBuilderPreview/1.3"
 
     def __init__(
         self,
@@ -1774,7 +1783,7 @@ def _start_watcher(
         from watchdog.observers import Observer
     except ImportError:
         print(
-            "Le mode --watch nécessite watchdog. Installez-le avec: pip install watchdog",
+            "Watch mode requires watchdog. Install it with: pip install watchdog",
             file=sys.stderr,
         )
         return None
@@ -1913,7 +1922,7 @@ def preview_site(
         if observer is not None:
             observer.stop()
             observer.join()
-        print(f"Impossible de lancer la preview sur {host}:{port} : {exc}", file=sys.stderr)
+        print(f"Unable to start the preview server on {host}:{port}: {exc}", file=sys.stderr)
         return 2
 
     actual_port = int(server.server_address[1])
@@ -1945,17 +1954,17 @@ def initialise_project(target_directory: str | Path) -> int:
     target = Path(target_directory).expanduser().resolve()
     build_file = target / "build.json"
     if build_file.exists():
-        print(f"Initialisation annulée : {build_file} existe déjà.", file=sys.stderr)
+        print(f"Initialization cancelled: {build_file} already exists.", file=sys.stderr)
         return 1
     target.mkdir(parents=True, exist_ok=True)
     (target / "assets" / "images").mkdir(parents=True, exist_ok=True)
     (target / "plugins").mkdir(parents=True, exist_ok=True)
     starter = {
         "meta": {
-            "title": "Mon nouveau site",
+            "title": "My new website",
             "theme": "light",
-            "lang": "fr",
-            "description": "Site créé avec WeBuilder",
+            "lang": "en",
+            "description": "Website created with WeBuilder",
         },
         "assets": [],
         "pages": [
@@ -1966,15 +1975,15 @@ def initialise_project(target_directory: str | Path) -> int:
                         "type": "hero",
                         "variant": "centered",
                         "content": {
-                            "eyebrow": "Nouveau projet",
-                            "title": "Votre site commence ici",
-                            "text": "Modifiez build.json et profitez de la preview avec rechargement automatique.",
+                            "eyebrow": "New project",
+                            "title": "Your website starts here",
+                            "text": "Edit build.json and use the integrated preview with live reload.",
                         },
                         "children": [
                             {
                                 "type": "button",
                                 "variant": "primary",
-                                "content": {"text": "Commencer"},
+                                "content": {"text": "Get started"},
                             }
                         ],
                     }
@@ -2032,7 +2041,7 @@ def show_component(
         return 1
     definition = library.get("components", {}).get(type_name)
     if not isinstance(definition, dict):
-        print(f"Composant inconnu : {type_name!r}", file=sys.stderr)
+        print(f"Unknown component: {type_name!r}", file=sys.stderr)
         return 1
     variants = list(definition.get("variants", {}).keys())
     default_variant = definition.get("default_variant") or variants[0]
@@ -2054,7 +2063,7 @@ def show_component(
     for path in required:
         if isinstance(path, str) and path.startswith("content."):
             field_name = path.split(".", 1)[1]
-            content[field_name] = [] if field_name in list_like_fields else "À compléter"
+            content[field_name] = [] if field_name in list_like_fields else "Required value"
     example = {
         "type": type_name,
         "variant": default_variant,
@@ -2072,19 +2081,19 @@ def create_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="WeBuilder",
         description=(
-            "Génère et prévisualise un site modulaire avec une bibliothèque centrale "
-            f"({DEFAULT_LIBRARY_PATH}) et des plugins namespacés facultatifs."
+            "Build and preview a modular website with a core library "
+            f"({DEFAULT_LIBRARY_PATH}) and optional namespaced plugins."
         ),
     )
     parser.add_argument(
         "--input",
         default="build.json",
-        help="chemin du fichier build.json (défaut: build.json)",
+        help="path to build.json (default: build.json)",
     )
     parser.add_argument(
         "--output",
         default="./build",
-        help="dossier de sortie (défaut: ./build)",
+        help="output directory (default: ./build)",
     )
     parser.add_argument(
         "--plugin",
@@ -2093,52 +2102,52 @@ def create_argument_parser() -> argparse.ArgumentParser:
         default=[],
         metavar="PLUGIN_JSON",
         help=(
-            "ajouter une ou plusieurs bibliothèques annexes; option répétable. "
-            "Le nom du fichier devient le namespace"
+            "load one or more plugin libraries; the option may be repeated. "
+            "The filename becomes the namespace"
         ),
     )
     parser.add_argument(
         "--watch",
         action="store_true",
-        help="reconstruire après modification de build.json, des assets, de la bibliothèque ou des plugins",
+        help="rebuild after changes to build.json, source assets, the core library, or plugins",
     )
     parser.add_argument(
         "--preview",
         action="store_true",
-        help="lancer le serveur de preview intégré dans ce terminal",
+        help="start the integrated preview server in this terminal",
     )
     parser.add_argument(
         "--host",
         default="127.0.0.1",
-        help="adresse du serveur de preview (défaut: 127.0.0.1)",
+        help="preview server address (default: 127.0.0.1)",
     )
     parser.add_argument(
         "--port",
         type=int,
         default=8000,
-        help="port de preview; 0 choisit un port libre (défaut: 8000)",
+        help="preview port; 0 selects a free port (default: 8000)",
     )
     parser.add_argument(
         "--no-open",
         action="store_true",
-        help="ne pas ouvrir automatiquement le navigateur avec --preview",
+        help="do not open the browser automatically with --preview",
     )
     parser.add_argument(
         "--init",
-        metavar="DOSSIER",
-        help="créer un nouveau projet sans dupliquer library.json",
+        metavar="DIRECTORY",
+        help="create a new project without copying library.json",
     )
     parser.add_argument(
         "--list-components",
         nargs="?",
         const="",
-        metavar="RECHERCHE",
-        help="lister les composants, avec un filtre facultatif",
+        metavar="QUERY",
+        help="list components, with an optional search query",
     )
     parser.add_argument(
         "--show-component",
         metavar="TYPE",
-        help="afficher les variantes et un JSON prêt à copier",
+        help="show variants and a copy-ready JSON instance",
     )
     parser.add_argument("--version", action="version", version=f"WeBuilder {VERSION}")
     return parser
@@ -2148,7 +2157,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = create_argument_parser().parse_args(argv)
     plugin_paths = [path for group in args.plugin for path in group]
     if args.port < 0 or args.port > 65535:
-        print("--port doit être compris entre 0 et 65535", file=sys.stderr)
+        print("--port must be between 0 and 65535", file=sys.stderr)
         return 2
     if args.init:
         return initialise_project(args.init)

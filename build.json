@@ -1,10 +1,11 @@
 {
+  "$schema": "./schemas/build.schema.json",
   "meta": {
-    "title": "WeBuilder — Site de démonstration",
+    "title": "WeBuilder — Demo website",
     "theme": "dark",
-    "lang": "fr",
-    "description": "Un site modulaire généré avec WeBuilder",
-    "author": "Équipe WeBuilder",
+    "lang": "en",
+    "description": "A modular website generated with WeBuilder",
+    "author": "WeBuilder Team",
     "favicon": "assets/favicon.svg"
   },
   "assets": [
@@ -28,7 +29,7 @@
             "logo": "/assets/images/logo.svg",
             "nav": [
               {
-                "text": "Accueil",
+                "text": "Home",
                 "href": "/index.html"
               },
               {
@@ -46,9 +47,9 @@
           "type": "hero",
           "variant": "centered",
           "content": {
-            "eyebrow": "Générateur statique",
-            "title": "Composez un site complet depuis du JSON",
-            "text": "Pages multiples, thèmes, composants imbriqués, événements JavaScript et assets : le tout sans framework côté navigateur."
+            "eyebrow": "Static site generator",
+            "title": "Build a complete website from JSON",
+            "text": "Multiple pages, themes, nested components, JavaScript events, and assets—with no client-side framework."
           },
           "children": [
             {
@@ -56,7 +57,7 @@
               "variant": "primary",
               "id": "discover",
               "content": {
-                "text": "Découvrir"
+                "text": "Explore"
               },
               "events": {
                 "click": "document.querySelector('[data-id=features]')?.scrollIntoView({ behavior: 'smooth' });"
@@ -66,7 +67,7 @@
               "type": "link",
               "variant": "button",
               "content": {
-                "text": "Nous contacter",
+                "text": "Contact us",
                 "href": "/contact.html"
               }
             }
@@ -81,7 +82,7 @@
           "variant": "default",
           "id": "features",
           "content": {
-            "label": "Fonctionnalités"
+            "label": "Features"
           },
           "children": [
             {
@@ -97,17 +98,17 @@
                   "content": {
                     "items": [
                       {
-                        "label": "Composants",
+                        "label": "Components",
                         "value": "82",
-                        "detail": "Bibliothèque incluse"
+                        "detail": "Included library"
                       },
                       {
-                        "label": "Variantes",
+                        "label": "Variants",
                         "value": "191",
-                        "detail": "Prêtes à utiliser"
+                        "detail": "Ready to use"
                       },
                       {
-                        "label": "Dépendance runtime",
+                        "label": "Runtime dependencies",
                         "value": "0",
                         "detail": "JavaScript vanilla"
                       }
@@ -122,8 +123,8 @@
                       "type": "card",
                       "variant": "elevated",
                       "content": {
-                        "title": "HTML modulaire",
-                        "text": "Templates Mustache, boucles, conditions inversées et composants enfants."
+                        "title": "Modular HTML",
+                        "text": "Mustache templates, loops, inverted sections, and child components."
                       },
                       "class": [
                         "p-7.5",
@@ -134,16 +135,16 @@
                       "type": "card",
                       "variant": "elevated",
                       "content": {
-                        "title": "CSS organisé",
-                        "text": "Un thème, des raccourcis et un fichier séparé par variante utilisée."
+                        "title": "Organized CSS",
+                        "text": "One theme, utility classes, and a separate file for every used variant."
                       }
                     },
                     {
                       "type": "card",
                       "variant": "elevated",
                       "content": {
-                        "title": "JS sûr à cibler",
-                        "text": "Les événements déclaratifs deviennent des addEventListener ciblés par instance."
+                        "title": "Precisely targeted JavaScript",
+                        "text": "Declarative events become addEventListener calls targeted to a unique instance."
                       }
                     }
                   ]
@@ -155,8 +156,8 @@
                     "mt-4"
                   ],
                   "content": {
-                    "title": "Astuce",
-                    "text": "Modifiez build.json puis lancez WeBuilder avec --watch.",
+                    "title": "Tip",
+                    "text": "Edit build.json, then run WeBuilder with --watch.",
                     "dismissible": true
                   }
                 }
@@ -170,10 +171,10 @@
           "content": {
             "year": "2026",
             "name": "WeBuilder",
-            "text": "Généré en Python.",
+            "text": "Generated with Python.",
             "links": [
               {
-                "text": "Accueil",
+                "text": "Home",
                 "href": "/index.html"
               },
               {
@@ -189,7 +190,7 @@
       "path": "contact.html",
       "meta": {
         "title": "Contact — WeBuilder",
-        "description": "Formulaire de contact généré avec des composants WeBuilder"
+        "description": "Contact form generated with WeBuilder components"
       },
       "components": [
         {
@@ -202,7 +203,7 @@
             "title": "WeBuilder",
             "nav": [
               {
-                "text": "Accueil",
+                "text": "Home",
                 "href": "/index.html"
               },
               {
@@ -220,7 +221,7 @@
           "type": "section",
           "variant": "default",
           "content": {
-            "label": "Formulaire de contact"
+            "label": "Contact form"
           },
           "children": [
             {
@@ -236,7 +237,7 @@
                   "content": {
                     "items": [
                       {
-                        "text": "Accueil",
+                        "text": "Home",
                         "href": "/index.html"
                       },
                       {
@@ -255,16 +256,16 @@
                     "method": "post"
                   },
                   "events": {
-                    "submit": "event.preventDefault(); console.log('Formulaire envoyé', new FormData(el)); alert('Merci, votre message a été simulé.');"
+                    "submit": "event.preventDefault(); console.log('Form submitted', new FormData(el)); alert('Thank you. This demo form was submitted locally.');"
                   },
                   "children": [
                     {
                       "type": "input",
                       "variant": "text",
                       "content": {
-                        "label": "Nom",
+                        "label": "Name",
                         "name": "name",
-                        "placeholder": "Votre nom",
+                        "placeholder": "Your name",
                         "required": true
                       }
                     },
@@ -274,16 +275,16 @@
                       "content": {
                         "label": "E-mail",
                         "name": "email",
-                        "placeholder": "vous@exemple.fr",
+                        "placeholder": "you@example.com",
                         "required": true,
-                        "help": "Votre adresse ne sera pas partagée."
+                        "help": "Your email address will not be shared."
                       }
                     },
                     {
                       "type": "select",
                       "variant": "default",
                       "content": {
-                        "label": "Sujet",
+                        "label": "Subject",
                         "name": "subject",
                         "options": [
                           {
@@ -292,7 +293,7 @@
                             "selected": true
                           },
                           {
-                            "text": "Projet",
+                            "text": "Project",
                             "value": "project"
                           },
                           {
@@ -308,7 +309,7 @@
                       "content": {
                         "label": "Message",
                         "name": "message",
-                        "placeholder": "Décrivez votre besoin…",
+                        "placeholder": "Tell us about your project…",
                         "required": true
                       }
                     },
@@ -316,7 +317,7 @@
                       "type": "checkbox",
                       "variant": "default",
                       "content": {
-                        "label": "J’accepte d’être recontacté",
+                        "label": "I agree to be contacted",
                         "name": "consent",
                         "required": true
                       }
@@ -329,7 +330,7 @@
                         "mt-2"
                       ],
                       "content": {
-                        "text": "Envoyer",
+                        "text": "Send",
                         "button_type": "submit"
                       }
                     }
@@ -345,7 +346,7 @@
           "content": {
             "name": "WeBuilder",
             "year": "2026",
-            "text": "À bientôt."
+            "text": "See you soon."
           }
         }
       ]
@@ -363,7 +364,7 @@
             "title": "WeBuilder",
             "nav": [
               {
-                "text": "Accueil",
+                "text": "Home",
                 "href": "/index.html"
               },
               {
@@ -381,7 +382,7 @@
           "type": "section",
           "variant": "muted",
           "content": {
-            "label": "Guide rapide"
+            "label": "Quick guide"
           },
           "children": [
             {
@@ -395,8 +396,8 @@
                     "mb-4"
                   ],
                   "content": {
-                    "title": "Démarrage",
-                    "text": "Lancez la commande depuis le dossier webuilder."
+                    "title": "Getting started",
+                    "text": "Run the command from the webuilder directory."
                   }
                 },
                 {
@@ -416,16 +417,16 @@
                   "content": {
                     "items": [
                       {
-                        "title": "Où définir les composants ?",
-                        "text": "Dans library.json, sous la clé components."
+                        "title": "Where are components defined?",
+                        "text": "In library.json under the components key."
                       },
                       {
-                        "title": "Comment ajouter un événement ?",
-                        "text": "Ajoutez un objet events au composant dans build.json."
+                        "title": "How do I add an event?",
+                        "text": "Add an events object to the component in build.json."
                       },
                       {
-                        "title": "Comment activer le mode sombre ?",
-                        "text": "Utilisez meta.theme avec la valeur dark."
+                        "title": "How do I enable dark mode?",
+                        "text": "Set meta.theme to dark."
                       }
                     ]
                   }
@@ -437,8 +438,8 @@
                     "mt-4"
                   ],
                   "content": {
-                    "title": "Afficher les détails techniques",
-                    "text": "Le moteur Mustache est implémenté en Python standard et le mode watch utilise watchdog."
+                    "title": "Show technical details",
+                    "text": "The Mustache engine uses the Python standard library, while watch mode uses watchdog."
                   }
                 }
               ]
@@ -450,13 +451,13 @@
           "variant": "columns",
           "content": {
             "name": "WeBuilder",
-            "text": "Documentation de démonstration.",
+            "text": "Demo documentation.",
             "columns": [
               {
                 "title": "Pages",
                 "links": [
                   {
-                    "text": "Accueil",
+                    "text": "Home",
                     "href": "/index.html"
                   },
                   {
@@ -466,7 +467,7 @@
                 ]
               },
               {
-                "title": "Ressources",
+                "title": "Resources",
                 "links": [
                   {
                     "text": "README",

@@ -1,54 +1,81 @@
 # Changelog
 
-## 1.2.0 — 2026-07-16
+All notable changes to WeBuilder CLI are documented here.
+
+## 1.3.0 — Final v1 CLI release
+
+### Internationalization
+
+- Standardized the CLI, errors, logs, documentation, examples, component descriptions, templates, defaults, scripts, themes, plugins, tests, and generated demonstration content on English.
+- Changed generated document and scaffold defaults from `lang="fr"` to `lang="en"`.
+- Reworked the README as a complete English reference and support guide.
+
+### Reliability
+
+- Removed stale generated `.html` and `.htm` pages before a successful regeneration while preserving unknown root files.
+- Added validation and copying for page-level favicon overrides.
+- Refined error wording and CLI help for professional support.
+- Updated the runtime, library metadata, preview server identifier, and generated assets to 1.3.0.
+
+### Support boundary
+
+- Declared the v1 CLI feature-complete.
+- Stabilized the v1 configuration format, plugin namespace syntax, output structure, utility syntax, and development workflow.
+- Reserved visual authoring and drag-and-drop capabilities for v2.
+
+## 1.2.0
 
 ### Plugins
 
-- Ajout de `--plugin PLUGIN_JSON [PLUGIN_JSON ...]`, option répétable.
-- Fusion en mémoire de bibliothèques annexes sans modifier le cœur.
-- Namespace dérivé du nom de fichier pour les composants, thèmes et raccourcis.
-- Références de la forme `plugin:component`, `plugin:theme` et `plugin:class`.
-- Noms de fichiers générés sûrs (`plugin-{namespace}--{component}`) pour éviter les collisions avec le cœur.
-- Compatibilité des raccourcis namespacés avec les préfixes responsive et d'état.
-- Rejet des doublons de namespace, noms réservés, chemins non JSON et clés locales déjà namespacées.
-- Surveillance des fichiers de plugins avec `--watch` et live reload.
-- Intégration des plugins dans `--list-components` et `--show-component`.
-- Journalisation des plugins chargés et de leur inventaire.
-- Ajout des plugins d'exemple `neon.json` et `commerce.json`.
-- Ajout de `examples/plugins.json` et de tests d'isolation des namespaces.
+- Added repeatable `--plugin PLUGIN_JSON [PLUGIN_JSON ...]` support.
+- Added in-memory plugin library merging without changing the core library.
+- Derived component, theme, and shortcut namespaces from plugin filenames.
+- Added `plugin:component`, `plugin:theme`, and `plugin:class` references.
+- Added collision-safe artifact names using `plugin-{namespace}--{component}`.
+- Added responsive and state prefixes for namespaced plugin shortcuts.
+- Rejected duplicate namespaces, reserved names, non-JSON paths, and pre-namespaced local keys.
+- Watched loaded plugin files in watch and live-reload modes.
+- Integrated plugins into `--list-components` and `--show-component`.
+- Added structured plugin inventory log entries.
+- Added the example `neon.json` and `commerce.json` plugins.
+- Added `examples/plugins.json` and plugin namespace tests.
 
-## 1.1.0 — 2026-07-16
+## 1.1.0
 
-### Bibliothèque
+### Core library
 
-- `library.json` devient la bibliothèque centrale unique, résolue depuis le dossier de `build.py`.
-- Suppression de l'option CLI `--library` et de la recherche à côté de `build.json`.
-- Passage à 82 composants, 191 variantes, 189 raccourcis et 9 thèmes.
-- Ajout de nombreux composants de layout, formulaire, données, médias, marketing et interaction.
-- Ajout de scripts prêts à l'emploi : dropzone, rating, popover, cookie consent, copie, compteur, compte à rebours, retour en haut, etc.
+- Made the root `library.json` the single canonical core library.
+- Removed the CLI `--library` override and project-local automatic lookup.
+- Expanded the core to 82 components, 191 variants, 189 static utilities, and 9 themes.
+- Added layout, form, data, media, marketing, and interaction components.
+- Added ready-made scripts for dropzones, ratings, popovers, consent, clipboard copying, counters, countdowns, and navigation helpers.
 
 ### CSS
 
-- Génération ouverte des margins, paddings, gaps, dimensions et positions numériques.
-- Valeurs arbitraires avec la syntaxe `[valeur]`.
-- Nombres décimaux, fractions, valeurs négatives et `!important`.
-- Préfixes responsive `sm`, `md`, `lg`, `xl`, `2xl`.
-- États `hover`, `focus`, `focus-visible`, `active`, `disabled`, `checked`, `first`, `last`, `odd`, `even` et `dark`.
-- Chargement des utilitaires après le CSS des composants pour permettre les surcharges d'instance.
+- Added open-ended numeric margin, padding, gap, sizing, and positioning utilities.
+- Added arbitrary values with bracket syntax.
+- Added decimals, fractions, negative values, and `!important` support.
+- Added `sm`, `md`, `lg`, `xl`, and `2xl` responsive prefixes.
+- Added hover, focus, active, disabled, checked, structural, and dark state prefixes.
+- Loaded utilities after component CSS to allow instance-level overrides.
 
-### Preview et productivité
+### Preview and productivity
 
-- Serveur de preview intégré via `--preview`.
-- URL cliquable et ouverture automatique du navigateur.
-- Options `--host`, `--port`, `--no-open` et port automatique avec `--port 0`.
-- Live reload avec `--preview --watch` sans modifier les fichiers HTML finaux.
-- Résolution des routes propres en preview.
-- Surveillance de `build.json`, des assets et de la bibliothèque centrale.
-- Initialisation de projet avec `--init`.
-- Catalogue CLI avec `--list-components` et `--show-component`.
+- Added the integrated `--preview` server.
+- Added a clickable URL and automatic browser opening.
+- Added `--host`, `--port`, `--no-open`, and free-port selection.
+- Added live reload with `--preview --watch` without modifying production HTML.
+- Added clean preview routes.
+- Added project initialization with `--init`.
+- Added component discovery with `--list-components` and `--show-component`.
 
-### Qualité
+## 1.0.0
 
-- Version runtime 1.1.0.
-- Suite portée à 10 tests.
-- Ajout de `examples/productivity.json`.
+- Added the initial argparse CLI.
+- Added multi-page HTML generation.
+- Added the Mustache-compatible template renderer.
+- Added component validation and structured JSON logging.
+- Added separate theme, utility, and component CSS generation.
+- Added vanilla JavaScript component files and declarative event listeners.
+- Added asset copying with directory preservation.
+- Added watchdog-based rebuild mode.

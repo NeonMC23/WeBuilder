@@ -1,11 +1,12 @@
 {
+  "$schema": "../schemas/build.schema.json",
   "meta": {
-    "title": "Exemple volontairement invalide",
-    "theme": "theme-inexistant",
-    "lang": "fr"
+    "title": "Intentionally invalid example",
+    "theme": "missing-theme",
+    "lang": "en"
   },
   "assets": [
-    "images/fichier-absent.png",
+    "images/missing-file.png",
     "../secret.txt"
   ],
   "pages": [
@@ -13,7 +14,7 @@
       "path": "index.html",
       "components": [
         {
-          "type": "composant-inconnu",
+          "type": "unknown-component",
           "variant": "default"
         },
         {

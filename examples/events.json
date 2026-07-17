@@ -1,8 +1,9 @@
 {
+  "$schema": "../schemas/build.schema.json",
   "meta": {
-    "title": "Événements WeBuilder",
+    "title": "WeBuilder events",
     "theme": "dark",
-    "lang": "fr"
+    "lang": "en"
   },
   "assets": [],
   "pages": [
@@ -12,16 +13,20 @@
         {
           "type": "container",
           "variant": "default",
-          "class": ["py-6"],
+          "class": [
+            "py-6"
+          ],
           "children": [
             {
               "type": "button",
               "variant": "primary",
               "id": "counter-button",
-              "content": {"text": "Compteur : 0"},
+              "content": {
+                "text": "Counter: 0"
+              },
               "events": {
-                "click": "const count = Number(el.dataset.count || 0) + 1; el.dataset.count = String(count); el.textContent = `Compteur : ${count}`;",
-                "mouseenter": "console.log('La souris entre sur', el.dataset.id);"
+                "click": "const count = Number(el.dataset.count || 0) + 1; el.dataset.count = String(count); el.textContent = `Counter: ${count}`;",
+                "mouseenter": "console.log('Pointer entered', el.dataset.id);"
               }
             }
           ]
@@ -35,9 +40,11 @@
           "type": "button",
           "variant": "danger",
           "id": "counter-button",
-          "content": {"text": "Même id, autre page"},
+          "content": {
+            "text": "Same ID, different page"
+          },
           "events": {
-            "click": "console.log('Le ciblage reste propre à second.html');"
+            "click": "console.log('Targeting remains isolated to second.html');"
           }
         }
       ]

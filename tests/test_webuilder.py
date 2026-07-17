@@ -28,7 +28,7 @@ class MustacheRendererTests(unittest.TestCase):
         template = (
             "<h1>{{title}}</h1>"
             "{{#items}}<p>{{name}}={{value}}</p>{{/items}}"
-            "{{^empty}}<em>vide</em>{{/empty}}"
+            "{{^empty}}<em>empty</em>{{/empty}}"
         )
         result = self.renderer.render(
             template,
@@ -40,7 +40,7 @@ class MustacheRendererTests(unittest.TestCase):
         )
         self.assertIn("&lt;script&gt;", result)
         self.assertIn("<p>A=1</p><p>B=2</p>", result)
-        self.assertIn("<em>vide</em>", result)
+        self.assertIn("<em>empty</em>", result)
 
     def test_scalar_current_context_and_unescaped_value(self) -> None:
         result = self.renderer.render(
@@ -51,7 +51,7 @@ class MustacheRendererTests(unittest.TestCase):
 
     def test_malformed_section_raises(self) -> None:
         with self.assertRaises(webuilder.TemplateError):
-            self.renderer.render("{{#items}}sans fermeture", {"items": []})
+            self.renderer.render("{{#items}}without closing tag", {"items": []})
 
 
 class BuildTests(unittest.TestCase):
@@ -91,7 +91,7 @@ class BuildTests(unittest.TestCase):
                                     "md:hover:-mt-[3px]",
                                     "p-[clamp(1rem,_3vw,_2rem)]",
                                 ],
-                                "content": {"text": "Cliquer"},
+                                "content": {"text": "Click"},
                                 "events": {"click": "el.dataset.clicked = 'yes';"},
                             }
                         ],
@@ -103,7 +103,7 @@ class BuildTests(unittest.TestCase):
                                 "type": "button",
                                 "variant": "danger",
                                 "id": "shared",
-                                "content": {"text": "Supprimer"},
+                                "content": {"text": "Delete"},
                                 "events": {"click": "console.log('second');"},
                             }
                         ],
@@ -159,9 +159,9 @@ class BuildTests(unittest.TestCase):
 
         self.assertFalse(success)
         messages = [entry["message"] for entry in json.loads((output / "log.json").read_text())]
-        self.assertTrue(any("introuvable" in message and "unknown" in message for message in messages))
+        self.assertTrue(any("was not found" in message and "unknown" in message for message in messages))
         self.assertTrue(any("content.text" in message for message in messages))
-        self.assertTrue(any("Asset introuvable" in message for message in messages))
+        self.assertTrue(any("Asset not found" in message for message in messages))
         self.assertFalse((output / "index.html").exists())
 
     def test_children_are_appended_for_legacy_template_without_placeholder(self) -> None:
@@ -205,7 +205,7 @@ class BuildTests(unittest.TestCase):
                             {
                                 "type": "legacy",
                                 "children": [
-                                    {"type": "leaf", "content": {"text": "Enfant"}}
+                                    {"type": "leaf", "content": {"text": "Child"}}
                                 ],
                             }
                         ],
@@ -225,7 +225,7 @@ class BuildTests(unittest.TestCase):
         )
         document = (output / "index.html").read_text()
         self.assertIn("Parent<span", document)
-        self.assertLess(document.index("Enfant"), document.index("</div>"))
+        self.assertLess(document.index("Child"), document.index("</div>"))
 
     def test_unsafe_page_path_is_rejected(self) -> None:
         input_path = self.write_build(
@@ -239,7 +239,40 @@ class BuildTests(unittest.TestCase):
 
         self.assertFalse(webuilder.build_site(input_path, output, quiet=True))
         log = json.loads((output / "log.json").read_text())
-        self.assertTrue(any("Chemin de page" in entry["message"] for entry in log))
+        self.assertTrue(any("page path" in entry["message"] for entry in log))
+
+    def test_stale_pages_are_removed_and_page_favicon_is_copied(self) -> None:
+        favicon = self.project / "assets" / "icons" / "page.svg"
+        favicon.parent.mkdir(parents=True)
+        favicon.write_text("<svg xmlns='http://www.w3.org/2000/svg'/>", encoding="utf-8")
+        input_path = self.write_build(
+            {
+                "meta": {"title": "First", "theme": "light"},
+                "assets": [],
+                "pages": [
+                    {
+                        "path": "old.html",
+                        "meta": {"favicon": "assets/icons/page.svg"},
+                        "components": [],
+                    }
+                ],
+            }
+        )
+        output = self.project / "clean-output"
+        self.assertTrue(webuilder.build_site(input_path, output, quiet=True))
+        self.assertTrue((output / "old.html").is_file())
+        self.assertTrue((output / "assets" / "icons" / "page.svg").is_file())
+
+        self.write_build(
+            {
+                "meta": {"title": "Second", "theme": "light"},
+                "assets": [],
+                "pages": [{"path": "new.html", "components": []}],
+            }
+        )
+        self.assertTrue(webuilder.build_site(input_path, output, quiet=True))
+        self.assertFalse((output / "old.html").exists())
+        self.assertTrue((output / "new.html").is_file())
 
     def test_default_library_is_the_single_canonical_library(self) -> None:
         # A broken library next to build.json must be ignored by the normal API.
@@ -255,7 +288,7 @@ class BuildTests(unittest.TestCase):
                             {
                                 "type": "heading",
                                 "variant": "h1",
-                                "content": {"text": "Bibliothèque centrale"},
+                                "content": {"text": "Core library"},
                             }
                         ],
                     }
@@ -266,7 +299,7 @@ class BuildTests(unittest.TestCase):
 
         self.assertTrue(webuilder.build_site(input_path, output, quiet=True))
         self.assertIn(
-            "Bibliothèque centrale", (output / "index.html").read_text(encoding="utf-8")
+            "Core library", (output / "index.html").read_text(encoding="utf-8")
         )
 
 
@@ -431,7 +464,7 @@ class PluginTests(unittest.TestCase):
                 entry["message"]
                 for entry in json.loads((output / "log.json").read_text())
             ]
-            self.assertTrue(any("introuvable" in message for message in messages))
+            self.assertTrue(any("was not found" in message for message in messages))
 
     def test_duplicate_plugin_names_are_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:

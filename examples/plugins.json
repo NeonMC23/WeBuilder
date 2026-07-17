@@ -1,9 +1,10 @@
 {
+  "$schema": "../schemas/build.schema.json",
   "meta": {
-    "title": "WeBuilder — Démonstration des plugins",
+    "title": "WeBuilder — Plugin demonstration",
     "theme": "neon:cyber",
-    "lang": "fr",
-    "description": "Deux bibliothèques annexes chargées avec des namespaces distincts"
+    "lang": "en",
+    "description": "Two plugin libraries loaded with separate namespaces"
   },
   "assets": [],
   "pages": [
@@ -17,7 +18,9 @@
             {
               "type": "section",
               "variant": "default",
-              "content": {"label": "Plugins WeBuilder"},
+              "content": {
+                "label": "Plugins WeBuilder"
+              },
               "children": [
                 {
                   "type": "container",
@@ -26,8 +29,13 @@
                     {
                       "type": "neon:heading",
                       "variant": "glitch",
-                      "class": ["neon:gradient-text", "mb-12"],
-                      "content": {"text": "Plugin System"}
+                      "class": [
+                        "neon:gradient-text",
+                        "mb-12"
+                      ],
+                      "content": {
+                        "text": "Plugin System"
+                      }
                     },
                     {
                       "type": "grid",
@@ -36,54 +44,69 @@
                         {
                           "type": "neon:card",
                           "variant": "default",
-                          "class": ["neon:glow", "md:neon:glow-strong"],
+                          "class": [
+                            "neon:glow",
+                            "md:neon:glow-strong"
+                          ],
                           "content": {
                             "title": "Namespace neon",
-                            "text": "Ce composant, ce thème et ces classes viennent de plugins/neon.json."
+                            "text": "This component, theme, and utility classes come from plugins/neon.json."
                           },
                           "children": [
                             {
                               "type": "neon:button",
                               "variant": "cyan",
                               "id": "neon-action",
-                              "class": ["mt-4"],
-                              "content": {"text": "Activer"},
+                              "class": [
+                                "mt-4"
+                              ],
+                              "content": {
+                                "text": "Activate"
+                              },
                               "events": {
-                                "click": "console.log('Composant du plugin neon', el);"
+                                "click": "console.log('Neon plugin component', el);"
                               }
                             }
                           ]
                         },
                         {
                           "type": "commerce:card",
-                          "variant": "default-right",
-                          "class": ["commerce:product-hover", "hover:commerce:sale-ring"],
+                          "variant": "default",
+                          "class": [
+                            "commerce:product-hover",
+                            "hover:commerce:sale-ring"
+                          ],
                           "content": {
-                            "title": "Produit namespacé",
-                            "text": "Le composant commerce:card ne rentre pas en conflit avec neon:card.",
-                            "price": "49,00 €",
+                            "title": "Namespaced product",
+                            "text": "The commerce:card component does not conflict with neon:card.",
+                            "price": "$49.00",
                             "badge": "PLUGIN"
                           },
                           "children": [
                             {
                               "type": "stack",
                               "variant": "horizontal",
-                              "class": ["mt-4"],
+                              "class": [
+                                "mt-4"
+                              ],
                               "children": [
                                 {
                                   "type": "commerce:quantity",
                                   "variant": "default",
-                                  "content": {"name": "quantity", "max": "10"}
+                                  "content": {
+                                    "name": "quantity",
+                                    "max": "10"
+                                  }
                                 },
                                 {
                                   "type": "commerce:cart-button",
                                   "variant": "primary",
                                   "content": {
-                                    "text": "Ajouter au panier",
+                                    "text": "Add to cart",
                                     "product_id": "plugin-demo"
                                   },
                                   "events": {
-                                    "cart:add": "console.log('Produit ajouté :', event.detail.productId);"
+                                    "cart:add": "console.log('Product added:', event.detail.productId);"
                                   }
                                 }
                               ]
@@ -95,12 +118,18 @@
                     {
                       "type": "neon:terminal",
                       "variant": "default",
-                      "class": ["mt-12", "neon:scanlines"],
+                      "class": [
+                        "mt-12",
+                        "neon:scanlines"
+                      ],
                       "content": {
-                        "title": "Commande de build",
-                        "copy_text": "Copier",
+                        "title": "Build command",
+                        "copy_text": "Copy",
                         "lines": [
-                          {"prompt": "$", "command": "python build.py --input examples/plugins.json --output ./build-plugins --plugin plugins/neon.json plugins/commerce.json --preview"}
+                          {
+                            "prompt": "$",
+                            "command": "python build.py --input examples/plugins.json --output ./build-plugins --plugin plugins/neon.json plugins/commerce.json --preview"
+                          }
                         ]
                       }
                     }

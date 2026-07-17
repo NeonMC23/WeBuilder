@@ -1,29 +1,30 @@
 {
+  "$schema": "./schemas/library.schema.json",
   "name": "WeBuilder Standard Library",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "themes": {
     "light": {
-      "label": "Clair",
+      "label": "Light",
       "css": ":root {\n  --color-scheme: light;\n  --bg: #ffffff;\n  --surface: #f8fafc;\n  --surface-2: #eef2f7;\n  --text: #172033;\n  --text-muted: #64748b;\n  --primary: #2563eb;\n  --primary-contrast: #ffffff;\n  --secondary: #7c3aed;\n  --success: #15803d;\n  --warning: #b45309;\n  --danger: #dc2626;\n  --info: #0369a1;\n  --border: #dbe3ee;\n  --focus: #60a5fa;\n  --radius: .65rem;\n  --shadow: 0 8px 24px rgba(15, 23, 42, .09);\n  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n}"
     },
     "dark": {
-      "label": "Sombre",
+      "label": "Dark",
       "css": ":root {\n  --color-scheme: dark;\n  --bg: #0b1020;\n  --surface: #131b2f;\n  --surface-2: #1d2942;\n  --text: #edf2ff;\n  --text-muted: #a8b3cf;\n  --primary: #60a5fa;\n  --primary-contrast: #07111f;\n  --secondary: #a78bfa;\n  --success: #4ade80;\n  --warning: #fbbf24;\n  --danger: #fb7185;\n  --info: #38bdf8;\n  --border: #2b3958;\n  --focus: #93c5fd;\n  --radius: .65rem;\n  --shadow: 0 10px 30px rgba(0, 0, 0, .3);\n  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n}"
     },
     "ocean": {
-      "label": "Océan",
+      "label": "Ocean",
       "css": ":root {\n  --color-scheme: light;\n  --bg: #f0fdfa;\n  --surface: #ffffff;\n  --surface-2: #ccfbf1;\n  --text: #12343b;\n  --text-muted: #47767d;\n  --primary: #0f766e;\n  --primary-contrast: #ffffff;\n  --secondary: #0369a1;\n  --success: #15803d;\n  --warning: #c2410c;\n  --danger: #be123c;\n  --info: #0284c7;\n  --border: #99d8d0;\n  --focus: #2dd4bf;\n  --radius: .85rem;\n  --shadow: 0 9px 25px rgba(15, 118, 110, .13);\n  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;\n}"
     },
     "high-contrast": {
-      "label": "Contraste élevé",
+      "label": "High contrast",
       "css": ":root {\n  --color-scheme: dark;\n  --bg: #000000;\n  --surface: #000000;\n  --surface-2: #181818;\n  --text: #ffffff;\n  --text-muted: #ffffff;\n  --primary: #ffff00;\n  --primary-contrast: #000000;\n  --secondary: #00ffff;\n  --success: #00ff66;\n  --warning: #ffff00;\n  --danger: #ff4d4d;\n  --info: #00ffff;\n  --border: #ffffff;\n  --focus: #ffff00;\n  --radius: 0;\n  --shadow: none;\n  --font-sans: Arial, sans-serif;\n}\n:focus-visible { outline: 3px solid var(--focus) !important; outline-offset: 3px; }"
     },
     "forest": {
-      "label": "Forêt",
+      "label": "Forest",
       "css": ":root {\n  --color-scheme: light; --bg: #f5f7f2; --surface: #ffffff; --surface-2: #e5eddf; --text: #1f3023; --text-muted: #607064; --primary: #2f6b3b; --primary-contrast: #ffffff; --secondary: #8a5a2b; --success: #27833a; --warning: #b66a00; --danger: #b42332; --info: #27728a; --border: #cdd9ca; --focus: #5da96b; --radius: .55rem; --shadow: 0 10px 28px rgba(35, 70, 40, .12); --font-sans: Inter, system-ui, sans-serif;\n}"
     },
     "sunset": {
-      "label": "Coucher de soleil",
+      "label": "Sunset",
       "css": ":root {\n  --color-scheme: light; --bg: #fff8f3; --surface: #ffffff; --surface-2: #ffe9dc; --text: #3b2027; --text-muted: #875d65; --primary: #e64b4f; --primary-contrast: #ffffff; --secondary: #7c3aed; --success: #24864b; --warning: #d97706; --danger: #be123c; --info: #2563eb; --border: #f0cfc9; --focus: #fb7185; --radius: 1rem; --shadow: 0 12px 32px rgba(190, 60, 70, .14); --font-sans: Inter, system-ui, sans-serif;\n}"
     },
     "nord": {
@@ -41,7 +42,7 @@
   },
   "components": {
     "container": {
-      "description": "Conteneur responsive centré.",
+      "description": "Centered responsive container.",
       "default_variant": "default",
       "required": [],
       "accepts_children": true,
@@ -69,7 +70,7 @@
       }
     },
     "section": {
-      "description": "Section de page avec rythme vertical.",
+      "description": "Page section with responsive vertical rhythm.",
       "default_variant": "default",
       "required": [],
       "accepts_children": true,
@@ -107,7 +108,7 @@
       }
     },
     "stack": {
-      "description": "Disposition flex verticale ou horizontale.",
+      "description": "Vertical or horizontal flex layout.",
       "default_variant": "vertical",
       "required": [],
       "accepts_children": true,
@@ -130,7 +131,7 @@
       }
     },
     "grid": {
-      "description": "Grille CSS responsive.",
+      "description": "Responsive CSS grid.",
       "default_variant": "auto",
       "required": [],
       "accepts_children": true,
@@ -163,7 +164,7 @@
       }
     },
     "header": {
-      "description": "En-tête de site avec navigation et enfants.",
+      "description": "Site header with navigation and child components.",
       "default_variant": "primary",
       "required": [
         "content.title"
@@ -171,17 +172,17 @@
       "accepts_children": true,
       "variants": {
         "primary": {
-          "html": "<header class='site-header site-header-primary {{class}}'><div class='site-header__inner'><a class='site-header__brand' href='{{content.home_href}}'>{{#content.logo}}<img src='{{content.logo}}' alt=''>{{/content.logo}}<span>{{content.title}}</span></a><nav aria-label='Navigation principale'>{{#content.nav}}<a href='{{href}}'>{{text}}</a>{{/content.nav}}</nav></div>{{{children}}}</header>",
+          "html": "<header class='site-header site-header-primary {{class}}'><div class='site-header__inner'><a class='site-header__brand' href='{{content.home_href}}'>{{#content.logo}}<img src='{{content.logo}}' alt=''>{{/content.logo}}<span>{{content.title}}</span></a><nav aria-label='Main navigation'>{{#content.nav}}<a href='{{href}}'>{{text}}</a>{{/content.nav}}</nav></div>{{{children}}}</header>",
           "css": ".site-header-primary { background: var(--primary); color: var(--primary-contrast); } .site-header-primary a { color: inherit; }",
           "js": ""
         },
         "minimal": {
-          "html": "<header class='site-header site-header-minimal {{class}}'><div class='site-header__inner'><a class='site-header__brand' href='{{content.home_href}}'>{{content.title}}</a><nav aria-label='Navigation principale'>{{#content.nav}}<a href='{{href}}'>{{text}}</a>{{/content.nav}}</nav></div>{{{children}}}</header>",
+          "html": "<header class='site-header site-header-minimal {{class}}'><div class='site-header__inner'><a class='site-header__brand' href='{{content.home_href}}'>{{content.title}}</a><nav aria-label='Main navigation'>{{#content.nav}}<a href='{{href}}'>{{text}}</a>{{/content.nav}}</nav></div>{{{children}}}</header>",
           "css": ".site-header-minimal { background: var(--bg); border-bottom: 1px solid var(--border); }",
           "js": ""
         },
         "transparent": {
-          "html": "<header class='site-header site-header-transparent {{class}}'><div class='site-header__inner'><a class='site-header__brand' href='{{content.home_href}}'>{{content.title}}</a><nav aria-label='Navigation principale'>{{#content.nav}}<a href='{{href}}'>{{text}}</a>{{/content.nav}}</nav></div>{{{children}}}</header>",
+          "html": "<header class='site-header site-header-transparent {{class}}'><div class='site-header__inner'><a class='site-header__brand' href='{{content.home_href}}'>{{content.title}}</a><nav aria-label='Main navigation'>{{#content.nav}}<a href='{{href}}'>{{text}}</a>{{/content.nav}}</nav></div>{{{children}}}</header>",
           "css": ".site-header-transparent { position: absolute; inset: 0 0 auto; background: transparent; color: #fff; } .site-header-transparent a { color: inherit; }",
           "js": ""
         }
@@ -196,7 +197,7 @@
       "css": ".site-header { position: relative; z-index: 10; padding: .85rem 1rem; } .site-header__inner { width: min(100%, 72rem); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; } .site-header__brand { display: inline-flex; align-items: center; gap: .6rem; color: inherit; font-weight: 750; text-decoration: none; } .site-header__brand img { width: 2rem; height: 2rem; } .site-header nav { display: flex; flex-wrap: wrap; gap: .35rem 1rem; } .site-header nav a { text-decoration: none; } @media (max-width: 38rem) { .site-header__inner { align-items: flex-start; flex-direction: column; } }"
     },
     "navbar": {
-      "description": "Barre de navigation autonome.",
+      "description": "Standalone navigation bar.",
       "default_variant": "horizontal",
       "required": [
         "content.items"
@@ -227,7 +228,7 @@
       }
     },
     "hero": {
-      "description": "Bannière héro avec appel à l'action.",
+      "description": "Hero banner with calls to action.",
       "default_variant": "centered",
       "required": [
         "content.title"
@@ -256,7 +257,7 @@
       "css": ".wb-hero { display: grid; gap: clamp(1.5rem, 5vw, 4rem); padding: clamp(3rem, 9vw, 7rem) clamp(1rem, 4vw, 3rem); background: linear-gradient(135deg, var(--surface), var(--surface-2)); } .wb-hero h1 { max-width: 18ch; margin: 0; font-size: clamp(2.2rem, 7vw, 5rem); line-height: 1.04; } .wb-hero__eyebrow { color: var(--primary); font-weight: 750; letter-spacing: .08em; text-transform: uppercase; } .wb-hero__lead { max-width: 60ch; color: var(--text-muted); font-size: clamp(1.05rem, 2vw, 1.3rem); } .wb-hero__actions { display: flex; flex-wrap: wrap; justify-content: inherit; gap: .75rem; margin-top: 1.5rem; }"
     },
     "button": {
-      "description": "Bouton accessible avec variantes visuelles, de succès et icône.",
+      "description": "Accessible button with visual, success, and icon variants.",
       "default_variant": "primary",
       "required": [
         "content.text"
@@ -308,7 +309,7 @@
       "css": ".wb-btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 2.75rem; padding: .6rem 1rem; border: 1px solid transparent; border-radius: var(--radius); cursor: pointer; font-weight: 700; text-decoration: none; transition: transform .15s ease, filter .15s ease; } .wb-btn:hover:not(:disabled) { filter: brightness(1.08); transform: translateY(-1px); } .wb-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; } .wb-btn:disabled { cursor: not-allowed; opacity: .55; }"
     },
     "link": {
-      "description": "Lien textuel ou lien-bouton.",
+      "description": "Text link or button-style link.",
       "default_variant": "default",
       "required": [
         "content.href",
@@ -339,7 +340,7 @@
       }
     },
     "card": {
-      "description": "Carte de contenu polyvalente.",
+      "description": "Versatile content card.",
       "default_variant": "default",
       "required": [],
       "accepts_children": true,
@@ -386,7 +387,7 @@
       "css": ".wb-card { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); } .wb-card h2 { margin-top: 0; font-size: 1.25rem; } .wb-card p { color: var(--text-muted); }"
     },
     "alert": {
-      "description": "Message contextuel, éventuellement fermable.",
+      "description": "Contextual message with optional dismissal.",
       "default_variant": "info",
       "required": [
         "content.text"
@@ -394,27 +395,27 @@
       "accepts_children": false,
       "variants": {
         "info": {
-          "html": "<div class='wb-alert wb-alert-info {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Fermer'>×</button>{{/content.dismissible}}</div>",
+          "html": "<div class='wb-alert wb-alert-info {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Close'>×</button>{{/content.dismissible}}</div>",
           "css": ".wb-alert-info { --alert-color: var(--info); }",
           "js": ""
         },
         "success": {
-          "html": "<div class='wb-alert wb-alert-success {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Fermer'>×</button>{{/content.dismissible}}</div>",
+          "html": "<div class='wb-alert wb-alert-success {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Close'>×</button>{{/content.dismissible}}</div>",
           "css": ".wb-alert-success { --alert-color: var(--success); }",
           "js": ""
         },
         "warning": {
-          "html": "<div class='wb-alert wb-alert-warning {{class}}' role='alert'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Fermer'>×</button>{{/content.dismissible}}</div>",
+          "html": "<div class='wb-alert wb-alert-warning {{class}}' role='alert'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Close'>×</button>{{/content.dismissible}}</div>",
           "css": ".wb-alert-warning { --alert-color: var(--warning); }",
           "js": ""
         },
         "danger": {
-          "html": "<div class='wb-alert wb-alert-danger {{class}}' role='alert'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Fermer'>×</button>{{/content.dismissible}}</div>",
+          "html": "<div class='wb-alert wb-alert-danger {{class}}' role='alert'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Close'>×</button>{{/content.dismissible}}</div>",
           "css": ".wb-alert-danger { --alert-color: var(--danger); }",
           "js": ""
         },
         "neutral": {
-          "html": "<div class='wb-alert wb-alert-neutral {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Fermer'>×</button>{{/content.dismissible}}</div>",
+          "html": "<div class='wb-alert wb-alert-neutral {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div>{{#content.dismissible}}<button class='wb-alert__close' type='button' aria-label='Close'>×</button>{{/content.dismissible}}</div>",
           "css": ".wb-alert-neutral { --alert-color: var(--text-muted); }",
           "js": ""
         }
@@ -429,7 +430,7 @@
       "js": "document.querySelectorAll('.wb-alert__close').forEach((button) => button.addEventListener('click', () => button.closest('.wb-alert')?.remove()));"
     },
     "badge": {
-      "description": "Petit indicateur de statut.",
+      "description": "Compact status indicator.",
       "default_variant": "primary",
       "required": [
         "content.text"
@@ -470,7 +471,7 @@
       "css": ".wb-badge { display: inline-flex; align-items: center; padding: .18rem .55rem; border-radius: 999px; font-size: .78rem; font-weight: 750; }"
     },
     "avatar": {
-      "description": "Avatar image avec texte alternatif.",
+      "description": "Avatar image with alternative text.",
       "default_variant": "round",
       "required": [
         "content.src",
@@ -497,7 +498,7 @@
       "css": ".wb-avatar { display: inline-block; object-fit: cover; background: var(--surface-2); }"
     },
     "image": {
-      "description": "Image responsive avec légende facultative.",
+      "description": "Responsive image with an optional caption.",
       "default_variant": "responsive",
       "required": [
         "content.src",
@@ -530,7 +531,7 @@
       "css": ".wb-image { margin: 0; } .wb-image figcaption { margin-top: .45rem; color: var(--text-muted); font-size: .875rem; }"
     },
     "input": {
-      "description": "Champ de saisie avec label et aide.",
+      "description": "Input field with a label and help text.",
       "default_variant": "text",
       "required": [
         "content.label",
@@ -599,7 +600,7 @@
       "css": ".wb-field { display: grid; gap: .4rem; } .wb-field > span { font-weight: 650; } .wb-field input, .wb-field textarea, .wb-field select { width: 100%; min-height: 2.75rem; padding: .6rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); } .wb-field input:focus, .wb-field textarea:focus, .wb-field select:focus { border-color: var(--focus); outline: 3px solid color-mix(in srgb, var(--focus), transparent 70%); } .wb-field small { color: var(--text-muted); }"
     },
     "textarea": {
-      "description": "Zone de texte multiligne.",
+      "description": "Multiline text field.",
       "default_variant": "default",
       "required": [
         "content.label",
@@ -624,7 +625,7 @@
       "css": ".wb-field { display: grid; gap: .4rem; } .wb-field > span { font-weight: 650; } .wb-field input, .wb-field textarea, .wb-field select { width: 100%; min-height: 2.75rem; padding: .6rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); } .wb-field input:focus, .wb-field textarea:focus, .wb-field select:focus { border-color: var(--focus); outline: 3px solid color-mix(in srgb, var(--focus), transparent 70%); } .wb-field small { color: var(--text-muted); }"
     },
     "select": {
-      "description": "Liste de sélection.",
+      "description": "Select field.",
       "default_variant": "default",
       "required": [
         "content.label",
@@ -647,7 +648,7 @@
       "css": ".wb-field { display: grid; gap: .4rem; } .wb-field > span { font-weight: 650; } .wb-field input, .wb-field textarea, .wb-field select { width: 100%; min-height: 2.75rem; padding: .6rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); } .wb-field input:focus, .wb-field textarea:focus, .wb-field select:focus { border-color: var(--focus); outline: 3px solid color-mix(in srgb, var(--focus), transparent 70%); } .wb-field small { color: var(--text-muted); }"
     },
     "checkbox": {
-      "description": "Case à cocher.",
+      "description": "Checkbox field.",
       "default_variant": "default",
       "required": [
         "content.name",
@@ -671,7 +672,7 @@
       "css": ".wb-check { display: inline-flex; align-items: flex-start; gap: .55rem; cursor: pointer; } .wb-check input { width: 1.1rem; height: 1.1rem; margin-top: .15rem; accent-color: var(--primary); }"
     },
     "radio-group": {
-      "description": "Groupe de boutons radio.",
+      "description": "Radio button group.",
       "default_variant": "default",
       "required": [
         "content.name",
@@ -689,7 +690,7 @@
       "css": ".wb-radio-group { display: grid; gap: .65rem; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius); } .wb-radio-group legend { padding-inline: .35rem; font-weight: 700; } .wb-radio-group label { display: flex; align-items: center; gap: .5rem; } .wb-radio-group input { accent-color: var(--primary); }"
     },
     "form": {
-      "description": "Formulaire contenant des composants enfants.",
+      "description": "Form containing child components.",
       "default_variant": "default",
       "required": [],
       "accepts_children": true,
@@ -720,7 +721,7 @@
       "css": ".wb-form { display: flex; flex-direction: column; gap: 1rem; }"
     },
     "list": {
-      "description": "Liste simple alimentée par une boucle Mustache.",
+      "description": "Simple list powered by a Mustache loop.",
       "default_variant": "unordered",
       "required": [
         "content.items"
@@ -751,7 +752,7 @@
       "css": ".wb-list { display: grid; gap: .5rem; }"
     },
     "table": {
-      "description": "Tableau responsive à en-têtes et cellules imbriqués.",
+      "description": "Responsive table with nested headers, rows, and cells.",
       "default_variant": "simple",
       "required": [
         "content.headers",
@@ -783,7 +784,7 @@
       "css": ".wb-table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); } .wb-table { width: 100%; border-collapse: collapse; } .wb-table caption { padding: .75rem; font-weight: 700; text-align: left; } .wb-table th, .wb-table td { padding: .75rem; border-bottom: 1px solid var(--border); text-align: left; white-space: nowrap; } .wb-table th { background: var(--surface-2); }"
     },
     "quote": {
-      "description": "Citation avec source.",
+      "description": "Quotation with an optional source.",
       "default_variant": "default",
       "required": [
         "content.text"
@@ -815,7 +816,7 @@
       "css": ".wb-quote { margin: 0; padding: 1.25rem; border-radius: var(--radius); } .wb-quote blockquote { margin: 0; font-size: clamp(1.2rem, 3vw, 1.7rem); font-weight: 600; } .wb-quote figcaption { margin-top: .75rem; color: var(--text-muted); }"
     },
     "breadcrumb": {
-      "description": "Fil d'Ariane accessible.",
+      "description": "Accessible breadcrumb navigation.",
       "default_variant": "default",
       "required": [
         "content.items"
@@ -823,7 +824,7 @@
       "accepts_children": false,
       "variants": {
         "default": {
-          "html": "<nav class='wb-breadcrumb {{class}}' aria-label='Fil d’Ariane'><ol>{{#content.items}}<li>{{#href}}<a href='{{href}}'>{{text}}</a>{{/href}}{{^href}}<span aria-current='page'>{{text}}</span>{{/href}}</li>{{/content.items}}</ol></nav>",
+          "html": "<nav class='wb-breadcrumb {{class}}' aria-label='Breadcrumb'><ol>{{#content.items}}<li>{{#href}}<a href='{{href}}'>{{text}}</a>{{/href}}{{^href}}<span aria-current='page'>{{text}}</span>{{/href}}</li>{{/content.items}}</ol></nav>",
           "css": "",
           "js": ""
         }
@@ -831,7 +832,7 @@
       "css": ".wb-breadcrumb ol { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; } .wb-breadcrumb li + li::before { content: '/'; margin-right: .4rem; color: var(--text-muted); } .wb-breadcrumb a { color: var(--primary); }"
     },
     "pagination": {
-      "description": "Pagination accessible.",
+      "description": "Accessible pagination.",
       "default_variant": "default",
       "required": [
         "content.pages"
@@ -839,7 +840,7 @@
       "accepts_children": false,
       "variants": {
         "default": {
-          "html": "<nav class='wb-pagination {{class}}' aria-label='Pagination'><a href='{{content.previous_href}}' aria-label='Page précédente'>‹</a>{{#content.pages}}<a href='{{href}}' {{#current}}aria-current='page'{{/current}}>{{text}}</a>{{/content.pages}}<a href='{{content.next_href}}' aria-label='Page suivante'>›</a></nav>",
+          "html": "<nav class='wb-pagination {{class}}' aria-label='Pagination'><a href='{{content.previous_href}}' aria-label='Previous page'>‹</a>{{#content.pages}}<a href='{{href}}' {{#current}}aria-current='page'{{/current}}>{{text}}</a>{{/content.pages}}<a href='{{content.next_href}}' aria-label='Next page'>›</a></nav>",
           "css": "",
           "js": ""
         }
@@ -853,7 +854,7 @@
       "css": ".wb-pagination { display: flex; flex-wrap: wrap; gap: .35rem; } .wb-pagination a { display: grid; min-width: 2.5rem; min-height: 2.5rem; place-items: center; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; } .wb-pagination a[aria-current='page'] { border-color: var(--primary); background: var(--primary); color: var(--primary-contrast); }"
     },
     "progress": {
-      "description": "Barre de progression avec ARIA.",
+      "description": "ARIA progress bar.",
       "default_variant": "primary",
       "required": [
         "content.value",
@@ -880,13 +881,13 @@
       "defaults": {
         "content": {
           "max": "100",
-          "label": "Progression"
+          "label": "Progress"
         }
       },
       "css": ".wb-progress { height: .75rem; overflow: hidden; border-radius: 999px; background: var(--surface-2); } .wb-progress span { display: block; height: 100%; border-radius: inherit; transition: width .3s ease; }"
     },
     "spinner": {
-      "description": "Indicateur de chargement animé.",
+      "description": "Animated loading indicator.",
       "default_variant": "default",
       "required": [],
       "accepts_children": false,
@@ -904,13 +905,13 @@
       },
       "defaults": {
         "content": {
-          "label": "Chargement…"
+          "label": "Loading…"
         }
       },
       "css": ".wb-spinner { display: inline-block; width: 1.5rem; height: 1.5rem; border: .22rem solid var(--surface-2); border-top-color: var(--primary); border-radius: 50%; animation: wb-spin .8s linear infinite; } @keyframes wb-spin { to { transform: rotate(360deg); } } @media (prefers-reduced-motion: reduce) { .wb-spinner { animation-duration: 1.8s; } }"
     },
     "divider": {
-      "description": "Séparateur horizontal.",
+      "description": "Horizontal divider.",
       "default_variant": "solid",
       "required": [],
       "accepts_children": false,
@@ -929,7 +930,7 @@
       "css": ".wb-divider { width: 100%; margin-block: 1.5rem; border: 0; border-top: 1px solid var(--border); }"
     },
     "modal": {
-      "description": "Boîte de dialogue native pilotée par data-modal-open.",
+      "description": "Native dialog controlled by data-modal-open.",
       "default_variant": "default",
       "required": [
         "content.title"
@@ -937,12 +938,12 @@
       "accepts_children": true,
       "variants": {
         "default": {
-          "html": "<dialog class='wb-modal {{class}}' id='{{id}}'><button class='wb-modal__close' type='button' aria-label='Fermer'>×</button><div class='wb-modal__content'><h2>{{content.title}}</h2>{{#content.text}}<p>{{content.text}}</p>{{/content.text}}{{{children}}}</div></dialog>",
+          "html": "<dialog class='wb-modal {{class}}' id='{{id}}'><button class='wb-modal__close' type='button' aria-label='Close'>×</button><div class='wb-modal__content'><h2>{{content.title}}</h2>{{#content.text}}<p>{{content.text}}</p>{{/content.text}}{{{children}}}</div></dialog>",
           "css": "",
           "js": ""
         },
         "fullscreen": {
-          "html": "<dialog class='wb-modal wb-modal-fullscreen {{class}}' id='{{id}}'><button class='wb-modal__close' type='button' aria-label='Fermer'>×</button><div class='wb-modal__content'><h2>{{content.title}}</h2>{{#content.text}}<p>{{content.text}}</p>{{/content.text}}{{{children}}}</div></dialog>",
+          "html": "<dialog class='wb-modal wb-modal-fullscreen {{class}}' id='{{id}}'><button class='wb-modal__close' type='button' aria-label='Close'>×</button><div class='wb-modal__content'><h2>{{content.title}}</h2>{{#content.text}}<p>{{content.text}}</p>{{/content.text}}{{{children}}}</div></dialog>",
           "css": ".wb-modal-fullscreen { width: 100vw; max-width: none; height: 100vh; max-height: none; border: 0; border-radius: 0; }",
           "js": ""
         }
@@ -956,7 +957,7 @@
       "js": "document.querySelectorAll('.wb-modal').forEach((modal) => { modal.querySelector('.wb-modal__close')?.addEventListener('click', () => modal.close()); modal.addEventListener('click', (event) => { if (event.target === modal) modal.close(); }); }); document.querySelectorAll('[data-modal-open]').forEach((trigger) => trigger.addEventListener('click', () => document.getElementById(trigger.dataset.modalOpen)?.showModal()));"
     },
     "drawer": {
-      "description": "Panneau latéral ouvrable.",
+      "description": "Dismissible side drawer.",
       "default_variant": "right",
       "required": [
         "content.title"
@@ -964,12 +965,12 @@
       "accepts_children": true,
       "variants": {
         "right": {
-          "html": "<aside class='wb-drawer wb-drawer-right {{class}}' id='{{id}}' aria-hidden='true'><button class='wb-drawer__close' type='button' aria-label='Fermer'>×</button><h2>{{content.title}}</h2>{{{children}}}</aside>",
+          "html": "<aside class='wb-drawer wb-drawer-right {{class}}' id='{{id}}' aria-hidden='true'><button class='wb-drawer__close' type='button' aria-label='Close'>×</button><h2>{{content.title}}</h2>{{{children}}}</aside>",
           "css": ".wb-drawer-right { right: 0; transform: translateX(102%); } .wb-drawer-right.is-open { transform: translateX(0); }",
           "js": ""
         },
         "left": {
-          "html": "<aside class='wb-drawer wb-drawer-left {{class}}' id='{{id}}' aria-hidden='true'><button class='wb-drawer__close' type='button' aria-label='Fermer'>×</button><h2>{{content.title}}</h2>{{{children}}}</aside>",
+          "html": "<aside class='wb-drawer wb-drawer-left {{class}}' id='{{id}}' aria-hidden='true'><button class='wb-drawer__close' type='button' aria-label='Close'>×</button><h2>{{content.title}}</h2>{{{children}}}</aside>",
           "css": ".wb-drawer-left { left: 0; transform: translateX(-102%); } .wb-drawer-left.is-open { transform: translateX(0); }",
           "js": ""
         }
@@ -978,7 +979,7 @@
       "js": "document.querySelectorAll('.wb-drawer').forEach((drawer) => drawer.querySelector('.wb-drawer__close')?.addEventListener('click', () => { drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden', 'true'); })); document.querySelectorAll('[data-drawer-open]').forEach((trigger) => trigger.addEventListener('click', () => { const drawer = document.getElementById(trigger.dataset.drawerOpen); drawer?.classList.add('is-open'); drawer?.setAttribute('aria-hidden', 'false'); }));"
     },
     "dropdown": {
-      "description": "Menu déroulant accessible au clic.",
+      "description": "Click-operated accessible dropdown menu.",
       "default_variant": "default",
       "required": [
         "content.label",
@@ -1001,7 +1002,7 @@
       "js": "document.querySelectorAll('.wb-dropdown').forEach((root) => { const button = root.querySelector('.wb-dropdown__toggle'); const menu = root.querySelector('.wb-dropdown__menu'); button?.addEventListener('click', () => { const open = menu.hasAttribute('hidden'); menu.toggleAttribute('hidden', !open); button.setAttribute('aria-expanded', String(open)); }); });"
     },
     "accordion": {
-      "description": "Accordéon de panneaux repliables.",
+      "description": "Collapsible accordion panels.",
       "default_variant": "default",
       "required": [
         "content.items"
@@ -1018,7 +1019,7 @@
       "js": "document.querySelectorAll('.wb-accordion__item').forEach((item) => { const button = item.querySelector('button'); const panel = item.querySelector('.wb-accordion__panel'); button?.addEventListener('click', () => { const open = button.getAttribute('aria-expanded') === 'true'; button.setAttribute('aria-expanded', String(!open)); panel?.toggleAttribute('hidden', open); }); });"
     },
     "tabs": {
-      "description": "Onglets accessibles au clavier et à la souris.",
+      "description": "Mouse- and keyboard-accessible tabs.",
       "default_variant": "default",
       "required": [
         "content.items"
@@ -1040,7 +1041,7 @@
       "js": "document.querySelectorAll('.wb-tabs').forEach((root) => { const tabs = [...root.querySelectorAll('[role=tab]')]; const panels = [...root.querySelectorAll('[role=tabpanel]')]; tabs.forEach((tab, index) => tab.addEventListener('click', () => { tabs.forEach((item, i) => item.setAttribute('aria-selected', String(i === index))); panels.forEach((panel, i) => panel.toggleAttribute('hidden', i !== index)); })); });"
     },
     "toast": {
-      "description": "Notification flottante fermable.",
+      "description": "Dismissible floating notification.",
       "default_variant": "info",
       "required": [
         "content.text"
@@ -1048,17 +1049,17 @@
       "accepts_children": false,
       "variants": {
         "info": {
-          "html": "<div class='wb-toast wb-toast-info {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div><button type='button' aria-label='Fermer'>×</button></div>",
+          "html": "<div class='wb-toast wb-toast-info {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div><button type='button' aria-label='Close'>×</button></div>",
           "css": ".wb-toast-info { --toast-color: var(--info); }",
           "js": ""
         },
         "success": {
-          "html": "<div class='wb-toast wb-toast-success {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div><button type='button' aria-label='Fermer'>×</button></div>",
+          "html": "<div class='wb-toast wb-toast-success {{class}}' role='status'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div><button type='button' aria-label='Close'>×</button></div>",
           "css": ".wb-toast-success { --toast-color: var(--success); }",
           "js": ""
         },
         "error": {
-          "html": "<div class='wb-toast wb-toast-error {{class}}' role='alert'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div><button type='button' aria-label='Fermer'>×</button></div>",
+          "html": "<div class='wb-toast wb-toast-error {{class}}' role='alert'><div><strong>{{content.title}}</strong><p>{{content.text}}</p></div><button type='button' aria-label='Close'>×</button></div>",
           "css": ".wb-toast-error { --toast-color: var(--danger); }",
           "js": ""
         }
@@ -1072,7 +1073,7 @@
       "js": "document.querySelectorAll('.wb-toast > button').forEach((button) => button.addEventListener('click', () => button.closest('.wb-toast')?.remove()));"
     },
     "stats": {
-      "description": "Grille d'indicateurs chiffrés.",
+      "description": "Responsive statistics grid.",
       "default_variant": "grid",
       "required": [
         "content.items"
@@ -1093,7 +1094,7 @@
       "css": ".wb-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; margin: 0; } .wb-stats > div { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); } .wb-stats dt { color: var(--text-muted); } .wb-stats dd { margin: .3rem 0; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; } .wb-stats small { color: var(--success); }"
     },
     "pricing": {
-      "description": "Carte tarifaire avec liste de fonctionnalités.",
+      "description": "Pricing card with a feature list.",
       "default_variant": "card",
       "required": [
         "content.title",
@@ -1117,13 +1118,13 @@
         "content": {
           "period": "",
           "text": "",
-          "label": "Populaire"
+          "label": "Popular"
         }
       },
       "css": ".wb-pricing { position: relative; padding: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); } .wb-pricing__price { margin: .5rem 0; font-size: 2.2rem; font-weight: 800; } .wb-pricing__price small { color: var(--text-muted); font-size: .9rem; font-weight: 500; } .wb-pricing ul { display: grid; gap: .45rem; padding-left: 1.2rem; }"
     },
     "testimonial": {
-      "description": "Témoignage client avec avatar facultatif.",
+      "description": "Customer testimonial with an optional avatar.",
       "default_variant": "default",
       "required": [
         "content.text",
@@ -1146,7 +1147,7 @@
       "css": ".wb-testimonial { margin: 0; padding: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); } .wb-testimonial blockquote { margin: 0 0 1rem; font-size: 1.1rem; } .wb-testimonial figcaption { display: flex; align-items: center; gap: .7rem; } .wb-testimonial img { width: 2.75rem; height: 2.75rem; border-radius: 50%; object-fit: cover; } .wb-testimonial figcaption span { display: grid; } .wb-testimonial small { color: var(--text-muted); }"
     },
     "footer": {
-      "description": "Pied de page simple ou à colonnes.",
+      "description": "Simple or multi-column site footer.",
       "default_variant": "simple",
       "required": [
         "content.name"
@@ -1154,7 +1155,7 @@
       "accepts_children": true,
       "variants": {
         "simple": {
-          "html": "<footer class='wb-footer wb-footer-simple {{class}}'><p>© {{content.year}} {{content.name}}. {{content.text}}</p><nav aria-label='Liens de pied de page'>{{#content.links}}<a href='{{href}}'>{{text}}</a>{{/content.links}}</nav>{{{children}}}</footer>",
+          "html": "<footer class='wb-footer wb-footer-simple {{class}}'><p>© {{content.year}} {{content.name}}. {{content.text}}</p><nav aria-label='Footer links'>{{#content.links}}<a href='{{href}}'>{{text}}</a>{{/content.links}}</nav>{{{children}}}</footer>",
           "css": "",
           "js": ""
         },
@@ -1164,7 +1165,7 @@
           "js": ""
         },
         "centered": {
-          "html": "<footer class='wb-footer wb-footer-centered {{class}}'><strong>{{content.name}}</strong><nav aria-label='Liens de pied de page'>{{#content.links}}<a href='{{href}}'>{{text}}</a>{{/content.links}}</nav><p>© {{content.year}} {{content.text}}</p>{{{children}}}</footer>",
+          "html": "<footer class='wb-footer wb-footer-centered {{class}}'><strong>{{content.name}}</strong><nav aria-label='Footer links'>{{#content.links}}<a href='{{href}}'>{{text}}</a>{{/content.links}}</nav><p>© {{content.year}} {{content.text}}</p>{{{children}}}</footer>",
           "css": ".wb-footer-centered { justify-items: center; text-align: center; }",
           "js": ""
         }
@@ -1180,7 +1181,7 @@
       "css": ".wb-footer { display: grid; gap: 1.5rem; padding: clamp(2rem, 6vw, 4rem); border-top: 1px solid var(--border); background: var(--surface); } .wb-footer nav { display: flex; flex-wrap: wrap; gap: 1rem; } .wb-footer section { display: flex; flex-direction: column; gap: .4rem; } .wb-footer h2 { margin: 0 0 .4rem; font-size: 1rem; } .wb-footer a { color: var(--text-muted); }"
     },
     "video": {
-      "description": "Vidéo HTML5 responsive.",
+      "description": "Responsive HTML5 video player.",
       "default_variant": "responsive",
       "required": [
         "content.src"
@@ -1188,7 +1189,7 @@
       "accepts_children": false,
       "variants": {
         "responsive": {
-          "html": "<figure class='wb-video {{class}}'><video controls preload='{{content.preload}}' {{#content.poster}}poster='{{content.poster}}'{{/content.poster}}><source src='{{content.src}}' type='{{content.mime}}'>Votre navigateur ne prend pas en charge la vidéo.</video>{{#content.caption}}<figcaption>{{content.caption}}</figcaption>{{/content.caption}}</figure>",
+          "html": "<figure class='wb-video {{class}}'><video controls preload='{{content.preload}}' {{#content.poster}}poster='{{content.poster}}'{{/content.poster}}><source src='{{content.src}}' type='{{content.mime}}'>Your browser does not support HTML5 video.</video>{{#content.caption}}<figcaption>{{content.caption}}</figcaption>{{/content.caption}}</figure>",
           "css": "",
           "js": ""
         }
@@ -1204,7 +1205,7 @@
       "css": ".wb-video { margin: 0; } .wb-video video { width: 100%; border-radius: var(--radius); background: #000; } .wb-video figcaption { margin-top: .5rem; color: var(--text-muted); }"
     },
     "code-block": {
-      "description": "Bloc de code avec langage affiché.",
+      "description": "Code block with a language label.",
       "default_variant": "default",
       "required": [
         "content.code"
@@ -1225,7 +1226,7 @@
       "css": ".wb-code { margin: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: #0d1526; color: #e5edff; } .wb-code figcaption { padding: .5rem .8rem; border-bottom: 1px solid #2d3b57; color: #a8b3cf; font-size: .8rem; } .wb-code pre { margin: 0; padding: 1rem; overflow-x: auto; } .wb-code code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }"
     },
     "details": {
-      "description": "Panneau natif details/summary.",
+      "description": "Native details and summary panel.",
       "default_variant": "default",
       "required": [
         "content.title"
@@ -1247,7 +1248,7 @@
       "css": ".wb-details { border: 1px solid var(--border); border-radius: var(--radius); } .wb-details summary { padding: 1rem; cursor: pointer; font-weight: 700; } .wb-details > div { padding: 0 1rem 1rem; color: var(--text-muted); }"
     },
     "callout": {
-      "description": "Encart éditorial avec titre.",
+      "description": "Editorial callout with a title.",
       "default_variant": "note",
       "required": [
         "content.text"
@@ -1272,13 +1273,13 @@
       },
       "defaults": {
         "content": {
-          "title": "À noter"
+          "title": "Note"
         }
       },
       "css": ".wb-callout { padding: 1rem 1.2rem; border: 1px solid color-mix(in srgb, var(--callout-color), transparent 50%); border-radius: var(--radius); background: color-mix(in srgb, var(--callout-color), transparent 92%); } .wb-callout p { margin: .35rem 0 0; }"
     },
     "gallery": {
-      "description": "Galerie d'images responsive.",
+      "description": "Responsive image gallery.",
       "default_variant": "grid",
       "required": [
         "content.images"
@@ -1304,7 +1305,7 @@
       "css": ".wb-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1rem; } .wb-gallery figure { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius); } .wb-gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; } .wb-gallery figcaption { padding: .5rem; color: var(--text-muted); font-size: .85rem; }"
     },
     "carousel": {
-      "description": "Carrousel simple avec contrôles précédent/suivant.",
+      "description": "Simple carousel with previous and next controls.",
       "default_variant": "simple",
       "required": [
         "content.slides"
@@ -1312,21 +1313,21 @@
       "accepts_children": false,
       "variants": {
         "simple": {
-          "html": "<section class='wb-carousel {{class}}' aria-label='{{content.label}}'><div class='wb-carousel__track'>{{#content.slides}}<article class='wb-carousel__slide'><img src='{{image}}' alt='{{alt}}'><h2>{{title}}</h2><p>{{text}}</p></article>{{/content.slides}}</div><div class='wb-carousel__controls'><button type='button' data-direction='-1' aria-label='Précédent'>‹</button><button type='button' data-direction='1' aria-label='Suivant'>›</button></div></section>",
+          "html": "<section class='wb-carousel {{class}}' aria-label='{{content.label}}'><div class='wb-carousel__track'>{{#content.slides}}<article class='wb-carousel__slide'><img src='{{image}}' alt='{{alt}}'><h2>{{title}}</h2><p>{{text}}</p></article>{{/content.slides}}</div><div class='wb-carousel__controls'><button type='button' data-direction='-1' aria-label='Previous slide'>‹</button><button type='button' data-direction='1' aria-label='Next slide'>›</button></div></section>",
           "css": "",
           "js": ""
         }
       },
       "defaults": {
         "content": {
-          "label": "Carrousel"
+          "label": "Carousel"
         }
       },
       "css": ".wb-carousel { overflow: hidden; } .wb-carousel__track { display: flex; transition: transform .3s ease; } .wb-carousel__slide { min-width: 100%; padding: 1rem; } .wb-carousel__slide img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; border-radius: var(--radius); } .wb-carousel__controls { display: flex; justify-content: end; gap: .5rem; margin-top: .6rem; } .wb-carousel__controls button { width: 2.6rem; height: 2.6rem; border: 1px solid var(--border); border-radius: 50%; background: var(--surface); color: var(--text); cursor: pointer; }",
       "js": "document.querySelectorAll('.wb-carousel').forEach((root) => { const track = root.querySelector('.wb-carousel__track'); const slides = root.querySelectorAll('.wb-carousel__slide'); let index = 0; root.querySelectorAll('[data-direction]').forEach((button) => button.addEventListener('click', () => { index = (index + Number(button.dataset.direction) + slides.length) % slides.length; track.style.transform = `translateX(-${index * 100}%)`; })); });"
     },
     "heading": {
-      "description": "Titre éditorial de niveau 1, 2 ou 3.",
+      "description": "Editorial heading levels and display styles.",
       "default_variant": "h2",
       "required": [
         "content.text"
@@ -1357,7 +1358,7 @@
       }
     },
     "text": {
-      "description": "Paragraphe de texte avec styles standard, introduction et atténué.",
+      "description": "Paragraph with standard, lead, muted, small, and monospace styles.",
       "default_variant": "default",
       "required": [
         "content.text"
@@ -1392,7 +1393,7 @@
       }
     },
     "spacer": {
-      "description": "Espace vertical décoratif.",
+      "description": "Decorative vertical spacer.",
       "default_variant": "medium",
       "required": [],
       "accepts_children": false,
@@ -1415,7 +1416,7 @@
       }
     },
     "main": {
-      "description": "Zone principale sémantique.",
+      "description": "Semantic main content region.",
       "default_variant": "default",
       "required": [],
       "accepts_children": true,
@@ -1433,7 +1434,7 @@
       }
     },
     "cluster": {
-      "description": "Groupe horizontal fluide pour tags, actions ou métadonnées.",
+      "description": "Fluid horizontal group for tags, actions, or metadata.",
       "default_variant": "default",
       "required": [],
       "accepts_children": true,
@@ -1452,7 +1453,7 @@
       "css": ".wb-cluster { display: flex; align-items: center; flex-wrap: wrap; gap: var(--cluster-gap, .75rem); }"
     },
     "sidebar-layout": {
-      "description": "Layout contenu/sidebar responsive.",
+      "description": "Responsive content and sidebar layout.",
       "default_variant": "left",
       "required": [],
       "accepts_children": true,
@@ -1471,7 +1472,7 @@
       "css": ".wb-sidebar-layout { display: grid; gap: clamp(1rem, 4vw, 3rem); } @media (max-width: 48rem) { .wb-sidebar-layout { grid-template-columns: 1fr; } }"
     },
     "aspect-box": {
-      "description": "Cadre imposant un ratio à ses enfants.",
+      "description": "Container that enforces an aspect ratio for its children.",
       "default_variant": "video",
       "required": [],
       "accepts_children": true,
@@ -1495,7 +1496,7 @@
       "css": ".wb-aspect { overflow: hidden; } .wb-aspect > img, .wb-aspect > video, .wb-aspect > iframe { width: 100%; height: 100%; object-fit: cover; }"
     },
     "surface": {
-      "description": "Surface visuelle servant de panneau générique.",
+      "description": "Generic visual panel surface.",
       "default_variant": "default",
       "required": [],
       "accepts_children": true,
@@ -1519,7 +1520,7 @@
       "css": ".wb-surface { padding: clamp(1rem, 3vw, 2rem); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }"
     },
     "banner": {
-      "description": "Bannière pleine largeur avec actions enfants.",
+      "description": "Full-width banner with child actions.",
       "default_variant": "info",
       "required": [
         "content.text"
@@ -1550,7 +1551,7 @@
       "css": ".wb-banner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 1rem clamp(1rem, 4vw, 3rem); border-bottom: 3px solid var(--banner-color); background: color-mix(in srgb, var(--banner-color), transparent 90%); } .wb-banner p { margin: .2rem 0 0; }"
     },
     "feature": {
-      "description": "Bloc de fonctionnalité avec pictogramme ou média.",
+      "description": "Feature block with an icon or media.",
       "default_variant": "icon",
       "required": [
         "content.title",
@@ -1579,7 +1580,7 @@
       "css": ".wb-feature { padding: 1.25rem; } .wb-feature__icon { display: grid; width: 2.75rem; height: 2.75rem; place-items: center; border-radius: var(--radius); background: var(--primary); color: var(--primary-contrast); font-size: 1.35rem; } .wb-feature h2 { margin: .8rem 0 .3rem; font-size: 1.2rem; } .wb-feature p { margin: 0; color: var(--text-muted); }"
     },
     "logo-cloud": {
-      "description": "Grille de logos clients ou partenaires.",
+      "description": "Responsive client or partner logo grid.",
       "default_variant": "default",
       "required": [
         "content.items"
@@ -1594,13 +1595,13 @@
       },
       "defaults": {
         "content": {
-          "label": "Partenaires"
+          "label": "Partners"
         }
       },
       "css": ".wb-logo-cloud { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); align-items: center; gap: 2rem; } .wb-logo-cloud img { max-width: 9rem; max-height: 3rem; margin: auto; object-fit: contain; filter: grayscale(1); opacity: .72; }"
     },
     "team-grid": {
-      "description": "Grille de membres d'équipe.",
+      "description": "Team member grid.",
       "default_variant": "default",
       "required": [
         "content.members"
@@ -1616,7 +1617,7 @@
       "css": ".wb-team { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1.5rem; } .wb-team article { text-align: center; } .wb-team img { width: 9rem; height: 9rem; margin: auto; border-radius: 50%; object-fit: cover; } .wb-team h2 { margin: .75rem 0 .15rem; font-size: 1.1rem; } .wb-team p, .wb-team small { color: var(--text-muted); }"
     },
     "timeline": {
-      "description": "Chronologie d'événements.",
+      "description": "Chronological event timeline.",
       "default_variant": "vertical",
       "required": [
         "content.items"
@@ -1637,7 +1638,7 @@
       "css": ".wb-timeline { position: relative; display: grid; gap: 1rem; margin: 0; padding: 0 0 0 1.4rem; border-left: 2px solid var(--border); list-style: none; } .wb-timeline li { position: relative; } .wb-timeline li::before { content: \"\"; position: absolute; top: .45rem; left: calc(-1.4rem - 6px); width: 10px; height: 10px; border-radius: 50%; background: var(--primary); } .wb-timeline time { color: var(--primary); font-size: .8rem; font-weight: 700; } .wb-timeline h2 { margin: .2rem 0; font-size: 1.1rem; } .wb-timeline p { margin: 0; color: var(--text-muted); }"
     },
     "steps": {
-      "description": "Indicateur d'étapes de processus.",
+      "description": "Process step indicator.",
       "default_variant": "horizontal",
       "required": [
         "content.items"
@@ -1658,7 +1659,7 @@
       "css": ".wb-steps { display: flex; justify-content: space-between; gap: 1rem; margin: 0; padding: 0; list-style: none; } .wb-steps li { display: flex; align-items: center; flex-direction: column; gap: .35rem; color: var(--text-muted); text-align: center; } .wb-steps li span { display: grid; width: 2rem; height: 2rem; place-items: center; border: 2px solid var(--border); border-radius: 50%; } .wb-steps .is-complete span, .wb-steps .is-current span { border-color: var(--primary); background: var(--primary); color: var(--primary-contrast); } .wb-steps .is-current { color: var(--text); }"
     },
     "empty-state": {
-      "description": "État vide avec illustration et action.",
+      "description": "Empty state with an illustration and action.",
       "default_variant": "default",
       "required": [
         "content.title"
@@ -1680,7 +1681,7 @@
       "css": ".wb-empty { display: grid; justify-items: center; max-width: 34rem; margin-inline: auto; padding: clamp(2rem, 6vw, 4rem); text-align: center; } .wb-empty__icon { display: grid; width: 4rem; height: 4rem; place-items: center; border-radius: 50%; background: var(--surface-2); color: var(--primary); font-size: 2rem; } .wb-empty h2 { margin: 1rem 0 .35rem; } .wb-empty p { color: var(--text-muted); }"
     },
     "skeleton": {
-      "description": "Placeholder de chargement animé et accessible.",
+      "description": "Accessible animated loading placeholder.",
       "default_variant": "text",
       "required": [],
       "accepts_children": false,
@@ -1703,13 +1704,13 @@
       },
       "defaults": {
         "content": {
-          "label": "Chargement…"
+          "label": "Loading…"
         }
       },
       "css": ".wb-skeleton > * { background-image: linear-gradient(90deg, transparent, color-mix(in srgb, white, transparent 60%), transparent) !important; background-size: 220% 100% !important; animation: wb-shimmer 1.4s infinite; } @keyframes wb-shimmer { to { background-position: -220% 0; } } @media (prefers-reduced-motion: reduce) { .wb-skeleton > * { animation: none; } }"
     },
     "switch": {
-      "description": "Interrupteur booléen accessible.",
+      "description": "Accessible boolean switch.",
       "default_variant": "default",
       "required": [
         "content.name",
@@ -1731,7 +1732,7 @@
       "css": ".wb-switch { display: inline-flex; align-items: center; gap: .65rem; cursor: pointer; } .wb-switch input { position: absolute; opacity: 0; } .wb-switch > span { position: relative; width: 2.8rem; height: 1.55rem; border-radius: 999px; background: var(--surface-2); transition: background .2s; } .wb-switch > span::after { content: \"\"; position: absolute; top: .2rem; left: .2rem; width: 1.15rem; height: 1.15rem; border-radius: 50%; background: white; box-shadow: 0 1px 4px rgba(0,0,0,.25); transition: transform .2s; } .wb-switch input:checked + span { background: var(--primary); } .wb-switch input:checked + span::after { transform: translateX(1.25rem); } .wb-switch input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }"
     },
     "range": {
-      "description": "Curseur numérique avec valeur affichée.",
+      "description": "Numeric range control with a live value.",
       "default_variant": "default",
       "required": [
         "content.name",
@@ -1757,7 +1758,7 @@
       "js": "document.querySelectorAll('.wb-range').forEach((root) => { const input = root.querySelector('input'); const output = root.querySelector('output'); input?.addEventListener('input', () => { output.textContent = input.value; }); });"
     },
     "file-dropzone": {
-      "description": "Zone de dépôt de fichiers avec input natif.",
+      "description": "Native file input with drag-and-drop support.",
       "default_variant": "default",
       "required": [
         "content.name",
@@ -1775,20 +1776,20 @@
         "content": {
           "multiple": false,
           "accept": "",
-          "help": "Cliquez ou déposez vos fichiers"
+          "help": "Click or drop your files"
         }
       },
       "css": ".wb-dropzone { display: grid; justify-items: center; gap: .35rem; padding: 2rem; border: 2px dashed var(--border); border-radius: var(--radius); background: var(--surface); text-align: center; cursor: pointer; transition: border-color .2s, background .2s; } .wb-dropzone.is-dragging { border-color: var(--primary); background: color-mix(in srgb, var(--primary), transparent 92%); } .wb-dropzone input { position: absolute; width: 1px; height: 1px; opacity: 0; } .wb-dropzone__icon { font-size: 2rem; color: var(--primary); } .wb-dropzone small { color: var(--text-muted); }",
-      "js": "document.querySelectorAll('.wb-dropzone').forEach((root) => { const input = root.querySelector('input'); const help = root.querySelector('small'); ['dragenter','dragover'].forEach((name) => root.addEventListener(name, (event) => { event.preventDefault(); root.classList.add('is-dragging'); })); ['dragleave','drop'].forEach((name) => root.addEventListener(name, (event) => { event.preventDefault(); root.classList.remove('is-dragging'); })); root.addEventListener('drop', (event) => { if (event.dataTransfer?.files.length) { input.files = event.dataTransfer.files; help.textContent = `${event.dataTransfer.files.length} fichier(s) sélectionné(s)`; } }); input?.addEventListener('change', () => { if (input.files?.length) help.textContent = `${input.files.length} fichier(s) sélectionné(s)`; }); });"
+      "js": "document.querySelectorAll('.wb-dropzone').forEach((root) => { const input = root.querySelector('input'); const help = root.querySelector('small'); ['dragenter','dragover'].forEach((name) => root.addEventListener(name, (event) => { event.preventDefault(); root.classList.add('is-dragging'); })); ['dragleave','drop'].forEach((name) => root.addEventListener(name, (event) => { event.preventDefault(); root.classList.remove('is-dragging'); })); root.addEventListener('drop', (event) => { if (event.dataTransfer?.files.length) { input.files = event.dataTransfer.files; help.textContent = `${event.dataTransfer.files.length} file(s) selected`; } }); input?.addEventListener('change', () => { if (input.files?.length) help.textContent = `${input.files.length} file(s) selected`; }); });"
     },
     "search-bar": {
-      "description": "Champ de recherche avec bouton d’effacement.",
+      "description": "Search field with a clear button.",
       "default_variant": "default",
       "required": [],
       "accepts_children": false,
       "variants": {
         "default": {
-          "html": "<form class='wb-search {{class}}' action='{{content.action}}' role='search'><label class='sr-only' for='{{id}}-input'>{{content.label}}</label><input id='{{id}}-input' type='search' name='{{content.name}}' placeholder='{{content.placeholder}}'><button type='submit'>{{content.button_text}}</button><button class='wb-search__clear' type='button' aria-label='Effacer'>×</button></form>",
+          "html": "<form class='wb-search {{class}}' action='{{content.action}}' role='search'><label class='sr-only' for='{{id}}-input'>{{content.label}}</label><input id='{{id}}-input' type='search' name='{{content.name}}' placeholder='{{content.placeholder}}'><button type='submit'>{{content.button_text}}</button><button class='wb-search__clear' type='button' aria-label='Clear search'>×</button></form>",
           "css": "",
           "js": ""
         }
@@ -1796,17 +1797,17 @@
       "defaults": {
         "content": {
           "action": "",
-          "label": "Rechercher",
+          "label": "Search",
           "name": "q",
-          "placeholder": "Rechercher…",
-          "button_text": "Rechercher"
+          "placeholder": "Search…",
+          "button_text": "Search"
         }
       },
       "css": ".wb-search { display: flex; align-items: stretch; max-width: 38rem; } .wb-search input { flex: 1; min-width: 0; padding: .65rem .8rem; border: 1px solid var(--border); border-radius: var(--radius) 0 0 var(--radius); background: var(--bg); color: var(--text); } .wb-search button { border: 0; background: var(--primary); color: var(--primary-contrast); padding-inline: 1rem; } .wb-search__clear { border-left: 1px solid color-mix(in srgb, white, transparent 70%) !important; border-radius: 0 var(--radius) var(--radius) 0; }",
       "js": "document.querySelectorAll('.wb-search').forEach((root) => { const input = root.querySelector('input'); root.querySelector('.wb-search__clear')?.addEventListener('click', () => { input.value = ''; input.focus(); input.dispatchEvent(new Event('input', { bubbles: true })); }); });"
     },
     "rating": {
-      "description": "Notation par étoiles interactive ou en lecture seule.",
+      "description": "Interactive or read-only star rating.",
       "default_variant": "interactive",
       "required": [
         "content.value"
@@ -1814,12 +1815,12 @@
       "accepts_children": false,
       "variants": {
         "interactive": {
-          "html": "<div class='wb-rating wb-rating-interactive {{class}}' role='group' aria-label='{{content.label}}' data-value='{{content.value}}'><input type='hidden' name='{{content.name}}' value='{{content.value}}'>{{#content.stars}}<button type='button' data-value='{{.}}' aria-label='{{.}} sur 5'>★</button>{{/content.stars}}</div>",
+          "html": "<div class='wb-rating wb-rating-interactive {{class}}' role='group' aria-label='{{content.label}}' data-value='{{content.value}}'><input type='hidden' name='{{content.name}}' value='{{content.value}}'>{{#content.stars}}<button type='button' data-value='{{.}}' aria-label='{{.}} out of 5'>★</button>{{/content.stars}}</div>",
           "css": "",
           "js": ""
         },
         "readonly": {
-          "html": "<div class='wb-rating wb-rating-readonly {{class}}' aria-label='{{content.value}} sur 5'><span style='--rating: {{content.percent}}%'>★★★★★</span></div>",
+          "html": "<div class='wb-rating wb-rating-readonly {{class}}' aria-label='{{content.value}} out of 5'><span style='--rating: {{content.percent}}%'>★★★★★</span></div>",
           "css": ".wb-rating-readonly span { display: inline-block; background: linear-gradient(90deg, var(--warning) var(--rating), var(--surface-2) var(--rating)); color: transparent; background-clip: text; }",
           "js": ""
         }
@@ -1827,7 +1828,7 @@
       "defaults": {
         "content": {
           "name": "rating",
-          "label": "Note",
+          "label": "Rating",
           "stars": [
             1,
             2,
@@ -1842,7 +1843,7 @@
       "js": "document.querySelectorAll('.wb-rating-interactive').forEach((root) => { const input = root.querySelector('input'); const buttons = [...root.querySelectorAll('button')]; const paint = (value) => buttons.forEach((button) => button.classList.toggle('is-active', Number(button.dataset.value) <= value)); paint(Number(root.dataset.value)); buttons.forEach((button) => button.addEventListener('click', () => { const value = Number(button.dataset.value); input.value = String(value); root.dataset.value = String(value); paint(value); root.dispatchEvent(new CustomEvent('ratingchange', { detail: { value }, bubbles: true })); })); });"
     },
     "tooltip": {
-      "description": "Infobulle accessible au survol et au focus.",
+      "description": "Tooltip available on hover and focus.",
       "default_variant": "top",
       "required": [
         "content.text",
@@ -1864,7 +1865,7 @@
       "css": ".wb-tooltip { position: relative; display: inline-block; border-bottom: 1px dotted currentColor; cursor: help; } .wb-tooltip [role='tooltip'] { position: absolute; z-index: 40; bottom: calc(100% + .5rem); left: 50%; width: max-content; max-width: 16rem; padding: .4rem .6rem; border-radius: .35rem; background: var(--text); color: var(--bg); font-size: .78rem; transform: translateX(-50%); opacity: 0; pointer-events: none; transition: opacity .15s; } .wb-tooltip:hover [role='tooltip'], .wb-tooltip:focus [role='tooltip'] { opacity: 1; }"
     },
     "popover": {
-      "description": "Panneau contextuel ouvert par un bouton.",
+      "description": "Contextual panel opened by a button.",
       "default_variant": "default",
       "required": [
         "content.label"
@@ -1887,7 +1888,7 @@
       "js": "document.querySelectorAll('.wb-popover').forEach((root) => { const button = root.querySelector('.wb-popover__toggle'); const panel = root.querySelector('.wb-popover__panel'); button?.addEventListener('click', () => { const open = panel.hasAttribute('hidden'); panel.toggleAttribute('hidden', !open); button.setAttribute('aria-expanded', String(open)); }); document.addEventListener('click', (event) => { if (!root.contains(event.target)) { panel.setAttribute('hidden', ''); button.setAttribute('aria-expanded', 'false'); } }); });"
     },
     "cookie-banner": {
-      "description": "Bannière de consentement mémorisée localement.",
+      "description": "Persisted cookie consent banner.",
       "default_variant": "default",
       "required": [
         "content.text"
@@ -1903,16 +1904,16 @@
       "defaults": {
         "content": {
           "storage_key": "webuilder-cookie-consent",
-          "title": "Vos préférences",
-          "reject_text": "Refuser",
-          "accept_text": "Accepter"
+          "title": "Your preferences",
+          "reject_text": "Reject",
+          "accept_text": "Accept"
         }
       },
       "css": ".wb-cookie { position: fixed; z-index: 100; right: 1rem; bottom: 1rem; display: flex; align-items: center; gap: 1rem; width: min(calc(100% - 2rem), 46rem); padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); box-shadow: var(--shadow); } .wb-cookie p { margin: .25rem 0 0; color: var(--text-muted); } .wb-cookie__actions { display: flex; gap: .5rem; } .wb-cookie button { padding: .5rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); } .wb-cookie button[data-choice=accept] { background: var(--primary); color: var(--primary-contrast); } @media (max-width: 42rem) { .wb-cookie { align-items: stretch; flex-direction: column; } }",
       "js": "document.querySelectorAll('.wb-cookie').forEach((root) => { const key = root.dataset.storageKey; if (localStorage.getItem(key)) { root.remove(); return; } root.querySelectorAll('[data-choice]').forEach((button) => button.addEventListener('click', () => { localStorage.setItem(key, button.dataset.choice); root.remove(); document.dispatchEvent(new CustomEvent('cookieconsent', { detail: { choice: button.dataset.choice } })); })); });"
     },
     "copy-button": {
-      "description": "Bouton copiant du texte dans le presse-papiers.",
+      "description": "Button that copies text to the clipboard.",
       "default_variant": "default",
       "required": [
         "content.text"
@@ -1927,15 +1928,15 @@
       },
       "defaults": {
         "content": {
-          "label": "Copier",
-          "success_text": "Copié !"
+          "label": "Copy",
+          "success_text": "Copied!"
         }
       },
       "css": ".wb-copy { display: inline-flex; padding: .5rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); cursor: pointer; }",
       "js": "document.querySelectorAll('.wb-copy').forEach((button) => button.addEventListener('click', async () => { const original = button.textContent; try { await navigator.clipboard.writeText(button.dataset.copyText); button.textContent = button.dataset.successText; setTimeout(() => { button.textContent = original; }, 1500); } catch (error) { console.error('Clipboard unavailable', error); } }));"
     },
     "back-to-top": {
-      "description": "Bouton flottant de retour en haut.",
+      "description": "Floating back-to-top button.",
       "default_variant": "default",
       "required": [],
       "accepts_children": false,
@@ -1948,14 +1949,14 @@
       },
       "defaults": {
         "content": {
-          "label": "Retour en haut"
+          "label": "Back to top"
         }
       },
       "css": ".wb-back-to-top { position: fixed; z-index: 30; right: 1rem; bottom: 1rem; display: grid; width: 3rem; height: 3rem; place-items: center; border: 0; border-radius: 50%; background: var(--primary); color: var(--primary-contrast); box-shadow: var(--shadow); cursor: pointer; opacity: 0; transform: translateY(1rem); pointer-events: none; transition: opacity .2s, transform .2s; } .wb-back-to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }",
       "js": "document.querySelectorAll('.wb-back-to-top').forEach((button) => { const update = () => button.classList.toggle('is-visible', scrollY > 500); addEventListener('scroll', update, { passive: true }); update(); button.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' })); });"
     },
     "counter": {
-      "description": "Compteur animé au passage dans la fenêtre.",
+      "description": "Viewport-triggered animated counter.",
       "default_variant": "default",
       "required": [
         "content.value"
@@ -1977,7 +1978,7 @@
       "js": "document.querySelectorAll('.wb-counter').forEach((element) => { const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (!entry.isIntersecting) return; observer.disconnect(); const target = Number(element.dataset.target); const duration = Number(element.dataset.duration); const start = performance.now(); const tick = (now) => { const progress = Math.min(1, (now - start) / duration); element.textContent = String(Math.round(target * (1 - Math.pow(1 - progress, 3)))); if (progress < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); })); observer.observe(element); });"
     },
     "countdown": {
-      "description": "Compte à rebours vers une date ISO.",
+      "description": "Countdown to an ISO date.",
       "default_variant": "default",
       "required": [
         "content.datetime"
@@ -1985,7 +1986,7 @@
       "accepts_children": false,
       "variants": {
         "default": {
-          "html": "<div class='wb-countdown {{class}}' data-target='{{content.datetime}}'><div><strong data-unit='days'>0</strong><span>jours</span></div><div><strong data-unit='hours'>0</strong><span>heures</span></div><div><strong data-unit='minutes'>0</strong><span>minutes</span></div><div><strong data-unit='seconds'>0</strong><span>secondes</span></div></div>",
+          "html": "<div class='wb-countdown {{class}}' data-target='{{content.datetime}}'><div><strong data-unit='days'>0</strong><span>days</span></div><div><strong data-unit='hours'>0</strong><span>hours</span></div><div><strong data-unit='minutes'>0</strong><span>minutes</span></div><div><strong data-unit='seconds'>0</strong><span>seconds</span></div></div>",
           "css": "",
           "js": ""
         }
@@ -1994,7 +1995,7 @@
       "js": "document.querySelectorAll('.wb-countdown').forEach((root) => { const target = new Date(root.dataset.target).getTime(); const update = () => { let seconds = Math.max(0, Math.floor((target - Date.now()) / 1000)); const values = { days: Math.floor(seconds / 86400), hours: Math.floor(seconds / 3600) % 24, minutes: Math.floor(seconds / 60) % 60, seconds: seconds % 60 }; Object.entries(values).forEach(([unit, value]) => { const node = root.querySelector(`[data-unit=${unit}]`); if (node) node.textContent = String(value).padStart(2, '0'); }); if (seconds <= 0) clearInterval(timer); }; const timer = setInterval(update, 1000); update(); });"
     },
     "audio": {
-      "description": "Lecteur audio HTML5.",
+      "description": "HTML5 audio player.",
       "default_variant": "default",
       "required": [
         "content.src"
@@ -2016,7 +2017,7 @@
       "css": ".wb-audio { margin: 0; } .wb-audio audio { width: 100%; } .wb-audio figcaption { margin-top: .4rem; color: var(--text-muted); font-size: .85rem; }"
     },
     "iframe": {
-      "description": "Contenu externe responsive en iframe.",
+      "description": "Responsive external iframe content.",
       "default_variant": "responsive",
       "required": [
         "content.src",
@@ -2033,7 +2034,7 @@
       "css": ".wb-iframe { overflow: hidden; aspect-ratio: 16 / 9; border-radius: var(--radius); background: var(--surface-2); } .wb-iframe iframe { width: 100%; height: 100%; border: 0; }"
     },
     "social-links": {
-      "description": "Liste de liens vers les réseaux sociaux.",
+      "description": "Social media link list.",
       "default_variant": "default",
       "required": [
         "content.items"
@@ -2048,13 +2049,13 @@
       },
       "defaults": {
         "content": {
-          "label": "Réseaux sociaux"
+          "label": "Social media"
         }
       },
       "css": ".wb-social { display: flex; flex-wrap: wrap; gap: .5rem; } .wb-social a { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .65rem; border: 1px solid var(--border); border-radius: 999px; color: var(--text); text-decoration: none; } .wb-social a:hover { border-color: var(--primary); color: var(--primary); }"
     },
     "data-list": {
-      "description": "Liste structurée clé/valeur.",
+      "description": "Structured key-value list.",
       "default_variant": "default",
       "required": [
         "content.items"
@@ -2075,7 +2076,7 @@
       "css": ".wb-data-list { margin: 0; border: 1px solid var(--border); border-radius: var(--radius); } .wb-data-list > div { display: grid; grid-template-columns: minmax(8rem, 1fr) 2fr; gap: 1rem; padding: .7rem 1rem; } .wb-data-list > div + div { border-top: 1px solid var(--border); } .wb-data-list dt { color: var(--text-muted); } .wb-data-list dd { margin: 0; font-weight: 600; }"
     },
     "meter": {
-      "description": "Jauge native avec libellé.",
+      "description": "Native meter with a label.",
       "default_variant": "default",
       "required": [
         "content.label",
@@ -2101,7 +2102,7 @@
       "css": ".wb-meter { display: grid; gap: .4rem; } .wb-meter > span { display: flex; justify-content: space-between; } .wb-meter meter { width: 100%; height: 1rem; accent-color: var(--primary); }"
     },
     "kbd": {
-      "description": "Affichage d’un raccourci clavier.",
+      "description": "Keyboard shortcut display.",
       "default_variant": "default",
       "required": [
         "content.text"
@@ -2117,7 +2118,7 @@
       "css": ".wb-kbd { display: inline-block; padding: .18rem .45rem; border: 1px solid var(--border); border-bottom-width: 3px; border-radius: .35rem; background: var(--surface); color: var(--text); font-family: ui-monospace, monospace; font-size: .82em; }"
     },
     "marquee": {
-      "description": "Ruban de contenu défilant sans JavaScript.",
+      "description": "CSS-only scrolling content strip.",
       "default_variant": "default",
       "required": [
         "content.items"
@@ -2132,13 +2133,13 @@
       },
       "defaults": {
         "content": {
-          "label": "Informations défilantes"
+          "label": "Scrolling information"
         }
       },
       "css": ".wb-marquee { overflow: hidden; } .wb-marquee > div { display: flex; width: max-content; animation: wb-marquee 24s linear infinite; } .wb-marquee span { padding-inline: 2rem; white-space: nowrap; } @keyframes wb-marquee { to { transform: translateX(-50%); } } @media (prefers-reduced-motion: reduce) { .wb-marquee > div { animation-play-state: paused; } }"
     },
     "status-dot": {
-      "description": "Statut compact avec indicateur coloré.",
+      "description": "Compact status with a colored indicator.",
       "default_variant": "online",
       "required": [
         "content.text"
@@ -2164,7 +2165,7 @@
       "css": ".wb-status { display: inline-flex; align-items: center; gap: .4rem; font-size: .875rem; } .wb-status::before { content: \"\"; width: .55rem; height: .55rem; border-radius: 50%; box-shadow: 0 0 0 3px var(--surface-2); }"
     },
     "floating-action": {
-      "description": "Bouton d’action flottant.",
+      "description": "Floating action button.",
       "default_variant": "primary",
       "required": [
         "content.label"
@@ -2190,7 +2191,7 @@
       "css": ".wb-fab { position: fixed; z-index: 30; right: 1.25rem; bottom: 1.25rem; display: grid; width: 3.5rem; height: 3.5rem; place-items: center; border: 0; border-radius: 50%; box-shadow: var(--shadow); cursor: pointer; font-size: 1.5rem; transition: transform .15s; } .wb-fab:hover { transform: scale(1.06); }"
     },
     "skip-link": {
-      "description": "Lien d’évitement pour l’accessibilité.",
+      "description": "Accessibility skip link.",
       "default_variant": "default",
       "required": [],
       "accepts_children": false,
@@ -2204,7 +2205,7 @@
       "defaults": {
         "content": {
           "href": "#main",
-          "text": "Aller au contenu principal"
+          "text": "Skip to main content"
         }
       },
       "css": ".wb-skip-link { position: fixed; z-index: 999; top: .5rem; left: .5rem; padding: .6rem .9rem; border-radius: var(--radius); background: var(--primary); color: var(--primary-contrast); transform: translateY(-180%); transition: transform .15s; } .wb-skip-link:focus { transform: none; }"

@@ -1,4 +1,5 @@
 {
+  "$schema": "../schemas/library.schema.json",
   "name": "Commerce Essentials Plugin",
   "version": "1.0.0",
   "themes": {
@@ -9,28 +10,35 @@
   },
   "components": {
     "card": {
-      "description": "Carte produit avec image et badge de promotion.",
+      "description": "Product card with an image and promotional badge.",
       "default_variant": "default",
-      "required": ["content.title", "content.price"],
+      "required": [
+        "content.title",
+        "content.price"
+      ],
       "accepts_children": true,
       "variants": {
-        "default-left": {
+        "default": {
           "html": "<article class='commerce-card {{class}}'>{{#content.badge}}<span class='commerce-card__badge'>{{content.badge}}</span>{{/content.badge}}{{#content.image}}<img src='{{content.image}}' alt='{{content.image_alt}}' loading='lazy'>{{/content.image}}<div class='commerce-card__body'><h2>{{content.title}}</h2><p>{{content.text}}</p><strong>{{content.price}}</strong>{{{children}}}</div></article>",
           "css": ".commerce-card { position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); } .commerce-card > img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; } .commerce-card__body { display: grid; gap: .6rem; padding: 1rem; } .commerce-card__body h2, .commerce-card__body p { margin: 0; } .commerce-card__body p { color: var(--text-muted); } .commerce-card__body > strong { color: var(--primary); font-size: 1.35rem; } .commerce-card__badge { position: absolute; z-index: 2; top: .6rem; left: .6rem; padding: .25rem .5rem; border-radius: 999px; background: var(--danger); color: white; font-size: .72rem; font-weight: 800; }",
           "js": ""
-        },
-        "default-right": {
-          "html": "<article class='commerce-card {{class}}'>{{#content.badge}}<span class='commerce-card__badge'>{{content.badge}}</span>{{/content.badge}}{{#content.image}}<img src='{{content.image}}' alt='{{content.image_alt}}' loading='lazy'>{{/content.image}}<div class='commerce-card__body'><h2>{{content.title}}</h2><p>{{content.text}}</p><strong>{{content.price}}</strong>{{{children}}}</div></article>",
-          "css": ".commerce-card { position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); } .commerce-card > img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; } .commerce-card__body { display: grid; gap: .6rem; padding: 1rem; } .commerce-card__body h2, .commerce-card__body p { margin: 0; } .commerce-card__body p { color: var(--text-muted); } .commerce-card__body > strong { color: var(--primary); font-size: 1.35rem; } .commerce-card__badge { position: absolute; z-index: 2; top: .6rem; right: .6rem; padding: .25rem .5rem; border-radius: 999px; background: var(--danger); color: white; font-size: .72rem; font-weight: 800; }",
-          "js": ""
         }
       },
-      "defaults": {"content": {"text": "", "image": "", "image_alt": "", "badge": ""}}
+      "defaults": {
+        "content": {
+          "text": "",
+          "image": "",
+          "image_alt": "",
+          "badge": ""
+        }
+      }
     },
     "price": {
-      "description": "Prix avec ancien tarif et périodicité.",
+      "description": "Price with an optional previous value and billing period.",
       "default_variant": "default",
-      "required": ["content.value"],
+      "required": [
+        "content.value"
+      ],
       "accepts_children": false,
       "variants": {
         "default": {
@@ -39,32 +47,49 @@
           "js": ""
         }
       },
-      "defaults": {"content": {"previous": "", "period": ""}}
+      "defaults": {
+        "content": {
+          "previous": "",
+          "period": ""
+        }
+      }
     },
     "quantity": {
-      "description": "Sélecteur de quantité avec contrôles plus et moins.",
+      "description": "Quantity selector with increment and decrement controls.",
       "default_variant": "default",
-      "required": ["content.name"],
+      "required": [
+        "content.name"
+      ],
       "accepts_children": false,
       "variants": {
         "default": {
-          "html": "<div class='commerce-quantity {{class}}'><button type='button' data-step='-1' aria-label='Diminuer'>−</button><input type='number' name='{{content.name}}' min='{{content.min}}' max='{{content.max}}' value='{{content.value}}' aria-label='{{content.label}}'><button type='button' data-step='1' aria-label='Augmenter'>+</button></div>",
+          "html": "<div class='commerce-quantity {{class}}'><button type='button' data-step='-1' aria-label='Decrease quantity'>−</button><input type='number' name='{{content.name}}' min='{{content.min}}' max='{{content.max}}' value='{{content.value}}' aria-label='{{content.label}}'><button type='button' data-step='1' aria-label='Increase quantity'>+</button></div>",
           "css": ".commerce-quantity { display: inline-grid; grid-template-columns: 2.5rem 3.5rem 2.5rem; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); } .commerce-quantity button, .commerce-quantity input { min-height: 2.5rem; border: 0; background: var(--surface); color: var(--text); text-align: center; } .commerce-quantity button { cursor: pointer; font-size: 1.2rem; } .commerce-quantity input { border-inline: 1px solid var(--border); appearance: textfield; }",
           "js": "document.querySelectorAll('.commerce-quantity').forEach((root) => { const input = root.querySelector('input'); root.querySelectorAll('[data-step]').forEach((button) => button.addEventListener('click', () => { const next = Math.min(Number(input.max), Math.max(Number(input.min), Number(input.value) + Number(button.dataset.step))); input.value = String(next); input.dispatchEvent(new Event('change', { bubbles: true })); })); });"
         }
       },
-      "defaults": {"content": {"min": "1", "max": "99", "value": "1", "label": "Quantité"}}
+      "defaults": {
+        "content": {
+          "min": "1",
+          "max": "99",
+          "value": "1",
+          "label": "Quantity"
+        }
+      }
     },
     "cart-button": {
-      "description": "Bouton ajout panier émettant l'événement cart:add.",
+      "description": "Add-to-cart button that dispatches a cart:add event.",
       "default_variant": "primary",
-      "required": ["content.text", "content.product_id"],
+      "required": [
+        "content.text",
+        "content.product_id"
+      ],
       "accepts_children": false,
       "variants": {
         "primary": {
           "html": "<button class='commerce-cart-button {{class}}' type='button' data-product-id='{{content.product_id}}'>{{content.text}}</button>",
           "css": ".commerce-cart-button { display: inline-flex; justify-content: center; padding: .65rem 1rem; border: 0; border-radius: var(--radius); background: var(--primary); color: var(--primary-contrast); font-weight: 750; cursor: pointer; } .commerce-cart-button.is-added { background: var(--success); }",
-          "js": "document.querySelectorAll('.commerce-cart-button').forEach((button) => button.addEventListener('click', () => { button.classList.add('is-added'); const original = button.textContent; button.textContent = 'Ajouté ✓'; button.dispatchEvent(new CustomEvent('cart:add', { bubbles: true, detail: { productId: button.dataset.productId } })); setTimeout(() => { button.classList.remove('is-added'); button.textContent = original; }, 1200); }));"
+          "js": "document.querySelectorAll('.commerce-cart-button').forEach((button) => button.addEventListener('click', () => { button.classList.add('is-added'); const original = button.textContent; button.textContent = 'Added ✓'; button.dispatchEvent(new CustomEvent('cart:add', { bubbles: true, detail: { productId: button.dataset.productId } })); setTimeout(() => { button.classList.remove('is-added'); button.textContent = original; }, 1200); }));"
         }
       }
     }

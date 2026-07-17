@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://webuilder.dev/schemas/library.schema.json",
+  "title": "WeBuilder core or plugin library",
+  "type": "object",
+  "properties": {
+    "name": {"type": "string"},
+    "version": {"type": "string"},
+    "themes": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/theme"}
+    },
+    "components": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/componentDefinition"}
+    },
+    "shortcuts": {
+      "type": "object",
+      "properties": {
+        "class": {
+          "type": "object",
+          "additionalProperties": {"type": "string"}
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "theme": {
+      "type": "object",
+      "required": ["css"],
+      "properties": {
+        "label": {"type": "string"},
+        "css": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "componentDefinition": {
+      "type": "object",
+      "required": ["variants"],
+      "properties": {
+        "description": {"type": "string"},
+        "default_variant": {"type": "string"},
+        "required": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "defaults": {"type": "object"},
+        "accepts_children": {"type": "boolean"},
+        "css": {"type": "string"},
+        "js": {"type": "string"},
+        "variants": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {"$ref": "#/$defs/variant"}
+        }
+      },
+      "additionalProperties": true
+    },
+    "variant": {
+      "type": "object",
+      "required": ["html"],
+      "properties": {
+        "html": {"type": "string", "minLength": 1},
+        "css": {"type": "string"},
+        "js": {"type": "string"},
+        "required": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "defaults": {"type": "object"}
+      },
+      "additionalProperties": true
+    }
+  }
+}

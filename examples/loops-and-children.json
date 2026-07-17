@@ -1,8 +1,9 @@
 {
+  "$schema": "../schemas/build.schema.json",
   "meta": {
-    "title": "Boucles et enfants",
+    "title": "Loops and children",
     "theme": "ocean",
-    "lang": "fr"
+    "lang": "en"
   },
   "assets": [],
   "pages": [
@@ -12,7 +13,9 @@
         {
           "type": "section",
           "variant": "muted",
-          "content": {"label": "Démonstration"},
+          "content": {
+            "label": "Demonstration"
+          },
           "children": [
             {
               "type": "container",
@@ -23,23 +26,53 @@
                   "variant": "unordered",
                   "content": {
                     "items": [
-                      {"text": "Boucle Mustache"},
-                      {"text": "Composants enfants"},
-                      {"text": "Thème océan"}
+                      {
+                        "text": "Mustache loop"
+                      },
+                      {
+                        "text": "Child components"
+                      },
+                      {
+                        "text": "Ocean theme"
+                      }
                     ]
                   }
                 },
                 {
                   "type": "table",
                   "variant": "striped",
-                  "class": ["mt-4"],
+                  "class": [
+                    "mt-4"
+                  ],
                   "content": {
                     "caption": "Versions",
-                    "headers": ["Outil", "Version", "Rôle"],
+                    "headers": [
+                      "Tool",
+                      "Version",
+                      "Role"
+                    ],
                     "rows": [
-                      {"cells": ["Python", "3.10+", "Build"]},
-                      {"cells": ["Mustache", "Interne", "Templates"]},
-                      {"cells": ["JavaScript", "Vanilla", "Interactions"]}
+                      {
+                        "cells": [
+                          "Python",
+                          "3.10+",
+                          "Build"
+                        ]
+                      },
+                      {
+                        "cells": [
+                          "Mustache",
+                          "Built in",
+                          "Templates"
+                        ]
+                      },
+                      {
+                        "cells": [
+                          "JavaScript",
+                          "Vanilla",
+                          "Interactions"
+                        ]
+                      }
                     ]
                   }
                 }

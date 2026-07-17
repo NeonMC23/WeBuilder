@@ -1,9 +1,10 @@
 {
+  "$schema": "../schemas/build.schema.json",
   "meta": {
-    "title": "Exemple minimal",
+    "title": "Minimal example",
     "theme": "light",
-    "lang": "fr",
-    "description": "La configuration WeBuilder la plus courte"
+    "lang": "en",
+    "description": "The shortest valid WeBuilder configuration"
   },
   "assets": [],
   "pages": [
@@ -13,7 +14,9 @@
         {
           "type": "button",
           "variant": "primary",
-          "content": {"text": "Bonjour WeBuilder"}
+          "content": {
+            "text": "Hello WeBuilder"
+          }
         }
       ]
     }

@@ -1,9 +1,10 @@
 {
+  "$schema": "../schemas/build.schema.json",
   "meta": {
-    "title": "WeBuilder 1.1 — Productivité",
+    "title": "WeBuilder 1.3 — Productivity",
     "theme": "nord",
-    "lang": "fr",
-    "description": "Démonstration des utilitaires ouverts et composants interactifs"
+    "lang": "en",
+    "description": "Open-ended utilities and interactive components demonstration"
   },
   "assets": [],
   "pages": [
@@ -17,7 +18,9 @@
             {
               "type": "section",
               "variant": "fullscreen",
-              "content": {"label": "Démonstration de productivité"},
+              "content": {
+                "label": "Productivity demonstration"
+              },
               "children": [
                 {
                   "type": "container",
@@ -26,39 +29,57 @@
                     {
                       "type": "heading",
                       "variant": "display",
-                      "class": ["max-w-[12ch]", "mb-7.5"],
-                      "content": {"text": "Construire plus vite."}
+                      "class": [
+                        "max-w-[12ch]",
+                        "mb-7.5"
+                      ],
+                      "content": {
+                        "text": "Build faster."
+                      }
                     },
                     {
                       "type": "text",
                       "variant": "lead",
-                      "class": ["max-w-[62ch]", "mb-12"],
+                      "class": [
+                        "max-w-[62ch]",
+                        "mb-12"
+                      ],
                       "content": {
-                        "text": "Les valeurs numériques, arbitraires, responsive et interactives sont générées à partir des classes réellement utilisées."
+                        "text": "Numeric, arbitrary, responsive, and interactive rules are generated from the classes actually used."
                       }
                     },
                     {
                       "type": "grid",
                       "variant": "auto",
-                      "class": ["gap-7.5"],
+                      "class": [
+                        "gap-7.5"
+                      ],
                       "children": [
                         {
                           "type": "surface",
                           "variant": "raised",
-                          "class": ["p-[clamp(1rem,_4vw,_2.5rem)]", "md:hover:-mt-[4px]", "transition"],
+                          "class": [
+                            "p-[clamp(1rem,_4vw,_2.5rem)]",
+                            "md:hover:-mt-[4px]",
+                            "transition"
+                          ],
                           "children": [
                             {
                               "type": "heading",
                               "variant": "h3",
-                              "content": {"text": "Contrôles natifs"}
+                              "content": {
+                                "text": "Native controls"
+                              }
                             },
                             {
                               "type": "switch",
                               "variant": "default",
-                              "class": ["mb-4"],
+                              "class": [
+                                "mb-4"
+                              ],
                               "content": {
                                 "name": "notifications",
-                                "label": "Activer les notifications",
+                                "label": "Enable notifications",
                                 "checked": true
                               }
                             },
@@ -67,7 +88,7 @@
                               "variant": "default",
                               "content": {
                                 "name": "intensity",
-                                "label": "Intensité",
+                                "label": "Intensity",
                                 "min": "0",
                                 "max": "10",
                                 "value": "7"
@@ -78,33 +99,39 @@
                         {
                           "type": "surface",
                           "variant": "raised",
-                          "class": ["p-7.5"],
+                          "class": [
+                            "p-7.5"
+                          ],
                           "children": [
                             {
                               "type": "heading",
                               "variant": "h3",
-                              "content": {"text": "Interactions prêtes"}
+                              "content": {
+                                "text": "Ready-made interactions"
+                              }
                             },
                             {
                               "type": "rating",
                               "variant": "interactive",
-                              "class": ["mb-6"],
+                              "class": [
+                                "mb-6"
+                              ],
                               "content": {
                                 "name": "score",
-                                "label": "Note du produit",
+                                "label": "Product rating",
                                 "value": "4"
                               },
                               "events": {
-                                "ratingchange": "console.log('Nouvelle note :', event.detail.value);"
+                                "ratingchange": "console.log('New rating:', event.detail.value);"
                               }
                             },
                             {
                               "type": "copy-button",
                               "variant": "default",
                               "content": {
-                                "label": "Copier la commande",
+                                "label": "Copy command",
                                 "text": "python build.py --preview --watch",
-                                "success_text": "Commande copiée !"
+                                "success_text": "Command copied!"
                               }
                             }
                           ]
@@ -112,17 +139,23 @@
                         {
                           "type": "surface",
                           "variant": "glass",
-                          "class": ["p-7.5"],
+                          "class": [
+                            "p-7.5"
+                          ],
                           "children": [
                             {
                               "type": "heading",
                               "variant": "h3",
-                              "content": {"text": "Compte à rebours"}
+                              "content": {
+                                "text": "Countdown"
+                              }
                             },
                             {
                               "type": "countdown",
                               "variant": "default",
-                              "content": {"datetime": "2027-01-01T00:00:00+01:00"}
+                              "content": {
+                                "datetime": "2027-01-01T00:00:00+01:00"
+                              }
                             }
                           ]
                         }
@@ -131,19 +164,22 @@
                     {
                       "type": "banner",
                       "variant": "info",
-                      "class": ["mt-16", "rounded-[18px]"],
+                      "class": [
+                        "mt-16",
+                        "rounded-[18px]"
+                      ],
                       "content": {
-                        "title": "Utilitaire sans limite prédéfinie",
-                        "text": "Cette bannière utilise mt-16 et rounded-[18px]."
+                        "title": "Utility without a predefined scale",
+                        "text": "This banner uses mt-16 and rounded-[18px]."
                       },
                       "children": [
                         {
                           "type": "popover",
                           "variant": "default",
                           "content": {
-                            "label": "En savoir plus",
-                            "title": "CSS à la demande",
-                            "text": "Seules les règles présentes dans build.json sont générées."
+                            "label": "Learn more",
+                            "title": "On-demand CSS",
+                            "text": "Only rules referenced by build.json are generated."
                           }
                         }
                       ]
@@ -157,7 +193,9 @@
         {
           "type": "back-to-top",
           "variant": "default",
-          "content": {"label": "Revenir en haut"}
+          "content": {
+            "label": "Back to top"
+          }
         }
       ]
     }
