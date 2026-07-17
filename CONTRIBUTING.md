@@ -1,6 +1,6 @@
 # Contributing to WeBuilder CLI
 
-WeBuilder v1 is feature-complete. Contributions to v1 should focus on correctness, security, accessibility, documentation, compatibility, and high-quality additions to the core library. Large visual-authoring features belong to the v2 design process.
+WeBuilder v1 is feature-complete. Contributions to v1 should focus on correctness, security, accessibility, documentation, compatibility, and high-quality additions to the core library. Large visual-authoring features belong to the v2 design process. You can also help by creating your own plugins.
 
 ## Development setup
 
