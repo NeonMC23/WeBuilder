@@ -1,0 +1,29 @@
+:root {
+  --color-scheme: dark;
+  --bg: #050510;
+  --surface: #0d0d22;
+  --surface-2: #181832;
+  --text: #f5f3ff;
+  --text-muted: #aaa6c7;
+  --primary: #00f5d4;
+  --primary-contrast: #001713;
+  --secondary: #f72585;
+  --success: #39ff14;
+  --warning: #ffe600;
+  --danger: #ff2a6d;
+  --info: #00bbf9;
+  --border: #34345f;
+  --focus: #00f5d4;
+  --radius: .3rem;
+  --shadow: 0 0 28px rgba(0, 245, 212, .18);
+  --font-sans: Inter, system-ui, sans-serif;
+}
+
+/* WeBuilder responsive base */
+*, *::before, *::after { box-sizing: border-box; }
+html { color-scheme: var(--color-scheme, normal); scroll-behavior: smooth; }
+body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font-family: var(--font-sans, system-ui, sans-serif); line-height: 1.5; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+button, input, textarea, select { font: inherit; }
+a { color: var(--primary); }
+[hidden] { display: none !important; }

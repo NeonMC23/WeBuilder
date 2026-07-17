@@ -1,0 +1,5 @@
+/* WeBuilder: neon:heading / glitch */
+
+.neon-heading { position: relative; width: fit-content; color: var(--text); font-size: clamp(2.5rem, 9vw, 7rem); line-height: .95; letter-spacing: -.04em; text-transform: uppercase; } .neon-heading::before, .neon-heading::after { content: attr(data-text); position: absolute; inset: 0; pointer-events: none; opacity: .65; } .neon-heading::before { color: var(--primary); transform: translate(2px, -1px); clip-path: inset(0 0 48% 0); } .neon-heading::after { color: var(--secondary); transform: translate(-2px, 1px); clip-path: inset(52% 0 0); }
+
+/* Instance classes: mb-12, neon:gradient-text. Shortcut declarations live in shortcuts.css. */

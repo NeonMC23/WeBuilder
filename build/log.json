@@ -1,0 +1,31 @@
+[
+  {
+    "timestamp": "2026-07-17T18:01:28+02:00",
+    "level": "info",
+    "message": "Plugin loaded",
+    "plugin": "neon",
+    "version": "1.0.0",
+    "path": "C:\\Users\\piotr\\Desktop\\WeBuilder\\plugins\\neon.json",
+    "components": 4,
+    "themes": 1,
+    "shortcuts": 4
+  },
+  {
+    "timestamp": "2026-07-17T18:01:28+02:00",
+    "level": "info",
+    "message": "Plugin loaded",
+    "plugin": "commerce",
+    "version": "1.0.0",
+    "path": "C:\\Users\\piotr\\Desktop\\WeBuilder\\plugins\\commerce.json",
+    "components": 4,
+    "themes": 1,
+    "shortcuts": 4
+  },
+  {
+    "timestamp": "2026-07-17T18:01:28+02:00",
+    "level": "error",
+    "message": "Variant 'default' was not found for component 'commerce:card'",
+    "page": "index.html",
+    "component": "0.0.0.1.1"
+  }
+]
