@@ -1,3 +1,0 @@
-/* WeBuilder: commerce:cart-button / primary */
-
-.commerce-cart-button { display: inline-flex; justify-content: center; padding: .65rem 1rem; border: 0; border-radius: var(--radius); background: var(--primary); color: var(--primary-contrast); font-weight: 750; cursor: pointer; } .commerce-cart-button.is-added { background: var(--success); }
