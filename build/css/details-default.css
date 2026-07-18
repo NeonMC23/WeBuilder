@@ -1,5 +1,0 @@
-/* WeBuilder: details / default */
-
-.wb-details { border: 1px solid var(--border); border-radius: var(--radius); } .wb-details summary { padding: 1rem; cursor: pointer; font-weight: 700; } .wb-details > div { padding: 0 1rem 1rem; color: var(--text-muted); }
-
-/* Instance classes: mt-4. Shortcut declarations live in shortcuts.css. */

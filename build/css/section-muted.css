@@ -1,3 +1,0 @@
-/* WeBuilder: section / muted */
-
-.wb-section { padding-block: clamp(2.5rem, 7vw, 6rem); } .wb-section-muted { background: var(--surface); }

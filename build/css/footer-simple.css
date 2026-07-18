@@ -1,3 +1,0 @@
-/* WeBuilder: footer / simple */
-
-.wb-footer { display: grid; gap: 1.5rem; padding: clamp(2rem, 6vw, 4rem); border-top: 1px solid var(--border); background: var(--surface); } .wb-footer nav { display: flex; flex-wrap: wrap; gap: 1rem; } .wb-footer section { display: flex; flex-direction: column; gap: .4rem; } .wb-footer h2 { margin: 0 0 .4rem; font-size: 1rem; } .wb-footer a { color: var(--text-muted); }

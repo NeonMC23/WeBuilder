@@ -1,7 +1,0 @@
-/* WeBuilder: alert / info */
-
-.wb-alert { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem; border: 1px solid color-mix(in srgb, var(--alert-color), transparent 45%); border-left: .3rem solid var(--alert-color); border-radius: var(--radius); background: color-mix(in srgb, var(--alert-color), transparent 90%); } .wb-alert p { margin: .25rem 0 0; } .wb-alert__close { align-self: flex-start; border: 0; background: transparent; color: inherit; cursor: pointer; font-size: 1.4rem; }
-
-.wb-alert-info { --alert-color: var(--info); }
-
-/* Instance classes: mt-4. Shortcut declarations live in shortcuts.css. */

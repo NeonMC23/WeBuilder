@@ -1,5 +1,0 @@
-/* WeBuilder: form / default */
-
-.wb-form { display: flex; flex-direction: column; gap: 1rem; }
-
-.wb-form-default { max-width: 42rem; }

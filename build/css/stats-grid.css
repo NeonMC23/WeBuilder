@@ -1,5 +1,0 @@
-/* WeBuilder: stats / grid */
-
-.wb-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; margin: 0; } .wb-stats > div { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); } .wb-stats dt { color: var(--text-muted); } .wb-stats dd { margin: .3rem 0; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; } .wb-stats small { color: var(--success); }
-
-/* Instance classes: mb-4. Shortcut declarations live in shortcuts.css. */

@@ -1,3 +1,0 @@
-/* WeBuilder: checkbox / default */
-
-.wb-check { display: inline-flex; align-items: flex-start; gap: .55rem; cursor: pointer; } .wb-check input { width: 1.1rem; height: 1.1rem; margin-top: .15rem; accent-color: var(--primary); }

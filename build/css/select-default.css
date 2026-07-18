@@ -1,3 +1,0 @@
-/* WeBuilder: select / default */
-
-.wb-field { display: grid; gap: .4rem; } .wb-field > span { font-weight: 650; } .wb-field input, .wb-field textarea, .wb-field select { width: 100%; min-height: 2.75rem; padding: .6rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); } .wb-field input:focus, .wb-field textarea:focus, .wb-field select:focus { border-color: var(--focus); outline: 3px solid color-mix(in srgb, var(--focus), transparent 70%); } .wb-field small { color: var(--text-muted); }

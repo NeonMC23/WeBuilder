@@ -1,7 +1,0 @@
-/* WeBuilder: card / elevated */
-
-.wb-card { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); } .wb-card h2 { margin-top: 0; font-size: 1.25rem; } .wb-card p { color: var(--text-muted); }
-
-.wb-card-elevated { background: var(--surface); border-color: transparent; box-shadow: var(--shadow); }
-
-/* Instance classes: md:hover:-mt-[3px], p-7.5. Shortcut declarations live in shortcuts.css. */

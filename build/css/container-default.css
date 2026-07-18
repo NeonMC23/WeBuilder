@@ -1,3 +1,0 @@
-/* WeBuilder: container / default */
-
-.wb-container { width: min(100% - 2rem, 72rem); margin-inline: auto; }
